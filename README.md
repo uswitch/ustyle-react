@@ -16,7 +16,7 @@ import Button from 'ustyle-react/Button';
 <Button size='large' variant='primary' blocked />
 ```
 
-Options:
+Props:
 
 - `variant` [string] - options: primary, action, secondary, hero, reversed
 - `size` [string] - options: large, small
@@ -48,7 +48,7 @@ const onClick = (e) => e.preventDefault();
 <Breadcrumbs items={items} onClick={onClick} />
 ```
 
-Options:
+Props:
 
 - `items` [array:objects]
   - `href` [string]
@@ -80,7 +80,7 @@ const onClick = (e) => e.preventDefault();
 <ProgressNavigation items={items} onClick={onClick} />
 ```
 
-Options:
+Props:
 
 - `items` [array:objects]
   - `href` [string] - only required for completed steps
