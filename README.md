@@ -87,3 +87,22 @@ Props:
   - `text` [string/node]
   - `current` [boolean] - the step that the user is currently on
 - `onClick` [function] - called when a navigation link is clicked
+
+### USP [→](https://ustyle.guide/pattern-library/components.html#usps)
+
+Example:
+
+```js
+import {USP} from 'ustyle-react';
+
+const onClick = (e) => e.preventDefault();
+
+<USP color='red' text='Example USP' annotation='More info goes here...' onClick={onClick} />
+```
+
+Props:
+
+- `text` [string:required] - the main USP text
+- `annotation` [string]
+- `color` [string] - options: blue, orange, purple, yellow, typecyan, green, navy, cyan, typegrey, red
+- `onClick` [function] - called when the USP is clicked
