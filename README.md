@@ -1,6 +1,6 @@
 # ustyle-react
 
-A collection of React components implementing the uSwitch style guide, (uStyle)[https://ustyle.guide/].
+A collection of React components implementing the uSwitch style guide, [uStyle](https://ustyle.guide/).
 
 ## Components
 
