@@ -6,7 +6,7 @@ A collection of React components implementing the uSwitch style guide, (uStyle)[
 
 Below are a list of components, with some guidance of how to use them.
 
-### Button
+### Button [→](https://ustyle.guide/pattern-library/components.html#buttons)
 
 Example:
 
@@ -28,7 +28,7 @@ Props:
 - `onClick` [function] - called when the button is clicked
 
 
-### Breadcrumbs
+### Breadcrumbs [→](https://ustyle.guide/pattern-library/components.html#breadcrumbs)
 
 Example:
 
@@ -56,7 +56,7 @@ Props:
 - `onClick` [function] - called when a breadcrumb is clicked
 
 
-### ProgressNavigation
+### ProgressNavigation [→](https://ustyle.guide/pattern-library/components.html#progress_navigation)
 
 Example:
 
