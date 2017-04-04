@@ -54,3 +54,36 @@ Options:
   - `href` [string]
   - `text` [string/node]
 - `onClick` [function] - called when a breadcrumb is clicked
+
+
+### ProgressNavigation
+
+Example:
+
+```js
+import ProgressNavigation from 'ustyle-react/ProgressNavigation';
+
+const items = [{
+  href: '/journey/step-1',
+  text: 'Step 1'
+}, {
+  href: '/journey/step-2', // NOTE: optional; not used
+  text: 'Step 2',
+  current: true
+}, {
+  href: '/journey/step-3', // NOTE: optional; not used
+  text: 'Step 3'
+}];
+
+const onClick = (e) => e.preventDefault();
+
+<ProgressNavigation items={items} onClick={onClick} />
+```
+
+Options:
+
+- `items` [array:objects]
+  - `href` [string] - only required for completed steps
+  - `text` [string/node]
+  - `current` [boolean] - the step that the user is currently on
+- `onClick` [function] - called when a navigation link is clicked
