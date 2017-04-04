@@ -1,0 +1,22 @@
+{
+  "name": "ustyle-react",
+  "version": "0.0.1",
+  "description": "uStyle React Components",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/uswitch/ustyle-react.git"
+  },
+  "author": "uSwitch Limited",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/uswitch/ustyle-react/issues"
+  },
+  "homepage": "https://github.com/uswitch/ustyle-react#readme",
+  "dependencies": {
+    "react": "^15.3.2"
+  },
+  "devDependencies": {}
+}
