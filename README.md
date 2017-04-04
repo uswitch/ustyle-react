@@ -11,7 +11,7 @@ Below are a list of components, with some guidance of how to use them.
 Example:
 
 ```js
-import Button from 'ustyle-react/Button';
+import {Button} from 'ustyle-react';
 
 <Button size='large' variant='primary' blocked />
 ```
@@ -33,7 +33,7 @@ Props:
 Example:
 
 ```js
-import Breadcrumbs from 'ustyle-react/Breadcrumbs';
+import {Breadcrumbs} from 'ustyle-react';
 
 const items = [{
   href: '/',
@@ -61,7 +61,7 @@ Props:
 Example:
 
 ```js
-import ProgressNavigation from 'ustyle-react/ProgressNavigation';
+import {ProgressNavigation} from 'ustyle-react';
 
 const items = [{
   href: '/journey/step-1',
