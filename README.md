@@ -26,3 +26,31 @@ Options:
 - `link` [boolean]
 - `stronger` [boolean]
 - `onClick` [function] - called when the button is clicked
+
+
+### Breadcrumbs
+
+Example:
+
+```js
+import Breadcrumbs from 'ustyle-react/Breadcrumbs';
+
+const items = [{
+  href: '/',
+  text: 'uSwitch.com'
+}, {
+  href: null, // NOTE: optional; not used
+  text: 'Statutory credit reports'
+}];
+
+const onClick = (e) => e.preventDefault();
+
+<Breadcrumbs items={items} onClick={onClick} />
+```
+
+Options:
+
+- `items` [array:objects]
+  - `href` [string]
+  - `text` [string/node]
+- `onClick` [function] - called when a breadcrumb is clicked
