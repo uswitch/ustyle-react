@@ -31,7 +31,6 @@ function getClassName (props) {
 
 function Button (props) {
   const { size, variant, children, href, onClick = noop } = props;
-  console.log('--> init button');
   validateVariant(variant);
   validateSize(size);
   const className = getClassName(props);
