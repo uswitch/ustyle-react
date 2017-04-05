@@ -15,9 +15,9 @@ const items = [{
   text: 'Statutory credit reports'
 }];
 
-function onClick (e) {
+function onClick (e, item) {
   e.preventDefault();
-  window.alert('You clicked a breadcrumb:\n' + e.target.href);
+  window.alert('You clicked a breadcrumb:\n' + item.href);
 }
 
 export default () => <Breadcrumbs items={items} onClick={onClick} />;
