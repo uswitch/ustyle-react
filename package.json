@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "uStyle React Components",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/uswitch/ustyle-react.git"
@@ -18,5 +17,13 @@
   "dependencies": {
     "react": "^15.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.3.3"
+  }
 }
