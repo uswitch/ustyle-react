@@ -2,6 +2,37 @@
 
 A collection of React components implementing the uSwitch style guide, [uStyle](https://ustyle.guide/).
 
+## Usage (ES2015+)
+
+First, install the package:
+
+```
+yarn add uswitch/ustyle-react
+```
+
+Then, in your `webpack.config.js`, add the following loader, making sure it's called *before* any other loaders:
+
+```js
+// more config...
+loaders: [
+  {
+    test: /node_modules\/ustyle-react\/(.*)\.js$/,
+    loader: 'babel-loader',
+    query: {
+      presets: ['react', 'es2015', 'stage-2']
+    }
+  },
+  // other loaders go here
+]
+// even more config...
+```
+
+Congratulations! You can now import `ustyle-react` components like so:
+
+```js
+import {Button} from 'ustyle-react';
+```
+
 ## Components
 
 Below are a list of components, with some guidance of how to use them.
