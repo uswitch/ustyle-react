@@ -26,7 +26,7 @@ function getClassName (props) {
   if (props.link) modifiers.push('link');
   if (props.stronger) modifiers.push('stronger');
   if (props.href && props.disabled) modifiers.push('disabled');
-  return 'us-btn ' + modifiers.map(m => `us-btn--${m}`);
+  return 'us-btn ' + modifiers.map(m => `us-btn--${m}`).join(' ');
 }
 
 function Button (props) {
