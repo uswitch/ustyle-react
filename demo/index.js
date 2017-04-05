@@ -7,9 +7,16 @@ import ExampleProgressNavigation from '../components/ProgressNavigation/example'
 
 ReactDOM.render(
   <div className='us-container'>
-    <ExampleUSP />
-    <ExampleButton />
-    <ExampleBreadcrumbs />
+    <h2>Progress Navigation</h2>
     <ExampleProgressNavigation />
+    <hr />
+    <h2>Breadcrumbs</h2>
+    <ExampleBreadcrumbs />
+    <hr />
+    <h2>USPs</h2>
+    <ExampleUSP />
+    <hr />
+    <h2>Buttons</h2>
+    <ExampleButton />
   </div>
 , document.getElementById('main'));
