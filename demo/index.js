@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExampleUSP from '../components/USP/example';
-import ExampleButton from '../components/Button/example';
-import ExampleBreadcrumbs from '../components/Breadcrumbs/example';
-import ExampleProgressNavigation from '../components/ProgressNavigation/example';
-import ExampleLoader from '../components/Loader/example';
+import ExampleUSP from '../dist/components/USP/example';
+import ExampleButton from '../dist/components/Button/example';
+import ExampleBreadcrumbs from '../dist/components/Breadcrumbs/example';
+import ExampleProgressNavigation from '../dist/components/ProgressNavigation/example';
+import ExampleLoader from '../dist/components/Loader/example';
 
 ReactDOM.render(
   <div className='us-container'>

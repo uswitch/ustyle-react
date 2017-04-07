@@ -1,4 +1,4 @@
-const {resolve} = require('path');
+const {resolve, join} = require('path');
 
 module.exports = {
   context: __dirname,
@@ -15,5 +15,9 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  devServer: {
+    contentBase: join(__dirname, "demo"),
+    port: 9000
   }
 };
