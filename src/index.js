@@ -1,13 +1,13 @@
-import Button from './components/Button';
 import Breadcrumbs from './components/Breadcrumbs';
+import Button from './components/Button';
+import Loader from './components/Loader';
 import ProgressNavigation from './components/ProgressNavigation';
 import USP from './components/USP';
-import Loader from './components/Loader';
 
 export {
-  Button,
   Breadcrumbs,
+  Button,
+  Loader,
   ProgressNavigation,
-  USP,
-  Loader
+  USP
 };
