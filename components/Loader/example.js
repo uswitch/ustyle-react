@@ -9,7 +9,7 @@ export default class ExampleLoader extends Component {
   componentDidMount () {
     setInterval(() => {
       this.setState({ isLoading: !this.state.isLoading });
-    }, 1000);
+    }, 5000);
   }
   render () {
     return (
