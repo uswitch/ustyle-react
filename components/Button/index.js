@@ -1,42 +1,43 @@
-import React from 'react';
+import React, {PropTypes, PureComponent} from 'react';
+import cx from 'classnames';
 
 const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed'];
 const SIZES = ['large', 'small']; // NOTE: should we have medium as default?
-const noop = () => {};
 
-function validateVariant (variant) {
-  if (!variant || VARIANTS.includes(variant)) return;
-  throw new Error(
-    `Invalid button variant: ${variant}. Must be one of: ${VARIANTS.join(', ')}`
-  );
+export default class Button extends PureComponent {
+  getClassName () {
+    return cx({
+      'us-btn': true,
+      [`us-btn--${this.props.variant}`]: this.props.variant,
+      [`us-btn--${this.props.size}`]: this.props.size,
+      'us-btn--blocked': this.props.blocked,
+      'us-btn--link': this.props.link,
+      'us-btn--stronger': this.props.stronger,
+      'us-btn--disabled': this.props.href && this.props.disabled
+    });
+  }
+  render () {
+    const { children, href, onClick } = this.props;
+    const className = this.getClassName();
+    const childProps = { className, onClick, children };
+    if (href) return <a href={href} role='button' {...childProps} />;
+    return <button {...childProps} />;
+  }
 }
 
-function validateSize (size) {
-  if (!size || SIZES.includes(size)) return;
-  throw new Error(
-    `Invalid button size: ${size}. Must be one of: ${SIZES.join(', ')}`
-  );
-}
+Button.propTypes = {
+  variant: PropTypes.oneOf(VARIANTS),
+  size: PropTypes.oneOf(SIZES),
+  blocked: PropTypes.bool.isRequired,
+  link: PropTypes.bool.isRequired,
+  stronger: PropTypes.bool.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func
+};
 
-function getClassName (props) {
-  const modifiers = [];
-  if (props.variant) modifiers.push(props.variant);
-  if (props.size) modifiers.push(props.size);
-  if (props.blocked) modifiers.push('blocked');
-  if (props.link) modifiers.push('link');
-  if (props.stronger) modifiers.push('stronger');
-  if (props.href && props.disabled) modifiers.push('disabled');
-  return 'us-btn ' + modifiers.map(m => `us-btn--${m}`).join(' ');
-}
-
-function Button (props) {
-  const { size, variant, children, href, onClick = noop } = props;
-  validateVariant(variant);
-  validateSize(size);
-  const className = getClassName(props);
-  const childProps = { className, onClick, children };
-  if (href) return <a href={href} role='button' {...childProps} />;
-  return <button {...childProps} />;
-}
-
-export default Button;
+Button.defaultProps = {
+  blocked: false,
+  link: false,
+  stronger: false,
+  onClick: () => {}
+};
