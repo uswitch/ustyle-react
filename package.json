@@ -2,8 +2,10 @@
   "name": "ustyle-react",
   "version": "0.0.1",
   "description": "uStyle React Components",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": " babel {index.js,components/*/index.js} --out-dir dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/uswitch/ustyle-react.git"
