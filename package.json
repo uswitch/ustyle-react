@@ -16,7 +16,7 @@
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "15.*"
+    "react": ">15.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
