@@ -2,9 +2,11 @@
   "name": "ustyle-react",
   "version": "0.0.1",
   "description": "uStyle React Components",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": " babel {index.js,components/*/index.js} --out-dir dist"
+    "build": "babel src --out-dir lib",
+    "demo": "webpack-dev-server",
+    "commit-lib": "npm run build ; git add lib"
   },
   "repository": {
     "type": "git",
@@ -16,17 +18,23 @@
     "url": "https://github.com/uswitch/ustyle-react/issues"
   },
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
+  "pre-commit": [
+    "commit-lib"
+  ],
   "dependencies": {
     "classnames": "^2.2.5",
     "react": ">15.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
+    "pre-commit": "^1.2.2",
     "react-dom": ">15.3",
-    "webpack": "^2.3.3"
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   }
 }
