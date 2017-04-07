@@ -5,6 +5,7 @@ import ExampleButton from '../components/Button/example';
 import ExampleBreadcrumbs from '../components/Breadcrumbs/example';
 import ExampleProgressNavigation from '../components/ProgressNavigation/example';
 import ExampleLoader from '../components/Loader/example';
+import ExampleInput from '../components/Input/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -22,5 +23,7 @@ ReactDOM.render(
     <hr />
     <h2>Loader</h2>
     <ExampleLoader />
+    <h2>Input</h2>
+    <ExampleInput />
   </div>
 , document.getElementById('main'));
