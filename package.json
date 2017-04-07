@@ -4,7 +4,7 @@
   "description": "uStyle React Components",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "rm -rf lib ; babel src --out-dir lib",
     "demo": "webpack-dev-server",
     "commit-lib": "npm run build ; git add lib"
   },
