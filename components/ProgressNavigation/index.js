@@ -8,7 +8,7 @@ function NavItemText ({ status, href, text, onClick = noop }) {
   let props = { className, children, onClick };
   switch (status) {
     case 'complete':
-      return <a href={href} {...props} />;
+      return <a href={href} title={text} {...props} />;
     case 'current':
     case 'next':
       return <span {...props} />;

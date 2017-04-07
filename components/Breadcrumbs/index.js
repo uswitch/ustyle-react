@@ -9,6 +9,7 @@ function Breadcrumb ({ text, href, last, onClick }) {
         ? text
         : <a className='us-crumbs__link'
           href={href}
+          title={text}
           children={text}
           onClick={onClick} /> }
     </li>
