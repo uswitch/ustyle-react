@@ -106,7 +106,7 @@ const items = [{
   text: 'Step 3'
 }];
 
-const onClick = (e) => e.preventDefault();
+const onClick = (e, item) => e.preventDefault();
 
 <ProgressNavigation items={items} onClick={onClick} />
 ```

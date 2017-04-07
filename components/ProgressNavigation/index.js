@@ -1,54 +1,82 @@
-import React from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-const noop = () => {};
+const STATUSES = ['current', 'next', 'complete'];
 
-function NavItemText ({ status, href, text, onClick = noop }) {
-  let className = `us-progress__link us-progress__link--${status}`;
-  let children = <span className='us-tablet--inline'>{text}</span>;
-  let props = { className, children, onClick };
-  switch (status) {
-    case 'complete':
-      return <a href={href} title={text} {...props} />;
-    case 'current':
-    case 'next':
-      return <span {...props} />;
-    default:
-      return null;
+class ProgressNavigationLink extends PureComponent {
+  onClickHandler (e) {
+    this.props.onClick(e, this.props.item);
+  }
+  getTextNode () {
+    const {text, status, href} = this.props.item;
+    const props = {
+      className: `us-progress__link us-progress__link--${status}`,
+      children: <span className='us-tablet--inline'>{text}</span>,
+      onClick: this.onClickHandler.bind(this)
+    };
+    switch (status) {
+      case 'complete':
+        return <a href={href} title={text} {...props} />;
+      case 'current':
+      case 'next':
+        return <span {...props} />;
+      default:
+        return null;
+    }
+  }
+  render () {
+    const children = this.getTextNode();
+    return <li className='us-progress__item' children={children} />;
   }
 }
 
-function NavItem (props) {
-  return (
-    <li className='us-progress__item'>
-      <NavItemText {...props} />
-    </li>
-  );
-}
+ProgressNavigationLink.propTypes = {
+  item: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    href: PropTypes.string,
+    status: PropTypes.oneOf(STATUSES)
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
-function NavItemList ({ items, onClick }) {
-  let cleanItems = [];
-  for (let i = 0; i < items.length; i++) {
-    let status = 'complete';
-    let prevStatus = (cleanItems[i - 1] || {}).status;
-    if (prevStatus === 'current' || prevStatus === 'next') status = 'next';
-    else if (items[i].current) status = 'current';
-    cleanItems.push(Object.assign({ status, onClick }, items[i]));
+export default class ProgressNavigation extends PureComponent {
+  getItemsWithStatus () {
+    const {items} = this.props;
+    const itemsWithStatus = [];
+    for (let i = 0; i < items.length; i++) {
+      let status = 'complete';
+      let prevStatus = (itemsWithStatus[i - 1] || {}).status;
+      if (prevStatus === 'current' || prevStatus === 'next') status = 'next';
+      else if (items[i].current) status = 'current';
+      itemsWithStatus.push(Object.assign({ status }, items[i]));
+    }
+    return itemsWithStatus;
   }
-  return (
-    <ul className='us-progress__nav us-clearfix'>
-      {cleanItems.map((item, i) => (
-        <NavItem {...item} onClick={onClick} key={i} />
-      ))}
-    </ul>
-  );
+  render () {
+    const items = this.getItemsWithStatus();
+    const onClick = this.props.onClick.bind(this);
+    return (
+      <div className='us-progress'>
+        <nav>
+          <ul className='us-progress__nav us-clearfix'>
+            {items.map((item, i) => (
+              <ProgressNavigationLink item={item} onClick={onClick} key={i} />
+            ))}
+          </ul>
+        </nav>
+      </div>
+    );
+  }
 }
 
-export default function ProgressNavigation (props) {
-  return (
-    <div className='us-progress'>
-      <nav>
-        <NavItemList {...props} />
-      </nav>
-    </div>
-  );
-}
+ProgressNavigation.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    href: PropTypes.string,
+    current: PropTypes.bool
+  })).isRequired,
+  onClick: PropTypes.func
+};
+
+ProgressNavigation.defaultProps = {
+  onClick: () => {}
+};

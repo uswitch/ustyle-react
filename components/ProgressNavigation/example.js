@@ -19,9 +19,9 @@ const items = [{
   text: 'Apply'
 }];
 
-function onClick (e) {
+function onClick (e, item) {
   e.preventDefault();
-  window.alert('You clicked a navigation link:\n' + e.target.href);
+  window.alert('You clicked a navigation link:\n' + item.href);
 }
 
 export default () => <ProgressNavigation items={items} onClick={onClick} />;
