@@ -17,11 +17,11 @@ export default class Button extends PureComponent {
     });
   }
   render () {
-    const { children, href, onClick } = this.props;
+    const { children, href, onClick, disabled } = this.props;
     const className = this.getClassName();
     const childProps = { className, onClick, children };
     if (href) return <a href={href} role='button' {...childProps} />;
-    return <button {...childProps} />;
+    return <button disabled={disabled} {...childProps} />;
   }
 }
 
