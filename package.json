@@ -4,9 +4,9 @@
   "description": "uStyle React Components",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf lib ; babel src --out-dir lib",
+    "build": "rm -rf dist ; babel src --out-dir dist",
     "start": "webpack-dev-server",
-    "commit-lib": "npm run build ; git add lib",
+    "commit-dist": "npm run build ; git add dist",
     "watch": "nodemon -e js --watch src --exec \"npm run build\""
   },
   "repository": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
   "pre-commit": [
-    "commit-lib"
+    "commit-dist"
   ],
   "dependencies": {
     "classnames": "^2.2.5",
