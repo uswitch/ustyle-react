@@ -2,7 +2,7 @@
 
 A collection of React components implementing the uSwitch style guide, [uStyle](https://ustyle.guide/).
 
-## Getting Started
+## Installation
 
 First, install the package:
 
@@ -16,7 +16,31 @@ Congratulations! You can now import `ustyle-react` components like so:
 ```js
 import {Button} from 'ustyle-react';
 
-// ... do things with your button
+// Do things with your button here...
+```
+
+## Development
+
+First, clone the project and install the dependencies:
+
+```bash
+git clone git@github.com:uswitch/ustyle-react.git
+cd ustyle-react && yarn install # or `npm install`
+```
+
+To start the development server (on port 9000) run:
+
+```bash
+npm start
+```
+
+Since the project is written in ES2015+, the `src` code will need to built when you commit.
+Luckily, we have a pre-commit hook that builds the code for you before every commit!
+
+To run the build step manually:
+
+```bash
+npm run build
 ```
 
 ## Components
