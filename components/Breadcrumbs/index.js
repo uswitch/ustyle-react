@@ -51,7 +51,7 @@ export default class Breadcrumbs extends PureComponent {
   }
 }
 
-Breadcrumbs.PropTypes = {
+Breadcrumbs.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
     href: PropTypes.string
