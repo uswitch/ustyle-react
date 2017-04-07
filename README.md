@@ -137,3 +137,30 @@ Props:
 - `annotation` [string]
 - `color` [string] - options: blue, orange, purple, yellow, typecyan, green, navy, cyan, typegrey, red
 - `onClick` [function] - called when the USP is clicked
+
+### Loader [→](https://ustyle.guide/pattern-library/components.html#loader)
+
+Example:
+
+```js
+import {Loader} from 'ustyle-react';
+
+let isLoading = true;
+
+setTimeout(() => isLoading = false, 10000);
+
+<Loader text='Loading...' isLoading={isLoading}>
+  <ul className='us-list'>
+    <li><a href='#'>List item 1</a></li>
+    <li><a href='#'>List item 2</a></li>
+    <li><a href='#'>List item 3</a></li>
+    <li><a href='#'>List item 4</a></li>
+  </ul>
+</Loader>
+```
+
+Props:
+
+- `text` [string] - displayed under the loading spinner
+- `isLoading` [boolean]
+- `children` [nodes]

@@ -4,6 +4,7 @@ import ExampleUSP from '../components/USP/example';
 import ExampleButton from '../components/Button/example';
 import ExampleBreadcrumbs from '../components/Breadcrumbs/example';
 import ExampleProgressNavigation from '../components/ProgressNavigation/example';
+import ExampleLoader from '../components/Loader/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -18,5 +19,8 @@ ReactDOM.render(
     <hr />
     <h2>Buttons</h2>
     <ExampleButton />
+    <hr />
+    <h2>Loader</h2>
+    <ExampleLoader />
   </div>
 , document.getElementById('main'));
