@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59,12 +63,12 @@ var Breadcrumb = function (_PureComponent) {
 }(_react.PureComponent);
 
 Breadcrumb.propTypes = {
-  item: _react.PropTypes.shape({
-    text: _react.PropTypes.string.isRequired,
-    href: _react.PropTypes.string
+  item: _propTypes2.default.shape({
+    text: _propTypes2.default.string.isRequired,
+    href: _propTypes2.default.string
   }),
-  isLast: _react.PropTypes.bool,
-  onClick: _react.PropTypes.func
+  isLast: _propTypes2.default.bool,
+  onClick: _propTypes2.default.func
 };
 
 Breadcrumb.defaultProps = {
@@ -108,11 +112,11 @@ exports.default = Breadcrumbs;
 
 
 Breadcrumbs.propTypes = {
-  items: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-    text: _react.PropTypes.string.isRequired,
-    href: _react.PropTypes.string
+  items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    text: _propTypes2.default.string.isRequired,
+    href: _propTypes2.default.string
   })).isRequired,
-  onClick: _react.PropTypes.func
+  onClick: _propTypes2.default.func
 };
 
 Breadcrumbs.defaultProps = {

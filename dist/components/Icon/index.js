@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -88,13 +92,13 @@ exports.default = Icon;
 
 
 Icon.propTypes = {
-  name: _react.PropTypes.string.isRequired,
-  size: _react.PropTypes.oneOf(SIZES).isRequired,
-  sizeTablet: _react.PropTypes.oneOf(SIZES),
-  sizeMobile: _react.PropTypes.oneOf(SIZES),
-  color: _react.PropTypes.oneOf(COLORS),
-  noText: _react.PropTypes.bool.isRequired,
-  iconPath: _react.PropTypes.string.isRequired
+  name: _propTypes2.default.string.isRequired,
+  size: _propTypes2.default.oneOf(SIZES).isRequired,
+  sizeTablet: _propTypes2.default.oneOf(SIZES),
+  sizeMobile: _propTypes2.default.oneOf(SIZES),
+  color: _propTypes2.default.oneOf(COLORS),
+  noText: _propTypes2.default.bool.isRequired,
+  iconPath: _propTypes2.default.string.isRequired
 };
 
 Icon.defaultProps = {

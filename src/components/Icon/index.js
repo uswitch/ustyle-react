@@ -1,4 +1,5 @@
-import React, {PropTypes, PureComponent} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 const ICON_PATH = process.env.ICON_PATH || '/icons.svg';

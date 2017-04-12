@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -70,13 +74,13 @@ exports.default = Button;
 
 
 Button.propTypes = {
-  variant: _react.PropTypes.oneOf(VARIANTS),
-  size: _react.PropTypes.oneOf(SIZES),
-  blocked: _react.PropTypes.bool.isRequired,
-  link: _react.PropTypes.bool.isRequired,
-  stronger: _react.PropTypes.bool.isRequired,
-  href: _react.PropTypes.string,
-  onClick: _react.PropTypes.func
+  variant: _propTypes2.default.oneOf(VARIANTS),
+  size: _propTypes2.default.oneOf(SIZES),
+  blocked: _propTypes2.default.bool.isRequired,
+  link: _propTypes2.default.bool.isRequired,
+  stronger: _propTypes2.default.bool.isRequired,
+  href: _propTypes2.default.string,
+  onClick: _propTypes2.default.func
 };
 
 Button.defaultProps = {
