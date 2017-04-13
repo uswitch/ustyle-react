@@ -37,7 +37,7 @@ export default class USP extends PureComponent {
     );
   }
   render () {
-    return this.props.annotation ? this.annotatedUSP() : this.basicUSP();
+    return this.props.annotation ? this.annotatedUSP : this.basicUSP;
   }
 }
 

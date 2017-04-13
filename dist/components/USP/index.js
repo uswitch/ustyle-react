@@ -42,7 +42,7 @@ var USP = function (_PureComponent) {
   _createClass(USP, [{
     key: 'render',
     value: function render() {
-      return this.props.annotation ? this.annotatedUSP() : this.basicUSP();
+      return this.props.annotation ? this.annotatedUSP : this.basicUSP;
     }
   }, {
     key: 'className',
