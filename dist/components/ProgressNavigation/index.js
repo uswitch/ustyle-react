@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75,12 +79,12 @@ var ProgressNavigationLink = function (_PureComponent) {
 }(_react.PureComponent);
 
 ProgressNavigationLink.propTypes = {
-  item: _react.PropTypes.shape({
-    text: _react.PropTypes.string.isRequired,
-    href: _react.PropTypes.string,
-    status: _react.PropTypes.oneOf(STATUSES)
+  item: _propTypes2.default.shape({
+    text: _propTypes2.default.string.isRequired,
+    href: _propTypes2.default.string,
+    status: _propTypes2.default.oneOf(STATUSES)
   }).isRequired,
-  onClick: _react.PropTypes.func.isRequired
+  onClick: _propTypes2.default.func.isRequired
 };
 
 var ProgressNavigation = function (_PureComponent2) {
@@ -136,12 +140,12 @@ exports.default = ProgressNavigation;
 
 
 ProgressNavigation.propTypes = {
-  items: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-    text: _react.PropTypes.string.isRequired,
-    href: _react.PropTypes.string,
-    current: _react.PropTypes.bool
+  items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    text: _propTypes2.default.string.isRequired,
+    href: _propTypes2.default.string,
+    current: _propTypes2.default.bool
   })).isRequired,
-  onClick: _react.PropTypes.func
+  onClick: _propTypes2.default.func
 };
 
 ProgressNavigation.defaultProps = {
