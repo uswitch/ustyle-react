@@ -159,14 +159,28 @@ let isLoading = true;
 
 setTimeout(() => isLoading = false, 10000);
 
-<Loader text='Loading...' isLoading={isLoading}>
+<div>{ isLoading ? <Loader text='Loading...' /> : null }</div>
+```
+
+### LoaderContainer [→](https://ustyle.guide/pattern-library/components.html#loader)
+
+Example:
+
+```js
+import {LoaderContainer} from 'ustyle-react';
+
+let isLoading = true;
+
+setTimeout(() => isLoading = false, 10000);
+
+<LoaderContainer text='Loading...' isLoading={isLoading}>
   <ul className='us-list'>
     <li><a href='#'>List item 1</a></li>
     <li><a href='#'>List item 2</a></li>
     <li><a href='#'>List item 3</a></li>
     <li><a href='#'>List item 4</a></li>
   </ul>
-</Loader>
+</LoaderContainer>
 ```
 
 Props:

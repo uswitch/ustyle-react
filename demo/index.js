@@ -4,7 +4,7 @@ import USP from '../src/components/USP/example';
 import Button from '../src/components/Button/example';
 import Breadcrumbs from '../src/components/Breadcrumbs/example';
 import ProgressNavigation from '../src/components/ProgressNavigation/example';
-import Loader from '../src/components/Loader/example';
+import LoaderContainer from '../src/components/LoaderContainer/example';
 import Icon from '../src/components/Icon/example';
 
 ReactDOM.render(
@@ -13,7 +13,7 @@ ReactDOM.render(
     <h2>Breadcrumbs</h2><Breadcrumbs /><hr />
     <h2>USPs</h2><USP /><hr />
     <h2>Buttons</h2><Button /><hr />
-    <h2>Loader</h2><Loader /><hr />
+    <h2>LoaderContainer</h2><LoaderContainer /><hr />
     <h2>Icons</h2><Icon />
   </div>
 , document.getElementById('main'));
