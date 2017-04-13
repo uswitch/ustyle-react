@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const COLORS = [
   'blue',
@@ -12,31 +14,35 @@ const COLORS = [
   'typegrey',
   'red'
 ];
-const noop = () => {};
 
-function validateColor (color) {
-  if (!color || COLORS.includes(color)) return;
-  throw new Error(
-    `Invalid USP color: ${color}. Must be one of: ${COLORS.join(', ')}`
-  );
-}
-
-function getClassName (color) {
-  return ['us-usp'].concat(color ? `us-usp--${color}` : '').join(' ');
-}
-
-function USP ({ color, text, annotation, onClick = noop }) {
-  validateColor(color);
-  if (!annotation) {
-    return <div className={getClassName(color)} onClick={onClick}>{text}</div>;
-  } else {
+export default class USP extends PureComponent {
+  get className () {
+    const {color} = this.props;
+    return cx({
+      'us-usp': true,
+      [`us-usp--${color}`]: color
+    });
+  }
+  get basicUSP () {
+    const {text} = this.props;
+    return <div className={this.className}>{text}</div>;
+  }
+  get annotatedUSP () {
+    const {text, annotation} = this.props;
     return (
-      <div className='us-usp us-usp--annotated' onClick={onClick}>
-        <div className={getClassName(color)}>{text}</div>
+      <div className='us-usp us-usp--annotated'>
+        <div className={this.className}>{text}</div>
         <span>{annotation}</span>
       </div>
     );
   }
+  render () {
+    return this.props.annotation ? this.annotatedUSP() : this.basicUSP();
+  }
 }
 
-export default USP;
+USP.propTypes = {
+  text: PropTypes.node.isRequired,
+  annotation: PropTypes.string,
+  color: PropTypes.oneOf(COLORS)
+};

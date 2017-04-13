@@ -136,9 +136,7 @@ Example:
 ```js
 import {USP} from 'ustyle-react';
 
-const onClick = (e) => e.preventDefault();
-
-<USP color='red' text='Example USP' annotation='More info goes here...' onClick={onClick} />
+<USP color='red' text='Example USP' annotation='More info goes here...' />
 ```
 
 Props:
@@ -146,7 +144,6 @@ Props:
 - `text` [string:required] - the main USP text
 - `annotation` [string]
 - `color` [string] - options: blue, orange, purple, yellow, typecyan, green, navy, cyan, typegrey, red
-- `onClick` [function] - called when the USP is clicked
 
 ### Loader [→](https://ustyle.guide/pattern-library/components.html#loader)
 
