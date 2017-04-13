@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Loader = require('../Loader');
+
+var _Loader2 = _interopRequireDefault(_Loader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18,42 +22,44 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Loader = function (_PureComponent) {
-  _inherits(Loader, _PureComponent);
+var LoaderContainer = function (_PureComponent) {
+  _inherits(LoaderContainer, _PureComponent);
 
-  function Loader() {
-    _classCallCheck(this, Loader);
+  function LoaderContainer() {
+    _classCallCheck(this, LoaderContainer);
 
-    return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (LoaderContainer.__proto__ || Object.getPrototypeOf(LoaderContainer)).apply(this, arguments));
   }
 
-  _createClass(Loader, [{
+  _createClass(LoaderContainer, [{
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          isLoading = _props.isLoading,
+          text = _props.text,
+          children = _props.children;
+
       return _react2.default.createElement(
         'div',
-        { className: 'us-loader us-loader--loading us-loader--centered' },
-        _react2.default.createElement(
-          'div',
-          { className: 'us-loader__inner' },
-          _react2.default.createElement('div', { className: 'us-loader__spinner' }),
-          _react2.default.createElement(
-            'div',
-            { className: 'us-loader__text' },
-            this.props.text
-          )
-        ),
-        _react2.default.createElement('div', { className: 'us-loader__overlay' })
+        { className: 'us-loader__container' },
+        isLoading ? _react2.default.createElement(_Loader2.default, { text: text }) : null,
+        children
       );
     }
   }]);
 
-  return Loader;
+  return LoaderContainer;
 }(_react.PureComponent);
 
-exports.default = Loader;
+exports.default = LoaderContainer;
 
 
-Loader.propTypes = {
-  text: _react.PropTypes.string
+LoaderContainer.propTypes = {
+  isLoading: _react.PropTypes.bool,
+  text: _react.PropTypes.string,
+  children: _react.PropTypes.node
+};
+
+LoaderContainer.defaultValues = {
+  isLoading: true
 };

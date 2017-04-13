@@ -175,7 +175,7 @@ Props:
 - `isLoading` [boolean]
 - `children` [nodes]
 
-### Loader [→](https://ustyle.guide/design/icons.html)
+### Icons [→](https://ustyle.guide/design/icons.html)
 
 Example:
 
