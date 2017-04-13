@@ -174,3 +174,27 @@ Props:
 - `text` [string] - displayed under the loading spinner
 - `isLoading` [boolean]
 - `children` [nodes]
+
+### Loader [→](https://ustyle.guide/design/icons.html)
+
+Example:
+
+```js
+import {Icon} from 'ustyle-react';
+
+<Icon name='google' color='typecyan' size='large' />
+```
+
+Props:
+
+- `name` [string] - displayed under the loading spinner
+- `color` [string] - options: white, typegrey, inputgrey, typecyan, custom
+- `size` [string] options: small, medium, large
+- `sizeTablet` [string] - maps to `.us-icon--{sizeTablet}--sm-tablet`
+- `sizeMobile` [string] - maps to `.us-icon--{sizeMobile}--mobile`
+- `noText` [boolean]
+- `iconPath` [string] - default `/icons.svg`, the path where your icons are hosted
+
+Notes:
+
+- To set a global icon path, you can set `process.env.ICON_PATH = /images/icons.svg`;

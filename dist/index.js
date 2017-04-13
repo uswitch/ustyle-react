@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.USP = exports.ProgressNavigation = exports.Loader = exports.Button = exports.Breadcrumbs = undefined;
+exports.USP = exports.ProgressNavigation = exports.Loader = exports.Icon = exports.Button = exports.Breadcrumbs = undefined;
 
 var _Breadcrumbs = require('./components/Breadcrumbs');
 
@@ -12,6 +12,10 @@ var _Breadcrumbs2 = _interopRequireDefault(_Breadcrumbs);
 var _Button = require('./components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
+
+var _Icon = require('./components/Icon');
+
+var _Icon2 = _interopRequireDefault(_Icon);
 
 var _Loader = require('./components/Loader');
 
@@ -29,6 +33,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.Breadcrumbs = _Breadcrumbs2.default;
 exports.Button = _Button2.default;
+exports.Icon = _Icon2.default;
 exports.Loader = _Loader2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.USP = _USP2.default;
