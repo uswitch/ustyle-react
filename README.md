@@ -249,3 +249,86 @@ Props:
 Notes:
 
 - Alias for `<ValidationMessage variant='error' children={children}/>`
+
+### ValidationMessage [→](https://ustyle.guide/pattern-library/forms.html#validation_messages)
+
+Example:
+
+```js
+import {ValidationMessage} from 'ustyle-react';
+
+let valid = true;
+let message = 'You have been subscribe';
+
+<ValidationMessage variant={ valid ? 'success' : 'error'} children={message} />
+```
+
+Props:
+
+- `variant` [string] - options: error, success
+- `children` [node] - error message to display
+
+Notes:
+
+- Alias for `<ValidationMessage variant='error' children={children}/>`
+
+### Toggle [→](https://ustyle.guide/pattern-library/forms.html#toggle)
+
+Example:
+```js
+import {Toggle} from 'ustyle-react';
+
+const items = [{
+  text: 'Aye!',
+  value: 'yes'
+}, {
+  text: 'Nay...',
+  value: 'no'
+}];
+
+const onChange = (e, item) => console.log(item);
+
+<Toggle items={items} onChange={onChange} name='toggle' />
+```
+
+Props:
+
+- `items` [array:objects]
+  - `text` [string/node]
+  - `value` [string]
+  - `disabled` [bool]
+- `value` [string] - the current value for the toggle component
+- `name` [string]
+- `onChange` [function]
+
+### Select [→](https://ustyle.guide/pattern-library/forms.html#selects)
+
+
+Example:
+```js
+import {Select} from 'ustyle-react';
+
+const items = [{
+  text: 'Aye!',
+  value: 'yes'
+}, {
+  text: 'Nay...',
+  value: 'no'
+}];
+
+const onChange = (e, item) => console.log(item);
+
+<Select items={items} onChange={onChange} name='select' />
+```
+
+Props:
+
+- `items` [array:objects]
+  - `text` [string/node]
+  - `value` [string]
+- `value` [string] the current value of the select component
+- `name` [string]
+- `variant` [string]
+- `disabled` [bool]
+- `blocked` [boolean]
+- `onChange` [function]

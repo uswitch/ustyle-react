@@ -110,8 +110,8 @@ exports.default = Toggle;
 Toggle.propTypes = {
   items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     text: _propTypes2.default.string.isRequired,
-    href: _propTypes2.default.string,
-    current: _propTypes2.default.bool
+    value: _propTypes2.default.string.isRequired,
+    disabled: _propTypes2.default.bool
   })).isRequired,
   value: _propTypes2.default.node,
   name: _propTypes2.default.string,

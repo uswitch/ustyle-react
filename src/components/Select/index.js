@@ -50,7 +50,7 @@ Select.propTypes = {
   })).isRequired,
   value: PropTypes.string,
   name: PropTypes.string.isRequired,
-  variants: PropTypes.oneOf(VARIANTS),
+  variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,
   blocked: PropTypes.bool,
   onChange: PropTypes.func.isRequired

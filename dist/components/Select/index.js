@@ -106,7 +106,7 @@ Select.propTypes = {
   })).isRequired,
   value: _propTypes2.default.string,
   name: _propTypes2.default.string.isRequired,
-  variants: _propTypes2.default.oneOf(VARIANTS),
+  variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,
   blocked: _propTypes2.default.bool,
   onChange: _propTypes2.default.func.isRequired
