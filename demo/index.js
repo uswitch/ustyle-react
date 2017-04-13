@@ -8,6 +8,8 @@ import LoaderContainer from '../src/components/LoaderContainer/example';
 import Icon from '../src/components/Icon/example';
 import ValidationError from '../src/components/ValidationError/example';
 import ValidationMessage from '../src/components/ValidationMessage/example';
+import Select from '../src/components/Select/example';
+import Toggle from '../src/components/Toggle/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -19,5 +21,7 @@ ReactDOM.render(
     <h2>Icons</h2><Icon /><hr />
     <h2>Validation Error</h2><ValidationError />
     <h2>Validation Message</h2><ValidationMessage />
+    <h2>Select</h2><Select />
+    <h2>Toggle</h2><Toggle />
   </div>
 , document.getElementById('main'));

@@ -17,7 +17,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: join(__dirname, "demo"),
+    contentBase: join(__dirname, 'demo'),
     port: 9000
   }
 };
