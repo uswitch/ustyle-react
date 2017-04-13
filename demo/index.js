@@ -6,6 +6,8 @@ import Breadcrumbs from '../src/components/Breadcrumbs/example';
 import ProgressNavigation from '../src/components/ProgressNavigation/example';
 import LoaderContainer from '../src/components/LoaderContainer/example';
 import Icon from '../src/components/Icon/example';
+import ValidationError from '../src/components/ValidationError/example';
+import ValidationMessage from '../src/components/ValidationMessage/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -14,6 +16,8 @@ ReactDOM.render(
     <h2>USPs</h2><USP /><hr />
     <h2>Buttons</h2><Button /><hr />
     <h2>LoaderContainer</h2><LoaderContainer /><hr />
-    <h2>Icons</h2><Icon />
+    <h2>Icons</h2><Icon /><hr />
+    <h2>Validation Error</h2><ValidationError />
+    <h2>Validation Message</h2><ValidationMessage />
   </div>
 , document.getElementById('main'));

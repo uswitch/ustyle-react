@@ -212,3 +212,43 @@ Props:
 Notes:
 
 - To set a global icon path, you can set `process.env.ICON_PATH = /images/icons.svg`;
+
+### ValidationError [→](https://ustyle.guide/pattern-library/forms.html#validation_messages)
+
+Example:
+
+```js
+import {ValidationError} from 'ustyle-react';
+
+<ValidationError>Something went wrong!</ValidationError>
+```
+
+Props:
+
+- `children` [node] - error message to display
+
+Notes:
+
+- Alias for `<ValidationMessage variant='error' children={children}/>`
+
+### ValidationMessage [→](https://ustyle.guide/pattern-library/forms.html#validation_messages)
+
+Example:
+
+```js
+import {ValidationMessage} from 'ustyle-react';
+
+let valid = true;
+let message = 'You have been subscribe';
+
+<ValidationMessage variant={ valid ? 'success' : 'error'} children={message} />
+```
+
+Props:
+
+- `variant` [string] - options: error, success
+- `children` [node] - error message to display
+
+Notes:
+
+- Alias for `<ValidationMessage variant='error' children={children}/>`
