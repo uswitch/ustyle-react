@@ -15,6 +15,7 @@ import ToggleYesNo from '../src/components/ToggleYesNo/example';
 import InputGroup from '../src/components/InputGroup/example';
 import Tabs from '../src/components/Tabs/example';
 import Input from '../src/components/Input/example';
+import TextArea from '../src/components/TextArea/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -33,5 +34,6 @@ ReactDOM.render(
     <h2>InputGroup</h2><InputGroup /><hr />
     <h2>Tabs</h2><Tabs /><hr />
     <h2>Input</h2><Input /><hr />
+    <h2>TextArea</h2><TextArea /><hr />
   </div>
 , document.getElementById('main'));
