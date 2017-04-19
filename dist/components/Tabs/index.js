@@ -45,24 +45,38 @@ var Tabs = function (_PureComponent) {
       this.props.onClick(e, item);
     }
   }, {
-    key: 'tabsNavMainLink',
-    value: function tabsNavMainLink(item, i) {
+    key: 'chevron',
+    value: function chevron() {
+      return _react2.default.createElement(
+        'span',
+        { className: 'us-tabs-nav-chevron' },
+        _react2.default.createElement(_Icon2.default, {
+          name: 'chevron-right',
+          size: 'small',
+          color: 'inputgrey' })
+      );
+    }
+  }, {
+    key: 'tabsNavLink',
+    value: function tabsNavLink(item, key) {
       var _this2 = this;
 
       var id = item.id,
           href = item.href;
 
       var realHref = href || (id ? '#' + id : null);
+      var className = (0, _classnames2.default)({
+        'us-tabs-nav-mainlink': true,
+        'us-tabs-nav-link': true,
+        'active': item.active
+      });
       return _react2.default.createElement(
         'a',
-        { key: i, onClick: function onClick(e) {
+        { key: key,
+          onClick: function onClick(e) {
             return _this2.onClickHandler(e, item);
           },
-          className: (0, _classnames2.default)({
-            'us-tabs-nav-mainlink': true,
-            'us-tabs-nav-link': true,
-            'active': item.active
-          }),
+          className: className,
           href: realHref },
         item.title
       );
@@ -81,7 +95,7 @@ var Tabs = function (_PureComponent) {
           _react2.default.createElement(
             'div',
             { className: 'us-tabs-nav-menu' },
-            items.map(this.tabsNavMainLink.bind(this))
+            items.map(this.tabsNavLink.bind(this))
           )
         )
       );
@@ -95,34 +109,29 @@ var Tabs = function (_PureComponent) {
           href = item.href;
 
       var realHref = href || (id ? '#' + id : null);
+      var tabClassName = (0, _classnames2.default)({
+        'us-tab': true,
+        'active': item.active
+      });
+      var navLinkClassName = (0, _classnames2.default)({
+        'us-tabs-nav-mainlink': true,
+        'active': item.active
+      });
       return _react2.default.createElement(
         'div',
-        { key: i, className: (0, _classnames2.default)({
-            'us-tab': true,
-            'active': item.active
-          }), id: item.id },
+        { key: i, className: tabClassName, id: item.id },
         _react2.default.createElement(
           'h2',
           { className: 'us-tab-title' },
           _react2.default.createElement(
             'a',
-            { className: (0, _classnames2.default)({
-                'us-tabs-nav-mainlink': true,
-                'active': item.active
-              }),
+            { className: navLinkClassName,
               onClick: function onClick(e) {
                 return _this3.onClickHandler(e, item);
               },
               href: realHref },
             item.title,
-            _react2.default.createElement(
-              'span',
-              { className: 'us-tabs-nav-chevron' },
-              _react2.default.createElement(_Icon2.default, {
-                name: 'chevron-right',
-                size: 'small',
-                color: 'inputgrey' })
-            )
+            this.chevron()
           )
         ),
         _react2.default.createElement(

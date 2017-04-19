@@ -335,7 +335,6 @@ Props:
 
 ### InputGroup [→](https://ustyle.guide/pattern-library/forms.html#input_group)
 
-
 Example:
 ```js
 import {InputGroup} from 'ustyle-react';
@@ -348,7 +347,39 @@ import {InputGroup} from 'ustyle-react';
 Props:
 
 - `text` [string/node]
-- `icon` [string]: replaces text
-- `position` [string] options: left, right 
+- `icon` [string] replaces text
+- `position` [string] options: left, right
 - `disabled` [bool]
 - `blocked` [boolean]
+
+### Tabs [→](https://ustyle.guide/pattern-library/javascript.html#tabs)
+
+Example:
+```js
+import {Tabs} from 'ustyle-react';
+
+const items = [{
+  id: 'tab1', title: 'Tab 1', body: 'test'
+}, {
+  id: 'tab2', title: 'Tab 2', body: 'test', active: true
+}, {
+  id: 'tab3', title: 'Tab 3', body: 'test'
+}];
+
+const onClick = (e, item) => {
+  // set `active: false` for all tabs
+  // set `active: true` for clicked tab
+};
+
+<Tabs onClick={onClick} items={items} />
+```
+
+Props:
+
+- `items` [array:objects]
+  - `id` [string]
+  - `href` [string]
+  - `title` [string]
+  - `body` [string/node]
+  - `active` [bool]
+- `onClick` [function]
