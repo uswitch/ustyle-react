@@ -2,6 +2,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import Button from './components/Button';
 import Field from './components/Field';
 import Icon from './components/Icon';
+import InputGroup from './components/InputGroup';
 import Loader from './components/Loader';
 import ProgressNavigation from './components/ProgressNavigation';
 import Select from './components/Select';
@@ -15,6 +16,7 @@ export {
   Button,
   Field,
   Icon,
+  InputGroup,
   Loader,
   ProgressNavigation,
   Select,

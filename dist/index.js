@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ValidationMessage = exports.ValidationError = exports.USP = exports.Toggle = exports.Select = exports.ProgressNavigation = exports.Loader = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
+exports.ValidationMessage = exports.ValidationError = exports.USP = exports.Toggle = exports.Select = exports.ProgressNavigation = exports.Loader = exports.InputGroup = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
 
 var _Breadcrumbs = require('./components/Breadcrumbs');
 
@@ -20,6 +20,10 @@ var _Field2 = _interopRequireDefault(_Field);
 var _Icon = require('./components/Icon');
 
 var _Icon2 = _interopRequireDefault(_Icon);
+
+var _InputGroup = require('./components/InputGroup');
+
+var _InputGroup2 = _interopRequireDefault(_InputGroup);
 
 var _Loader = require('./components/Loader');
 
@@ -55,6 +59,7 @@ exports.Breadcrumbs = _Breadcrumbs2.default;
 exports.Button = _Button2.default;
 exports.Field = _Field2.default;
 exports.Icon = _Icon2.default;
+exports.InputGroup = _InputGroup2.default;
 exports.Loader = _Loader2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.Select = _Select2.default;
