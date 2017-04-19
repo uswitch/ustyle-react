@@ -11,6 +11,7 @@ import ValidationMessage from '../src/components/ValidationMessage/example';
 import Select from '../src/components/Select/example';
 import Toggle from '../src/components/Toggle/example';
 import InputGroup from '../src/components/InputGroup/example';
+import Tabs from '../src/components/Tabs/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -20,10 +21,11 @@ ReactDOM.render(
     <h2>Buttons</h2><Button /><hr />
     <h2>LoaderContainer</h2><LoaderContainer /><hr />
     <h2>Icons</h2><Icon /><hr />
-    <h2>Validation Error</h2><ValidationError />
-    <h2>Validation Message</h2><ValidationMessage />
-    <h2>Select</h2><Select />
-    <h2>Toggle</h2><Toggle />
-    <h2>InputGroup</h2><InputGroup />
+    <h2>Validation Error</h2><ValidationError /><hr />
+    <h2>Validation Message</h2><ValidationMessage /><hr />
+    <h2>Select</h2><Select /><hr />
+    <h2>Toggle</h2><Toggle /><hr />
+    <h2>InputGroup</h2><InputGroup /><hr />
+    <h2>Tabs</h2><Tabs />
   </div>
 , document.getElementById('main'));
