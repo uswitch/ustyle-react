@@ -332,3 +332,23 @@ Props:
 - `disabled` [bool]
 - `blocked` [boolean]
 - `onChange` [function]
+
+### InputGroup [→](https://ustyle.guide/pattern-library/forms.html#input_group)
+
+
+Example:
+```js
+import {InputGroup} from 'ustyle-react';
+
+<InputGroup text="kwh" position="right">
+  <input className="us-form-input" type="number" id="energy" placeholder="0" />
+</InputGroup>
+```
+
+Props:
+
+- `text` [string/node]
+- `icon` [string]: replaces text
+- `position` [string] options: left, right 
+- `disabled` [bool]
+- `blocked` [boolean]
