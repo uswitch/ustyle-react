@@ -6,6 +6,7 @@ import InputGroup from './components/InputGroup';
 import Loader from './components/Loader';
 import ProgressNavigation from './components/ProgressNavigation';
 import Select from './components/Select';
+import Tabs from './components/Tabs';
 import Toggle from './components/Toggle';
 import USP from './components/USP';
 import ValidationError from './components/ValidationError';
@@ -20,6 +21,7 @@ export {
   Loader,
   ProgressNavigation,
   Select,
+  Tabs,
   Toggle,
   USP,
   ValidationError,
