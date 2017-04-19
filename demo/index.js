@@ -10,6 +10,7 @@ import ValidationError from '../src/components/ValidationError/example';
 import ValidationMessage from '../src/components/ValidationMessage/example';
 import Select from '../src/components/Select/example';
 import Toggle from '../src/components/Toggle/example';
+import Overlay from '../src/components/Overlay/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -23,5 +24,6 @@ ReactDOM.render(
     <h2>Validation Message</h2><ValidationMessage />
     <h2>Select</h2><Select />
     <h2>Toggle</h2><Toggle />
+    <h2>Overlay</h2><Overlay />
   </div>
 , document.getElementById('main'));

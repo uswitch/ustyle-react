@@ -25,7 +25,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.3",
-    "react": ">=15.3"
+    "react": ">=15.3",
+    "react-addons-css-transition-group": "^15.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
