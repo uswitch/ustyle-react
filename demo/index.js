@@ -11,6 +11,7 @@ import ValidationMessage from '../src/components/ValidationMessage/example';
 import Select from '../src/components/Select/example';
 import Toggle from '../src/components/Toggle/example';
 import InputGroup from '../src/components/InputGroup/example';
+import Tooltip from '../src/components/Tooltip/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -25,5 +26,6 @@ ReactDOM.render(
     <h2>Select</h2><Select />
     <h2>Toggle</h2><Toggle />
     <h2>InputGroup</h2><InputGroup />
+    <h2>Tooltip</h2><Tooltip />
   </div>
 , document.getElementById('main'));
