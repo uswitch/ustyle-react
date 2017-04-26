@@ -50,10 +50,10 @@ export default class Toggle extends PureComponent {
 Toggle.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    value: PropTypes.node.isRequired,
+    value: PropTypes.any.isRequired,
     disabled: PropTypes.bool
   })).isRequired,
-  value: PropTypes.node,
+  value: PropTypes.any,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };

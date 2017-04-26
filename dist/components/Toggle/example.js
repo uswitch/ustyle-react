@@ -44,7 +44,7 @@ var ToggleExample = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (ToggleExample.__proto__ || Object.getPrototypeOf(ToggleExample)).call(this, props));
 
-    _this.state = { myValue: 'no' };
+    _this.state = { myValue: true };
     return _this;
   }
 

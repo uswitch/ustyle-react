@@ -1,13 +1,13 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist ; babel src --out-dir dist",
     "start": "webpack-dev-server",
     "commit-dist": "npm run build ; git add dist",
-    "bump-version": "nver",
+    "bump-version": "nver; git add package.json",
     "watch": "nodemon -e js --watch src --exec \"npm run build\""
   },
   "repository": {

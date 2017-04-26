@@ -18,7 +18,7 @@ const items = [{
 export default class ToggleExample extends PureComponent {
   constructor (props) {
     super(props);
-    this.state = { myValue: 'no' };
+    this.state = { myValue: true };
   }
   onChangeHandler (e, item) {
     console.log(item);
