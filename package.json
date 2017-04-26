@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
   "pre-commit": [
-    "commit-dist"
+    "commit-dist && nver up --patch"
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "nver": "^0.0.15",
     "prop-types": "^15.3",
     "react": ">=15.3"
   },
