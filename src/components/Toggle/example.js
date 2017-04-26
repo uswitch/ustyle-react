@@ -4,11 +4,11 @@ import Toggle from './index';
 const items = [{
   disabled: false,
   text: 'Yes, I like cheese',
-  value: 'yes'
+  value: 1
 }, {
   disabled: false,
   text: 'No, I hate cheese',
-  value: 'no'
+  value: false
 }, {
   disabled: true,
   text: 'Cheese is not real',
