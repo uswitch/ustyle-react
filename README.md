@@ -308,7 +308,7 @@ Props:
 - `name` [string]
 - `onChange` [function]
 
-### ToggleYesNo [→](https://ustyle.guide/pattern-library/forms.html#toggleyesno)
+### ToggleYesNo [→](https://ustyle.guide/pattern-library/forms.html#toggle)
 
 Example:
 ```js
