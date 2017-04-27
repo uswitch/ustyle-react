@@ -1,21 +1,7 @@
 import React, {PureComponent} from 'react';
-import Toggle from './index';
+import ToggleYesNo from './index';
 
-const items = [{
-  disabled: false,
-  text: 'Yes, I like cheese',
-  value: 1
-}, {
-  disabled: false,
-  text: 'No, I hate cheese',
-  value: false
-}, {
-  disabled: true,
-  text: 'Cheese is not real',
-  value: 'fake'
-}];
-
-export default class ToggleExample extends PureComponent {
+export default class ToggleYesNoExample extends PureComponent {
   constructor (props) {
     super(props);
     this.state = { toggleValue: true };
@@ -31,10 +17,9 @@ export default class ToggleExample extends PureComponent {
       <div>
         <pre>{this.jsonState}</pre>
 
-        <Toggle
-          name='toggleExample'
+        <ToggleYesNo
+          name='toggleYesNoExample'
           value={this.state.toggleValue}
-          items={items}
           onChange={this.onChangeHandler.bind(this)} />
       </div>
     );

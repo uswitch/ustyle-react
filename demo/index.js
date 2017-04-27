@@ -10,6 +10,7 @@ import ValidationError from '../src/components/ValidationError/example';
 import ValidationMessage from '../src/components/ValidationMessage/example';
 import Select from '../src/components/Select/example';
 import Toggle from '../src/components/Toggle/example';
+import ToggleYesNo from '../src/components/ToggleYesNo/example';
 import InputGroup from '../src/components/InputGroup/example';
 import Tabs from '../src/components/Tabs/example';
 
@@ -25,6 +26,7 @@ ReactDOM.render(
     <h2>Validation Message</h2><ValidationMessage /><hr />
     <h2>Select</h2><Select /><hr />
     <h2>Toggle</h2><Toggle /><hr />
+    <h2>ToggleYesNo</h2><ToggleYesNo /><hr />
     <h2>InputGroup</h2><InputGroup /><hr />
     <h2>Tabs</h2><Tabs />
   </div>

@@ -278,13 +278,20 @@ Example:
 ```js
 import {Toggle} from 'ustyle-react';
 
-const items = [{
-  text: 'Aye!',
-  value: 'yes'
-}, {
-  text: 'Nay...',
-  value: 'no'
-}];
+const items = [
+  {
+    text: 'Red',
+    value: 'red'
+  },
+  {
+    text: 'White',
+    value: 'white'
+  },
+  {
+    text: 'Rosé',
+    value: 'rose'
+  }
+];
 
 const onChange = (e, item) => console.log(item);
 
@@ -297,6 +304,23 @@ Props:
   - `text` [string/node]
   - `value` [string]
   - `disabled` [bool]
+- `value` [string] - the current value for the toggle component
+- `name` [string]
+- `onChange` [function]
+
+### ToggleYesNo [→](https://ustyle.guide/pattern-library/forms.html#toggle)
+
+Example:
+```js
+import {ToggleYesNo} from 'ustyle-react';
+
+const onChange = (e, item) => console.log(item);
+
+<ToggleYesNo value={true} onChange={onChange} name='toggle-yes-no' />
+```
+
+Props:
+
 - `value` [string] - the current value for the toggle component
 - `name` [string]
 - `onChange` [function]
