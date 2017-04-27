@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import Toggle from './index';
+import {Toggle, ToggleYesNo} from './index';
 
 const items = [{
   disabled: false,
@@ -18,11 +18,16 @@ const items = [{
 export default class ToggleExample extends PureComponent {
   constructor (props) {
     super(props);
-    this.state = { myValue: true };
+    this.state = {
+      toggleValue: true,
+      yesNoValue: true
+    };
   }
-  onChangeHandler (e, item) {
-    console.log(item);
-    this.setState({ myValue: item.value });
+  onToggleChangeHandler (e, { value }) {
+    this.setState({ toggleValue: value });
+  }
+  onYesNoChangehandler (e, { value }) {
+    this.setState({ yesNoValue: value });
   }
   get jsonState () {
     return JSON.stringify(this.state);
@@ -31,11 +36,17 @@ export default class ToggleExample extends PureComponent {
     return (
       <div>
         <pre>{this.jsonState}</pre>
+
         <Toggle
-          name='myValue'
-          value={this.state.myValue}
+          name='toggleValue'
+          value={this.state.toggleValue}
           items={items}
-          onChange={this.onChangeHandler.bind(this)} />
+          onChange={this.onToggleChangeHandler.bind(this)} />
+
+        <ToggleYesNo
+          name='yesNoExample'
+          value={this.state.yesNoValue}
+          onChange={this.onYesNoChangehandler.bind(this)} />
       </div>
     );
   }

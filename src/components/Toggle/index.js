@@ -29,7 +29,7 @@ class ToggleItem extends PureComponent {
   }
 }
 
-export default class Toggle extends PureComponent {
+export class Toggle extends PureComponent {
   render () {
     const { items, onChange, name, value } = this.props;
     return (
@@ -53,6 +53,32 @@ Toggle.propTypes = {
     value: PropTypes.any.isRequired,
     disabled: PropTypes.bool
   })).isRequired,
+  value: PropTypes.any,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
+
+export class ToggleYesNo extends PureComponent {
+  render () {
+    const { onChange, name, value } = this.props;
+    const items = [{ text: 'Yes', value: true }, { text: 'No', value: false }];
+
+    return (
+      <div className='us-toggle'>
+        {items.map((item, i) => (
+          <ToggleItem
+            key={i}
+            name={name}
+            selected={item.value === value}
+            item={item}
+            onChange={onChange} />
+        ))}
+      </div>
+    );
+  }
+}
+
+ToggleYesNo.propTypes = {
   value: PropTypes.any,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired

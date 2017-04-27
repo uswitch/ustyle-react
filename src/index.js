@@ -8,7 +8,7 @@ import LoaderContainer from './components/LoaderContainer';
 import ProgressNavigation from './components/ProgressNavigation';
 import Select from './components/Select';
 import Tabs from './components/Tabs';
-import Toggle from './components/Toggle';
+import {Toggle, ToggleYesNo} from './components/Toggle';
 import USP from './components/USP';
 import ValidationError from './components/ValidationError';
 import ValidationMessage from './components/ValidationMessage';
@@ -25,6 +25,7 @@ export {
   Select,
   Tabs,
   Toggle,
+  ToggleYesNo,
   USP,
   ValidationError,
   ValidationMessage

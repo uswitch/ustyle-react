@@ -12,8 +12,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _index = require('./index');
 
-var _index2 = _interopRequireDefault(_index);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,15 +42,26 @@ var ToggleExample = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (ToggleExample.__proto__ || Object.getPrototypeOf(ToggleExample)).call(this, props));
 
-    _this.state = { myValue: true };
+    _this.state = {
+      toggleValue: true,
+      yesNoValue: true
+    };
     return _this;
   }
 
   _createClass(ToggleExample, [{
-    key: 'onChangeHandler',
-    value: function onChangeHandler(e, item) {
-      console.log(item);
-      this.setState({ myValue: item.value });
+    key: 'onToggleChangeHandler',
+    value: function onToggleChangeHandler(e, _ref) {
+      var value = _ref.value;
+
+      this.setState({ toggleValue: value });
+    }
+  }, {
+    key: 'onYesNoChangehandler',
+    value: function onYesNoChangehandler(e, _ref2) {
+      var value = _ref2.value;
+
+      this.setState({ yesNoValue: value });
     }
   }, {
     key: 'render',
@@ -65,11 +74,15 @@ var ToggleExample = function (_PureComponent) {
           null,
           this.jsonState
         ),
-        _react2.default.createElement(_index2.default, {
-          name: 'myValue',
-          value: this.state.myValue,
+        _react2.default.createElement(_index.Toggle, {
+          name: 'toggleValue',
+          value: this.state.toggleValue,
           items: items,
-          onChange: this.onChangeHandler.bind(this) })
+          onChange: this.onToggleChangeHandler.bind(this) }),
+        _react2.default.createElement(_index.ToggleYesNo, {
+          name: 'yesNoExample',
+          value: this.state.yesNoValue,
+          onChange: this.onYesNoChangehandler.bind(this) })
       );
     }
   }, {
