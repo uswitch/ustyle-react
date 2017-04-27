@@ -10,9 +10,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = require('./index');
+var _propTypes = require('prop-types');
 
-var _index2 = _interopRequireDefault(_index);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Toggle = require('../Toggle');
+
+var _Toggle2 = _interopRequireDefault(_Toggle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,65 +26,41 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var items = [{
-  disabled: false,
-  text: 'Yes, I like cheese',
-  value: 1
-}, {
-  disabled: false,
-  text: 'No, I hate cheese',
-  value: false
-}, {
-  disabled: true,
-  text: 'Cheese is not real',
-  value: 'fake'
-}];
+var ToggleYesNo = function (_PureComponent) {
+  _inherits(ToggleYesNo, _PureComponent);
 
-var ToggleExample = function (_PureComponent) {
-  _inherits(ToggleExample, _PureComponent);
+  function ToggleYesNo() {
+    _classCallCheck(this, ToggleYesNo);
 
-  function ToggleExample(props) {
-    _classCallCheck(this, ToggleExample);
-
-    var _this = _possibleConstructorReturn(this, (ToggleExample.__proto__ || Object.getPrototypeOf(ToggleExample)).call(this, props));
-
-    _this.state = { toggleValue: true };
-    return _this;
+    return _possibleConstructorReturn(this, (ToggleYesNo.__proto__ || Object.getPrototypeOf(ToggleYesNo)).apply(this, arguments));
   }
 
-  _createClass(ToggleExample, [{
-    key: 'onChangeHandler',
-    value: function onChangeHandler(e, _ref) {
-      var value = _ref.value;
-
-      this.setState({ toggleValue: value });
-    }
-  }, {
+  _createClass(ToggleYesNo, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'pre',
-          null,
-          this.jsonState
-        ),
-        _react2.default.createElement(_index2.default, {
-          name: 'toggleExample',
-          value: this.state.toggleValue,
-          items: items,
-          onChange: this.onChangeHandler.bind(this) })
-      );
-    }
-  }, {
-    key: 'jsonState',
-    get: function get() {
-      return JSON.stringify(this.state);
+      var _props = this.props,
+          onChange = _props.onChange,
+          name = _props.name,
+          value = _props.value;
+
+      var items = [{ text: 'Yes', value: true }, { text: 'No', value: false }];
+
+      return _react2.default.createElement(_Toggle2.default, {
+        name: name,
+        value: value,
+        items: items,
+        onChange: onChange });
     }
   }]);
 
-  return ToggleExample;
+  return ToggleYesNo;
 }(_react.PureComponent);
 
-exports.default = ToggleExample;
+exports.default = ToggleYesNo;
+
+
+ToggleYesNo.propTypes = {
+  value: _propTypes2.default.any,
+  name: _propTypes2.default.string,
+  onChange: _propTypes2.default.func.isRequired
+};

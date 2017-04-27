@@ -47,6 +47,12 @@ var _Tabs2 = _interopRequireDefault(_Tabs);
 
 var _Toggle = require('./components/Toggle');
 
+var _Toggle2 = _interopRequireDefault(_Toggle);
+
+var _ToggleYesNo = require('./components/ToggleYesNo');
+
+var _ToggleYesNo2 = _interopRequireDefault(_ToggleYesNo);
+
 var _USP = require('./components/USP');
 
 var _USP2 = _interopRequireDefault(_USP);
@@ -71,8 +77,8 @@ exports.LoaderContainer = _LoaderContainer2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.Select = _Select2.default;
 exports.Tabs = _Tabs2.default;
-exports.Toggle = _Toggle.Toggle;
-exports.ToggleYesNo = _Toggle.ToggleYesNo;
+exports.Toggle = _Toggle2.default;
+exports.ToggleYesNo = _ToggleYesNo2.default;
 exports.USP = _USP2.default;
 exports.ValidationError = _ValidationError2.default;
 exports.ValidationMessage = _ValidationMessage2.default;

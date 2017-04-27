@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ToggleYesNo = exports.Toggle = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -69,7 +68,7 @@ var ToggleItem = function (_PureComponent) {
   return ToggleItem;
 }(_react.PureComponent);
 
-var Toggle = exports.Toggle = function (_PureComponent2) {
+var Toggle = function (_PureComponent2) {
   _inherits(Toggle, _PureComponent2);
 
   function Toggle() {
@@ -105,55 +104,15 @@ var Toggle = exports.Toggle = function (_PureComponent2) {
   return Toggle;
 }(_react.PureComponent);
 
+exports.default = Toggle;
+
+
 Toggle.propTypes = {
   items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     text: _propTypes2.default.string.isRequired,
     value: _propTypes2.default.any.isRequired,
     disabled: _propTypes2.default.bool
   })).isRequired,
-  value: _propTypes2.default.any,
-  name: _propTypes2.default.string,
-  onChange: _propTypes2.default.func.isRequired
-};
-
-var ToggleYesNo = exports.ToggleYesNo = function (_PureComponent3) {
-  _inherits(ToggleYesNo, _PureComponent3);
-
-  function ToggleYesNo() {
-    _classCallCheck(this, ToggleYesNo);
-
-    return _possibleConstructorReturn(this, (ToggleYesNo.__proto__ || Object.getPrototypeOf(ToggleYesNo)).apply(this, arguments));
-  }
-
-  _createClass(ToggleYesNo, [{
-    key: 'render',
-    value: function render() {
-      var _props2 = this.props,
-          onChange = _props2.onChange,
-          name = _props2.name,
-          value = _props2.value;
-
-      var items = [{ text: 'Yes', value: true }, { text: 'No', value: false }];
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'us-toggle' },
-        items.map(function (item, i) {
-          return _react2.default.createElement(ToggleItem, {
-            key: i,
-            name: name,
-            selected: item.value === value,
-            item: item,
-            onChange: onChange });
-        })
-      );
-    }
-  }]);
-
-  return ToggleYesNo;
-}(_react.PureComponent);
-
-ToggleYesNo.propTypes = {
   value: _propTypes2.default.any,
   name: _propTypes2.default.string,
   onChange: _propTypes2.default.func.isRequired
