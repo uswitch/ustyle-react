@@ -26,6 +26,8 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "lodash.omit": "^4.5.0",
+    "nver": "^0.0.15",
     "prop-types": "^15.3",
     "react": ">=15.3"
   },
