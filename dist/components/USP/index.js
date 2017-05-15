@@ -56,20 +56,23 @@ var USP = function (_PureComponent) {
   }, {
     key: 'basicUSP',
     get: function get() {
-      var text = this.props.text;
+      var _props = this.props,
+          text = _props.text,
+          children = _props.children;
 
       return _react2.default.createElement(
         'div',
         { className: this.className },
-        text
+        text || children
       );
     }
   }, {
     key: 'annotatedUSP',
     get: function get() {
-      var _props = this.props,
-          text = _props.text,
-          annotation = _props.annotation;
+      var _props2 = this.props,
+          text = _props2.text,
+          children = _props2.children,
+          annotation = _props2.annotation;
 
       return _react2.default.createElement(
         'div',
@@ -77,7 +80,7 @@ var USP = function (_PureComponent) {
         _react2.default.createElement(
           'div',
           { className: this.className },
-          text
+          text || children
         ),
         _react2.default.createElement(
           'span',
@@ -95,7 +98,7 @@ exports.default = USP;
 
 
 USP.propTypes = {
-  text: _propTypes2.default.node.isRequired,
+  children: _propTypes2.default.node,
   annotation: _propTypes2.default.string,
   color: _propTypes2.default.oneOf(COLORS)
 };

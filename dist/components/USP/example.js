@@ -18,7 +18,11 @@ exports.default = function () {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_index2.default, { color: 'typecyan', text: 'Shortened USP' }),
+    _react2.default.createElement(
+      _index2.default,
+      { color: 'typecyan' },
+      'Shortened USP'
+    ),
     _react2.default.createElement(_index2.default, { color: 'red', text: 'Annotated USP', annotation: 'More information about USP goes here' })
   );
 };
