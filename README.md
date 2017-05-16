@@ -407,3 +407,19 @@ Props:
   - `body` [string/node]
   - `active` [bool]
 - `onClick` [function]
+
+### Overlay [→](https://ustyle.guide/pattern-library/javascript.html#overlay)
+
+Example:
+```js
+import {Overlay} from 'ustyle-react';
+// TODO: Write about overlay...
+```
+
+Props:
+
+- `title` [string]
+- `children` [string/node]
+- `variant` [string] - options: left, right, modal
+- `isOpen` [boolean]
+- `onClose` [function]

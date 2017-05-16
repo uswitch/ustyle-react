@@ -9,12 +9,12 @@ const TOGGLE_ITEMS = OVERLAY_POSITIONS.map((v) => ({ text: v, value: v }));
 export default class OverlayExample extends Component {
   constructor (props) {
     super(props);
-    this.state = { isOpen: false, position: 'left' };
+    this.state = { isOpen: false, variant: 'left' };
   }
   openOverlay () {
     this.setState({
       isOpen: true,
-      children: <p>The model is open: <b>{this.state.position}</b></p>
+      children: <p>The model is open: <b>{this.state.variant}</b></p>
     });
   }
   closeOverlay () {
@@ -25,30 +25,30 @@ export default class OverlayExample extends Component {
       this.setState({ isLoading: !this.state.isLoading });
     }, 1000);
   }
-  setPosition (position) {
-    console.log(position);
-    this.setState(Object.assign({}, this.state, { position }));
+  setVariant (variant) {
+    console.log(variant);
+    this.setState(Object.assign({}, this.state, { variant }));
   }
   onToggleClick (e, item) {
-    this.setPosition(item.value);
+    this.setVariant(item.value);
   }
   get toggleButtons () {
     return (
       <Toggle
         items={TOGGLE_ITEMS}
-        value={this.state.position}
+        value={this.state.variant}
         onChange={this.onToggleClick.bind(this)} />
     );
   }
   render () {
     return (
       <div>
-        <label htmlFor='overlay_position'>Overlay position:</label>
+        <label htmlFor='overlay_variant'>Overlay variant:</label>
         <br />
         <Toggle
-          name='overlay_position'
+          name='overlay_variant'
           items={TOGGLE_ITEMS}
-          value={this.state.position}
+          value={this.state.variant}
           onChange={this.onToggleClick.bind(this)} />
         <br />
         <Button onClick={() => this.openOverlay()}>Open Modal</Button>

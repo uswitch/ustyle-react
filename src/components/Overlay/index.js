@@ -5,6 +5,8 @@ import cx from 'classnames';
 import Button from '../Button';
 import {addClass, removeClass, hasClass} from '../../utils/class-helpers';
 
+const VARIANTS = ['left', 'right', 'modal'];
+
 export default class Overlay extends PureComponent {
   constructor (props, context) {
     super(props, context);
@@ -76,11 +78,11 @@ export default class Overlay extends PureComponent {
   }
 
   get overlayClassName () {
-    const {position} = this.props;
+    const {variant} = this.props;
     return cx({
       'us-overlay': true,
-      'us-overlay--right': position === 'right',
-      'us-overlay--modal': position === 'modal'
+      'us-overlay--right': variant === 'right',
+      'us-overlay--modal': variant === 'modal'
     });
   }
 
@@ -120,5 +122,14 @@ export default class Overlay extends PureComponent {
 }
 
 Overlay.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  variant: PropTypes.oneOf(VARIANTS)
+};
+
+Overlay.defaultProps = {
+  isOpen: false,
+  variant: 'modal'
 };
