@@ -5,6 +5,7 @@ import Icon from './components/Icon';
 import InputGroup from './components/InputGroup';
 import Loader from './components/Loader';
 import LoaderContainer from './components/LoaderContainer';
+import Overlay from './components/Overlay';
 import ProgressNavigation from './components/ProgressNavigation';
 import Select from './components/Select';
 import Tabs from './components/Tabs';
@@ -22,6 +23,7 @@ export {
   InputGroup,
   Loader,
   LoaderContainer,
+  Overlay,
   ProgressNavigation,
   Select,
   Tabs,

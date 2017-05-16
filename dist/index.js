@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.Tabs = exports.Select = exports.ProgressNavigation = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
+exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.Tabs = exports.Select = exports.ProgressNavigation = exports.Overlay = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
 
 var _Breadcrumbs = require('./components/Breadcrumbs');
 
@@ -32,6 +32,10 @@ var _Loader2 = _interopRequireDefault(_Loader);
 var _LoaderContainer = require('./components/LoaderContainer');
 
 var _LoaderContainer2 = _interopRequireDefault(_LoaderContainer);
+
+var _Overlay = require('./components/Overlay');
+
+var _Overlay2 = _interopRequireDefault(_Overlay);
 
 var _ProgressNavigation = require('./components/ProgressNavigation');
 
@@ -74,6 +78,7 @@ exports.Icon = _Icon2.default;
 exports.InputGroup = _InputGroup2.default;
 exports.Loader = _Loader2.default;
 exports.LoaderContainer = _LoaderContainer2.default;
+exports.Overlay = _Overlay2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.Select = _Select2.default;
 exports.Tabs = _Tabs2.default;
