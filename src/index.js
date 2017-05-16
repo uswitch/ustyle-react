@@ -2,6 +2,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import Button from './components/Button';
 import Field from './components/Field';
 import Icon from './components/Icon';
+import Input from './components/Input';
 import InputGroup from './components/InputGroup';
 import Loader from './components/Loader';
 import LoaderContainer from './components/LoaderContainer';
@@ -20,6 +21,7 @@ export {
   Button,
   Field,
   Icon,
+  Input,
   InputGroup,
   Loader,
   LoaderContainer,

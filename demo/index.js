@@ -14,6 +14,7 @@ import Overlay from '../src/components/Overlay/example';
 import ToggleYesNo from '../src/components/ToggleYesNo/example';
 import InputGroup from '../src/components/InputGroup/example';
 import Tabs from '../src/components/Tabs/example';
+import Input from '../src/components/Input/example';
 
 ReactDOM.render(
   <div className='us-container'>
@@ -30,6 +31,7 @@ ReactDOM.render(
     <h2>Toggle</h2><Toggle /><hr />
     <h2>ToggleYesNo</h2><ToggleYesNo /><hr />
     <h2>InputGroup</h2><InputGroup /><hr />
-    <h2>Tabs</h2><Tabs />
+    <h2>Tabs</h2><Tabs /><hr />
+    <h2>Input</h2><Input /><hr />
   </div>
 , document.getElementById('main'));
