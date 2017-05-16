@@ -25,6 +25,7 @@ export default class Overlay extends PureComponent {
   componentWillReceiveProps (nextProps) {
     if (nextProps.isOpen === this.props.isOpen) return;
     if (nextProps.isOpen) return this.openOverlay();
+    this.closeOverlay();
   }
   openOverlay () {
     this.setState({
@@ -38,7 +39,6 @@ export default class Overlay extends PureComponent {
     this.setState((state) => ({
       visibility: 'closed'
     }));
-    this.props.onClose(e)
 
     // using uStyle's overlay, which means we need some class dancing here
     if (hasClass(document.body, 'noscroll')) {
@@ -62,9 +62,10 @@ export default class Overlay extends PureComponent {
     return (
       <div className={cx({
         'us-backdrop': true,
+        'us-backdrop--animated': true,
         'us-backdrop--active': visibility === 'visible',
         'us-backdrop--visible': ['visible', 'closing'].includes(visibility)
-      })} onClick={this.closeOverlay.bind(this)} />
+      })} onClick={this.props.onClose.bind(this)} />
     );
   }
 
@@ -100,7 +101,7 @@ export default class Overlay extends PureComponent {
                 <div className='us-overlay__close'>
                   <Button size='small'
                     variant='reversed'
-                    onClick={this.closeOverlay.bind(this)}
+                    onClick={this.props.onClose.bind(this)}
                     children='Close' />
                 </div>
               </div>

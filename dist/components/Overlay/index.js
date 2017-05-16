@@ -69,6 +69,7 @@ var Overlay = function (_PureComponent) {
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.isOpen === this.props.isOpen) return;
       if (nextProps.isOpen) return this.openOverlay();
+      this.closeOverlay();
     }
   }, {
     key: 'openOverlay',
@@ -89,7 +90,6 @@ var Overlay = function (_PureComponent) {
           visibility: 'closed'
         };
       });
-      this.props.onClose(e);
 
       // using uStyle's overlay, which means we need some class dancing here
       if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
@@ -135,7 +135,7 @@ var Overlay = function (_PureComponent) {
                   { className: 'us-overlay__close' },
                   _react2.default.createElement(_Button2.default, { size: 'small',
                     variant: 'reversed',
-                    onClick: this.closeOverlay.bind(this),
+                    onClick: this.props.onClose.bind(this),
                     children: 'Close' })
                 )
               ),
@@ -165,9 +165,10 @@ var Overlay = function (_PureComponent) {
       if (!visibility === 'visible') return null;
       return _react2.default.createElement('div', { className: (0, _classnames2.default)({
           'us-backdrop': true,
+          'us-backdrop--animated': true,
           'us-backdrop--active': visibility === 'visible',
           'us-backdrop--visible': ['visible', 'closing'].includes(visibility)
-        }), onClick: this.closeOverlay.bind(this) });
+        }), onClick: this.props.onClose.bind(this) });
     }
   }, {
     key: 'overlayParentClassName',
