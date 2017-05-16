@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import cx from 'classnames';
 import Button from '../Button';
 import {addClass, removeClass, hasClass} from '../../utils/class-helpers';
@@ -24,8 +23,7 @@ export default class Overlay extends PureComponent {
   }
   componentWillReceiveProps (nextProps) {
     if (nextProps.isOpen === this.props.isOpen) return;
-    if (nextProps.isOpen) return this.openOverlay();
-    this.closeOverlay();
+    return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
   }
   openOverlay () {
     this.setState({
@@ -34,12 +32,10 @@ export default class Overlay extends PureComponent {
     });
     this.disableScroll();
   }
-
   finishClose (e) {
     this.setState((state) => ({
       visibility: 'closed'
     }));
-
     // using uStyle's overlay, which means we need some class dancing here
     if (hasClass(document.body, 'noscroll')) {
       this.enableScroll();
@@ -48,14 +44,12 @@ export default class Overlay extends PureComponent {
       }, 100);
     }
   }
-
   closeOverlay (e) {
     this.setState({
       visibility: 'closing'
     });
-    setTimeout(this.finishClose.bind(this,e), 500);
+    setTimeout(this.finishClose.bind(this, e), 500);
   }
-
   get backdropHTML () {
     const {visibility} = this.state;
     if (!visibility === 'visible') return null;
@@ -68,7 +62,6 @@ export default class Overlay extends PureComponent {
       })} onClick={this.props.onClose.bind(this)} />
     );
   }
-
   get overlayParentClassName () {
     const {visibility} = this.state;
     if (!visibility === 'visible') return null;
@@ -78,7 +71,6 @@ export default class Overlay extends PureComponent {
       'us-overlay-parent--visible': ['visible', 'closing'].includes(visibility)
     });
   }
-
   get overlayClassName () {
     const {variant} = this.props;
     return cx({
@@ -87,7 +79,6 @@ export default class Overlay extends PureComponent {
       'us-overlay--modal': variant === 'modal'
     });
   }
-
   render () {
     return (
       <div>
@@ -110,13 +101,7 @@ export default class Overlay extends PureComponent {
               </div>
             </div>
           </div>
-
-          <ReactCSSTransitionGroup
-            transitionName='fade'
-            transitionEnterTimeout={10000}
-            transitionLeaveTimeout={10000}>
-            {this.backdropHTML}
-          </ReactCSSTransitionGroup>
+          {this.backdropHTML}
         </div>
       </div>
     );

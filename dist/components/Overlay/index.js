@@ -14,10 +14,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -68,8 +64,7 @@ var Overlay = function (_PureComponent) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.isOpen === this.props.isOpen) return;
-      if (nextProps.isOpen) return this.openOverlay();
-      this.closeOverlay();
+      return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
     }
   }, {
     key: 'openOverlay',
@@ -90,7 +85,6 @@ var Overlay = function (_PureComponent) {
           visibility: 'closed'
         };
       });
-
       // using uStyle's overlay, which means we need some class dancing here
       if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
         this.enableScroll();
@@ -146,14 +140,7 @@ var Overlay = function (_PureComponent) {
               )
             )
           ),
-          _react2.default.createElement(
-            _reactAddonsCssTransitionGroup2.default,
-            {
-              transitionName: 'fade',
-              transitionEnterTimeout: 10000,
-              transitionLeaveTimeout: 10000 },
-            this.backdropHTML
-          )
+          this.backdropHTML
         )
       );
     }
