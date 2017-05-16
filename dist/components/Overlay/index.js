@@ -68,7 +68,7 @@ var Overlay = function (_PureComponent) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.isOpen === this.props.isOpen) return;
-      return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
+      if (nextProps.isOpen) return this.openOverlay();
     }
   }, {
     key: 'openOverlay',
@@ -80,29 +80,32 @@ var Overlay = function (_PureComponent) {
       this.disableScroll();
     }
   }, {
-    key: 'closeOverlay',
-    value: function closeOverlay(e) {
+    key: 'finishClose',
+    value: function finishClose(e) {
       var _this2 = this;
 
-      var finishClose = function finishClose() {
-        setTimeout(function () {
-          _this2.setState({
-            visibility: 'closed'
-          });
-          _this2.props.onClose(e);
-        }, 500);
-      };
-      // using uStyle's overlay, which means we need some class dancing here
-      this.setState({
-        visibility: 'closing'
-      }, finishClose);
+      this.setState(function (state) {
+        return {
+          visibility: 'closed'
+        };
+      });
+      this.props.onClose(e);
 
+      // using uStyle's overlay, which means we need some class dancing here
       if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
         this.enableScroll();
         setTimeout(function () {
           document.body.scrollTop = _this2.state.scrollTop;
         }, 100);
       }
+    }
+  }, {
+    key: 'closeOverlay',
+    value: function closeOverlay(e) {
+      this.setState({
+        visibility: 'closing'
+      });
+      setTimeout(this.finishClose.bind(this, e), 500);
     }
   }, {
     key: 'render',

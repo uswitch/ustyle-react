@@ -72,15 +72,6 @@ var OverlayExample = function (_Component) {
       this.setState({ isOpen: false });
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      setInterval(function () {
-        _this2.setState({ isLoading: !_this2.state.isLoading });
-      }, 1000);
-    }
-  }, {
     key: 'setVariant',
     value: function setVariant(variant) {
       console.log(variant);
@@ -94,7 +85,7 @@ var OverlayExample = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return _react2.default.createElement(
         'div',
@@ -114,7 +105,7 @@ var OverlayExample = function (_Component) {
         _react2.default.createElement(
           _Button2.default,
           { onClick: function onClick() {
-              return _this3.openOverlay();
+              return _this2.openOverlay();
             } },
           'Open Modal'
         ),

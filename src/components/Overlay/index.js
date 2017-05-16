@@ -24,7 +24,7 @@ export default class Overlay extends PureComponent {
   }
   componentWillReceiveProps (nextProps) {
     if (nextProps.isOpen === this.props.isOpen) return;
-    return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
+    if (nextProps.isOpen) return this.openOverlay();
   }
   openOverlay () {
     this.setState({
@@ -33,26 +33,27 @@ export default class Overlay extends PureComponent {
     });
     this.disableScroll();
   }
-  closeOverlay (e) {
-    const finishClose = () => {
-      setTimeout(() => {
-        this.setState({
-          visibility: 'closed'
-        });
-        this.props.onClose(e);
-      }, 500);
-    };
-    // using uStyle's overlay, which means we need some class dancing here
-    this.setState({
-      visibility: 'closing'
-    }, finishClose);
 
+  finishClose (e) {
+    this.setState((state) => ({
+      visibility: 'closed'
+    }));
+    this.props.onClose(e)
+
+    // using uStyle's overlay, which means we need some class dancing here
     if (hasClass(document.body, 'noscroll')) {
       this.enableScroll();
       setTimeout(() => {
         document.body.scrollTop = this.state.scrollTop;
       }, 100);
     }
+  }
+
+  closeOverlay (e) {
+    this.setState({
+      visibility: 'closing'
+    });
+    setTimeout(this.finishClose.bind(this,e), 500);
   }
 
   get backdropHTML () {

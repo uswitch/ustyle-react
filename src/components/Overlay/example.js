@@ -20,11 +20,6 @@ export default class OverlayExample extends Component {
   closeOverlay () {
     this.setState({ isOpen: false });
   }
-  componentDidMount () {
-    setInterval(() => {
-      this.setState({ isLoading: !this.state.isLoading });
-    }, 1000);
-  }
   setVariant (variant) {
     console.log(variant);
     this.setState(Object.assign({}, this.state, { variant }));
