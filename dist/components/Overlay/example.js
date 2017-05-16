@@ -45,7 +45,7 @@ var OverlayExample = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (OverlayExample.__proto__ || Object.getPrototypeOf(OverlayExample)).call(this, props));
 
-    _this.state = { isOpen: false, position: 'left' };
+    _this.state = { isOpen: false, variant: 'left' };
     return _this;
   }
 
@@ -61,7 +61,7 @@ var OverlayExample = function (_Component) {
           _react2.default.createElement(
             'b',
             null,
-            this.state.position
+            this.state.variant
           )
         )
       });
@@ -81,15 +81,15 @@ var OverlayExample = function (_Component) {
       }, 1000);
     }
   }, {
-    key: 'setPosition',
-    value: function setPosition(position) {
-      console.log(position);
-      this.setState(Object.assign({}, this.state, { position: position }));
+    key: 'setVariant',
+    value: function setVariant(variant) {
+      console.log(variant);
+      this.setState(Object.assign({}, this.state, { variant: variant }));
     }
   }, {
     key: 'onToggleClick',
     value: function onToggleClick(e, item) {
-      this.setPosition(item.value);
+      this.setVariant(item.value);
     }
   }, {
     key: 'render',
@@ -101,14 +101,14 @@ var OverlayExample = function (_Component) {
         null,
         _react2.default.createElement(
           'label',
-          { htmlFor: 'overlay_position' },
-          'Overlay position:'
+          { htmlFor: 'overlay_variant' },
+          'Overlay variant:'
         ),
         _react2.default.createElement('br', null),
         _react2.default.createElement(_Toggle2.default, {
-          name: 'overlay_position',
+          name: 'overlay_variant',
           items: TOGGLE_ITEMS,
-          value: this.state.position,
+          value: this.state.variant,
           onChange: this.onToggleClick.bind(this) }),
         _react2.default.createElement('br', null),
         _react2.default.createElement(
@@ -128,7 +128,7 @@ var OverlayExample = function (_Component) {
     get: function get() {
       return _react2.default.createElement(_Toggle2.default, {
         items: TOGGLE_ITEMS,
-        value: this.state.position,
+        value: this.state.variant,
         onChange: this.onToggleClick.bind(this) });
     }
   }]);

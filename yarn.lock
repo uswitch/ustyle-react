@@ -944,6 +944,10 @@ camelcase@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
 
+capitalize@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/capitalize/-/capitalize-0.5.0.tgz#efa007343183ef12aff360cc84925064b5cc778b"
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -2274,6 +2278,10 @@ node-fetch@^1.0.1:
     encoding "^0.1.11"
     is-stream "^1.0.1"
 
+node-getopt@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/node-getopt/-/node-getopt-0.2.3.tgz#69abbc7e5400600d1dacf00db8cb79b5487e924b"
+
 node-libs-browser@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-2.0.0.tgz#a3a59ec97024985b46e958379646f96c4b616646"
@@ -2371,6 +2379,14 @@ npmlog@^4.0.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+nver:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/nver/-/nver-0.0.15.tgz#f6786e9fbfe3e25db3015c2aac155ab2705b92ac"
+  dependencies:
+    capitalize "^0.5.0"
+    node-getopt "^0.2.3"
+    semver "^2.3.0"
 
 oauth-sign@~0.8.1:
   version "0.8.2"
@@ -2903,6 +2919,10 @@ semver-diff@^2.0.0:
   resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
   dependencies:
     semver "^5.0.3"
+
+semver@^2.3.0:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-2.3.2.tgz#b9848f25d6cf36333073ec9ef8856d42f1233e52"
 
 semver@^5.0.3, semver@^5.3.0, "semver@2 || 3 || 4 || 5":
   version "5.3.0"

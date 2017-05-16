@@ -36,6 +36,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var VARIANTS = ['left', 'right', 'modal'];
+
 var Overlay = function (_PureComponent) {
   _inherits(Overlay, _PureComponent);
 
@@ -179,12 +181,12 @@ var Overlay = function (_PureComponent) {
   }, {
     key: 'overlayClassName',
     get: function get() {
-      var position = this.props.position;
+      var variant = this.props.variant;
 
       return (0, _classnames2.default)({
         'us-overlay': true,
-        'us-overlay--right': position === 'right',
-        'us-overlay--modal': position === 'modal'
+        'us-overlay--right': variant === 'right',
+        'us-overlay--modal': variant === 'modal'
       });
     }
   }]);
@@ -196,5 +198,14 @@ exports.default = Overlay;
 
 
 Overlay.propTypes = {
-  title: _propTypes2.default.string.isRequired
+  title: _propTypes2.default.string.isRequired,
+  children: _propTypes2.default.node,
+  onClose: _propTypes2.default.func.isRequired,
+  isOpen: _propTypes2.default.bool.isRequired,
+  variant: _propTypes2.default.oneOf(VARIANTS)
+};
+
+Overlay.defaultProps = {
+  isOpen: false,
+  variant: 'modal'
 };

@@ -24,14 +24,14 @@ export default class USP extends PureComponent {
     });
   }
   get basicUSP () {
-    const {text} = this.props;
-    return <div className={this.className}>{text}</div>;
+    const {text, children} = this.props;
+    return <div className={this.className}>{text || children}</div>;
   }
   get annotatedUSP () {
-    const {text, annotation} = this.props;
+    const {text, children, annotation} = this.props;
     return (
       <div className='us-usp us-usp--annotated'>
-        <div className={this.className}>{text}</div>
+        <div className={this.className}>{text || children}</div>
         <span>{annotation}</span>
       </div>
     );
@@ -42,7 +42,7 @@ export default class USP extends PureComponent {
 }
 
 USP.propTypes = {
-  text: PropTypes.node.isRequired,
+  children: PropTypes.node,
   annotation: PropTypes.string,
   color: PropTypes.oneOf(COLORS)
 };

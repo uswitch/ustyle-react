@@ -1,12 +1,13 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.3",
+  "version": "0.0.15",
   "description": "uStyle React Components",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist ; babel src --out-dir dist",
     "start": "webpack-dev-server",
     "commit-dist": "npm run build ; git add dist",
+    "bump-version": "nver; git add package.json",
     "watch": "nodemon -e js --watch src --exec \"npm run build\""
   },
   "repository": {
@@ -20,10 +21,12 @@
   },
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
   "pre-commit": [
+    "bump-version",
     "commit-dist"
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "nver": "^0.0.15",
     "prop-types": "^15.3",
     "react": ">=15.3",
     "react-addons-css-transition-group": "^15.5.2"

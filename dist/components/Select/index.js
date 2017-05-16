@@ -102,9 +102,9 @@ exports.default = Select;
 Select.propTypes = {
   items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     text: _propTypes2.default.string.isRequired,
-    value: _propTypes2.default.string.isRequired
+    value: _propTypes2.default.any.isRequired
   })).isRequired,
-  value: _propTypes2.default.string,
+  value: _propTypes2.default.any,
   name: _propTypes2.default.string.isRequired,
   variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,

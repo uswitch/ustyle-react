@@ -46,9 +46,9 @@ export default class Select extends PureComponent {
 Select.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.any.isRequired
   })).isRequired,
-  value: PropTypes.string,
+  value: PropTypes.any,
   name: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,

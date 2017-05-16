@@ -278,13 +278,20 @@ Example:
 ```js
 import {Toggle} from 'ustyle-react';
 
-const items = [{
-  text: 'Aye!',
-  value: 'yes'
-}, {
-  text: 'Nay...',
-  value: 'no'
-}];
+const items = [
+  {
+    text: 'Red',
+    value: 'red'
+  },
+  {
+    text: 'White',
+    value: 'white'
+  },
+  {
+    text: 'Rosé',
+    value: 'rose'
+  }
+];
 
 const onChange = (e, item) => console.log(item);
 
@@ -297,6 +304,23 @@ Props:
   - `text` [string/node]
   - `value` [string]
   - `disabled` [bool]
+- `value` [string] - the current value for the toggle component
+- `name` [string]
+- `onChange` [function]
+
+### ToggleYesNo [→](https://ustyle.guide/pattern-library/forms.html#toggle)
+
+Example:
+```js
+import {ToggleYesNo} from 'ustyle-react';
+
+const onChange = (e, item) => console.log(item);
+
+<ToggleYesNo value={true} onChange={onChange} name='toggle-yes-no' />
+```
+
+Props:
+
 - `value` [string] - the current value for the toggle component
 - `name` [string]
 - `onChange` [function]
@@ -332,3 +356,54 @@ Props:
 - `disabled` [bool]
 - `blocked` [boolean]
 - `onChange` [function]
+
+### InputGroup [→](https://ustyle.guide/pattern-library/forms.html#input_group)
+
+Example:
+```js
+import {InputGroup} from 'ustyle-react';
+
+<InputGroup text="kwh" position="right">
+  <input className="us-form-input" type="number" id="energy" placeholder="0" />
+</InputGroup>
+```
+
+Props:
+
+- `text` [string/node]
+- `icon` [string] replaces text
+- `position` [string] options: left, right
+- `disabled` [bool]
+- `blocked` [boolean]
+
+### Tabs [→](https://ustyle.guide/pattern-library/javascript.html#tabs)
+
+Example:
+```js
+import {Tabs} from 'ustyle-react';
+
+const items = [{
+  id: 'tab1', title: 'Tab 1', body: 'test'
+}, {
+  id: 'tab2', title: 'Tab 2', body: 'test', active: true
+}, {
+  id: 'tab3', title: 'Tab 3', body: 'test'
+}];
+
+const onClick = (e, item) => {
+  // set `active: false` for all tabs
+  // set `active: true` for clicked tab
+};
+
+<Tabs onClick={onClick} items={items} />
+```
+
+Props:
+
+- `items` [array:objects]
+  - `id` [string]
+  - `href` [string]
+  - `title` [string]
+  - `body` [string/node]
+  - `active` [bool]
+- `onClick` [function]

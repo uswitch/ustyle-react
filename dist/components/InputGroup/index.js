@@ -14,13 +14,15 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _Icon = require('../Icon');
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28,77 +30,84 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var COLORS = ['blue', 'orange', 'purple', 'yellow', 'typecyan', 'green', 'navy', 'cyan', 'typegrey', 'red'];
+var POSITIONS = ['left', 'right'];
 
-var USP = function (_PureComponent) {
-  _inherits(USP, _PureComponent);
+var InputGroup = function (_PureComponent) {
+  _inherits(InputGroup, _PureComponent);
 
-  function USP() {
-    _classCallCheck(this, USP);
+  function InputGroup() {
+    _classCallCheck(this, InputGroup);
 
-    return _possibleConstructorReturn(this, (USP.__proto__ || Object.getPrototypeOf(USP)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).apply(this, arguments));
   }
 
-  _createClass(USP, [{
+  _createClass(InputGroup, [{
     key: 'render',
     value: function render() {
-      return this.props.annotation ? this.annotatedUSP : this.basicUSP;
+      return _react2.default.createElement(
+        'div',
+        { className: this.className },
+        this.leftBox,
+        this.props.children,
+        this.rightBox
+      );
+    }
+  }, {
+    key: 'boxContents',
+    get: function get() {
+      if (this.props.icon) {
+        return _react2.default.createElement(_Icon2.default, { name: this.props.icon, color: 'inputgrey', size: 'small' });
+      } else {
+        return this.props.text;
+      }
+    }
+  }, {
+    key: 'box',
+    get: function get() {
+      return _react2.default.createElement(
+        'span',
+        { className: 'us-input-group__box' },
+        this.boxContents
+      );
+    }
+  }, {
+    key: 'leftBox',
+    get: function get() {
+      if (this.props.position == 'left') {
+        return this.box;
+      }
+    }
+  }, {
+    key: 'rightBox',
+    get: function get() {
+      if (this.props.position == 'right') {
+        return this.box;
+      }
     }
   }, {
     key: 'className',
     get: function get() {
-      var color = this.props.color;
-
-      return (0, _classnames2.default)(_defineProperty({
-        'us-usp': true
-      }, 'us-usp--' + color, color));
-    }
-  }, {
-    key: 'basicUSP',
-    get: function get() {
-      var _props = this.props,
-          text = _props.text,
-          children = _props.children;
-
-      return _react2.default.createElement(
-        'div',
-        { className: this.className },
-        text || children
-      );
-    }
-  }, {
-    key: 'annotatedUSP',
-    get: function get() {
-      var _props2 = this.props,
-          text = _props2.text,
-          children = _props2.children,
-          annotation = _props2.annotation;
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'us-usp us-usp--annotated' },
-        _react2.default.createElement(
-          'div',
-          { className: this.className },
-          text || children
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          annotation
-        )
-      );
+      return (0, _classnames2.default)({
+        "us-input-group": true,
+        "us-input-group--disabled": this.props.disabled,
+        "us-input-group--blocked": this.props.blocked
+      });
     }
   }]);
 
-  return USP;
+  return InputGroup;
 }(_react.PureComponent);
 
-exports.default = USP;
+exports.default = InputGroup;
 
 
-USP.propTypes = {
-  children: _propTypes2.default.node,
-  annotation: _propTypes2.default.string,
-  color: _propTypes2.default.oneOf(COLORS)
+InputGroup.propTypes = {
+  text: _propTypes2.default.node,
+  icon: _propTypes2.default.string,
+  position: _propTypes2.default.oneOf(POSITIONS),
+  children: _propTypes2.default.element
+};
+
+InputGroup.defaultProps = {
+  position: 'left'
 };
