@@ -42,7 +42,12 @@ var TextAreaExample = function (_PureComponent) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_index2.default, { value: this.state.value, onChange: this.onChange.bind(this) });
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_index2.default, { value: this.state.value, blocked: true, disabled: true, onChange: this.onChange.bind(this) }),
+        _react2.default.createElement(_index2.default, { value: this.state.value, onChange: this.onChange.bind(this) })
+      );
     }
   }]);
 
