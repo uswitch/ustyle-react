@@ -429,7 +429,7 @@ Props:
 Example:
 ```js
 import {TextArea} from 'ustyle-react';
-// TODO: Write about overlay...
+// TODO: Write about textarea...
 ```
 
 Props:
