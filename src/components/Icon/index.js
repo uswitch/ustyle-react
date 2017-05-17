@@ -33,8 +33,8 @@ export default class Icon extends PureComponent {
     return cx({
       'us-icon': true,
       [`us-icon--${size}`]: size,
-      [`us-icon--${size}--sm-tablet`]: sizeTablet,
-      [`us-icon--${size}--mobile`]: sizeMobile,
+      [`us-icon--${sizeTablet}--sm-tablet`]: sizeTablet,
+      [`us-icon--${sizeMobile}--mobile`]: sizeMobile,
       [`us-icon--${this.realColor}`]: this.realColor,
       'us-icon--notext': noText
     });
