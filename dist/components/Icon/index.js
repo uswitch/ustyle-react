@@ -76,7 +76,7 @@ var Icon = function (_PureComponent) {
 
       return (0, _classnames2.default)((_cx = {
         'us-icon': true
-      }, _defineProperty(_cx, 'us-icon--' + size, size), _defineProperty(_cx, 'us-icon--' + size + '--sm-tablet', sizeTablet), _defineProperty(_cx, 'us-icon--' + size + '--mobile', sizeMobile), _defineProperty(_cx, 'us-icon--' + this.realColor, this.realColor), _defineProperty(_cx, 'us-icon--notext', noText), _cx));
+      }, _defineProperty(_cx, 'us-icon--' + size, size), _defineProperty(_cx, 'us-icon--' + sizeTablet + '--sm-tablet', sizeTablet), _defineProperty(_cx, 'us-icon--' + sizeMobile + '--mobile', sizeMobile), _defineProperty(_cx, 'us-icon--' + this.realColor, this.realColor), _defineProperty(_cx, 'us-icon--notext', noText), _cx));
     }
   }, {
     key: 'xlinkHref',
