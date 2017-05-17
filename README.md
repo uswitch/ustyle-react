@@ -423,3 +423,19 @@ Props:
 - `variant` [string] - options: left, right, modal
 - `isOpen` [boolean]
 - `onClose` [function]
+
+### TextArea [→](https://ustyle.guide/pattern-library/forms.html#textarea)
+
+Example:
+```js
+import {TextArea} from 'ustyle-react';
+// TODO: Write about overlay...
+```
+
+Props:
+
+- `name` [string]
+- `value` [string]
+- `disabled` [boolean]
+- `blocked` [boolean]
+- `onChange` [function]
