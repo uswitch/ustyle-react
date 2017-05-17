@@ -10,6 +10,7 @@ import Overlay from './components/Overlay';
 import ProgressNavigation from './components/ProgressNavigation';
 import Select from './components/Select';
 import Tabs from './components/Tabs';
+import TextArea from './components/TextArea';
 import Toggle from './components/Toggle';
 import ToggleYesNo from './components/ToggleYesNo';
 import USP from './components/USP';
@@ -29,6 +30,7 @@ export {
   ProgressNavigation,
   Select,
   Tabs,
+  TextArea,
   Toggle,
   ToggleYesNo,
   USP,

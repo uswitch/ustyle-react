@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.Tabs = exports.Select = exports.ProgressNavigation = exports.Overlay = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Input = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
+exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.TextArea = exports.Tabs = exports.Select = exports.ProgressNavigation = exports.Overlay = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Input = exports.Icon = exports.Field = exports.Button = exports.Breadcrumbs = undefined;
 
 var _Breadcrumbs = require('./components/Breadcrumbs');
 
@@ -53,6 +53,10 @@ var _Tabs = require('./components/Tabs');
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
+var _TextArea = require('./components/TextArea');
+
+var _TextArea2 = _interopRequireDefault(_TextArea);
+
 var _Toggle = require('./components/Toggle');
 
 var _Toggle2 = _interopRequireDefault(_Toggle);
@@ -87,6 +91,7 @@ exports.Overlay = _Overlay2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.Select = _Select2.default;
 exports.Tabs = _Tabs2.default;
+exports.TextArea = _TextArea2.default;
 exports.Toggle = _Toggle2.default;
 exports.ToggleYesNo = _ToggleYesNo2.default;
 exports.USP = _USP2.default;
