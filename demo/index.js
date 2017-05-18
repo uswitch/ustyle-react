@@ -13,6 +13,8 @@ import Toggle from '../src/components/Toggle/example';
 import Overlay from '../src/components/Overlay/example';
 import ToggleYesNo from '../src/components/ToggleYesNo/example';
 import InputGroup from '../src/components/InputGroup/example';
+import Checkbox from '../src/components/Checkbox/example';
+import Radio from '../src/components/Radio/example';
 import Tabs from '../src/components/Tabs/example';
 import Input from '../src/components/Input/example';
 import TextArea from '../src/components/TextArea/example';
@@ -35,5 +37,8 @@ ReactDOM.render(
     <h2>Tabs</h2><Tabs /><hr />
     <h2>Input</h2><Input /><hr />
     <h2>TextArea</h2><TextArea /><hr />
+    <h2>Checkbox</h2><Checkbox /><hr />
+    <h2>Radio</h2><Radio /><hr />
+    <h2>Tabs</h2><Tabs />
   </div>
 , document.getElementById('main'));
