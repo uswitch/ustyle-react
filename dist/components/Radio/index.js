@@ -20,7 +20,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _lodash = require('lodash');
+var _lodash = require('lodash.omit');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -51,7 +53,7 @@ var Radio = function (_PureComponent) {
           name = _props.name,
           other = _objectWithoutProperties(_props, ['onChange', 'checked', 'children', 'name']);
 
-      var newProps = (0, _lodash.omit)(this.props, 'type', 'children', 'className', 'onChange');
+      var newProps = (0, _lodash2.default)(this.props, 'type', 'children', 'className', 'onChange');
 
       return _react2.default.createElement(
         'label',

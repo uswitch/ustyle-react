@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 
 export default class Checkbox extends PureComponent {
   get className () {
