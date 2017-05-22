@@ -12,21 +12,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
+var _CheckableInput = require('../CheckableInput');
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
+var _CheckableInput2 = _interopRequireDefault(_CheckableInput);
 
 var _lodash = require('lodash.omit');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -46,29 +40,8 @@ var Checkbox = function (_PureComponent) {
   _createClass(Checkbox, [{
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          onChange = _props.onChange,
-          checked = _props.checked,
-          children = _props.children,
-          name = _props.name,
-          other = _objectWithoutProperties(_props, ['onChange', 'checked', 'children', 'name']);
-
-      var newProps = (0, _lodash2.default)(this.props, 'type', 'children', 'className', 'onChange');
-
-      return _react2.default.createElement(
-        'label',
-        null,
-        _react2.default.createElement('input', _extends({}, newProps, { checked: checked, className: this.className, name: name, type: 'checkbox', onChange: onChange })),
-        children
-      );
-    }
-  }, {
-    key: 'className',
-    get: function get() {
-      return (0, _classnames2.default)({
-        "us-form-input": true,
-        "us-form-input--disabled": this.props.disabled
-      });
+      var props = (0, _lodash2.default)(this.props, 'type');
+      return _react2.default.createElement(_CheckableInput2.default, _extends({}, props, { type: 'checkbox' }));
     }
   }]);
 
@@ -76,9 +49,3 @@ var Checkbox = function (_PureComponent) {
 }(_react.PureComponent);
 
 exports.default = Checkbox;
-
-
-Checkbox.propTypes = {
-  children: _propTypes2.default.string,
-  onChange: _propTypes2.default.func.isRequired
-};

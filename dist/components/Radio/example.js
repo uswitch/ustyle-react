@@ -26,6 +26,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon'];
+
 var CheckboxExample = function (_PureComponent) {
   _inherits(CheckboxExample, _PureComponent);
 
@@ -34,52 +36,42 @@ var CheckboxExample = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (CheckboxExample.__proto__ || Object.getPrototypeOf(CheckboxExample)).call(this, props));
 
-    _this.state = { radiovalue: '' };
-
+    _this.state = {};
     _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
 
   _createClass(CheckboxExample, [{
     key: 'handleChange',
-    value: function handleChange(event) {
-      var target = event.target;
-      var value = target.type === 'radio' ? target.checked : target.value;
-      var name = target.name;
-
-      this.setState({
-        radiovalue: value
-      });
+    value: function handleChange(e, selected) {
+      this.setState({ selected: selected });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         _index2.default,
         { variant: 'blocked' },
         _react2.default.createElement(
           'label',
           null,
-          'Do you have a different billing address?'
+          'How would you like to be contacted?'
         ),
         _react2.default.createElement(
           'div',
           { className: 'us-field-toggle' },
-          _react2.default.createElement(
-            _index4.default,
-            { disabled: true, name: 'option', onChange: this.handleChange },
-            'Yes'
-          ),
-          _react2.default.createElement(
-            _index4.default,
-            { name: 'option', onChange: this.handleChange },
-            'No'
-          ),
-          _react2.default.createElement(
-            _index4.default,
-            { name: 'option', onChange: this.handleChange },
-            'Maybe'
-          )
+          OPTIONS.map(function (option, i) {
+            return _react2.default.createElement(_index4.default, {
+              key: option,
+              name: 'radio',
+              disabled: i === 3,
+              value: option,
+              checked: _this2.state.selected === option,
+              onChange: _this2.handleChange,
+              children: option });
+          })
         )
       );
     }

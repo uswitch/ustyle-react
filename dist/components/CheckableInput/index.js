@@ -12,9 +12,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _CheckableInput = require('../CheckableInput');
+var _propTypes = require('prop-types');
 
-var _CheckableInput2 = _interopRequireDefault(_CheckableInput);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
 
 var _lodash = require('lodash.omit');
 
@@ -28,24 +32,64 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Radio = function (_PureComponent) {
-  _inherits(Radio, _PureComponent);
+var CheckableInput = function (_PureComponent) {
+  _inherits(CheckableInput, _PureComponent);
 
-  function Radio() {
-    _classCallCheck(this, Radio);
+  function CheckableInput(props) {
+    _classCallCheck(this, CheckableInput);
 
-    return _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (CheckableInput.__proto__ || Object.getPrototypeOf(CheckableInput)).call(this, props));
+
+    _this.onChangeHandler = _this.onChangeHandler.bind(_this);
+    return _this;
   }
 
-  _createClass(Radio, [{
+  _createClass(CheckableInput, [{
+    key: 'onChangeHandler',
+    value: function onChangeHandler(e) {
+      this.props.onChange(e, this.props.value);
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var props = (0, _lodash2.default)(this.props, 'type');
-      return _react2.default.createElement(_CheckableInput2.default, _extends({}, props, { type: 'radio' }));
+      var children = this.props.children;
+
+      var cleanProps = (0, _lodash2.default)(this.props, 'className', 'children', 'onChange');
+      return _react2.default.createElement(
+        'label',
+        null,
+        _react2.default.createElement('input', _extends({}, cleanProps, {
+          onChange: this.onChangeHandler,
+          className: this.className })),
+        children
+      );
+    }
+  }, {
+    key: 'className',
+    get: function get() {
+      return (0, _classnames2.default)({
+        'us-form-input': true,
+        'us-form-input--disabled': this.props.disabled
+      });
     }
   }]);
 
-  return Radio;
+  return CheckableInput;
 }(_react.PureComponent);
 
-exports.default = Radio;
+exports.default = CheckableInput;
+
+
+CheckableInput.propTypes = {
+  type: _propTypes2.default.oneOf(['radio', 'checkbox']).isRequired,
+  checked: _propTypes2.default.bool,
+  disabled: _propTypes2.default.bool,
+  name: _propTypes2.default.string.isRequired,
+  value: _propTypes2.default.any.isRequired,
+  onChange: _propTypes2.default.func.isRequired
+};
+
+CheckableInput.defaultProps = {
+  disabled: false,
+  checked: false
+};

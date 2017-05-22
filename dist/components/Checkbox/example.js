@@ -28,6 +28,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon'];
+
 var CheckboxExample = function (_PureComponent) {
   _inherits(CheckboxExample, _PureComponent);
 
@@ -36,24 +38,25 @@ var CheckboxExample = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (CheckboxExample.__proto__ || Object.getPrototypeOf(CheckboxExample)).call(this, props));
 
-    _this.state = { value: '' };
-
+    _this.state = { email: true };
     _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
 
   _createClass(CheckboxExample, [{
     key: 'handleChange',
-    value: function handleChange(event) {
-      var target = event.target;
-      var value = target.type === 'checkbox' ? target.checked : target.value;
-      var name = target.name;
-
-      this.setState(_defineProperty({}, name, value));
+    value: function handleChange(e, value) {
+      this.setState(function (state) {
+        var newState = Object.assign({}, state, _defineProperty({}, value, !state[value]));
+        console.log(newState);
+        return newState;
+      });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         _index2.default,
         { variant: 'blocked' },
@@ -65,21 +68,15 @@ var CheckboxExample = function (_PureComponent) {
         _react2.default.createElement(
           'div',
           { className: 'us-field-toggle' },
-          _react2.default.createElement(
-            _index4.default,
-            { disabled: true, name: 'Email', onChange: this.handleChange },
-            'Email'
-          ),
-          _react2.default.createElement(
-            _index4.default,
-            { name: 'Telephone', onChange: this.handleChange },
-            'Telephone'
-          ),
-          _react2.default.createElement(
-            _index4.default,
-            { name: 'Pager', onChange: this.handleChange },
-            'Pager'
-          )
+          OPTIONS.map(function (option, i) {
+            return _react2.default.createElement(_index4.default, {
+              key: option,
+              name: 'radio',
+              disabled: i === 2,
+              value: option,
+              checked: _this2.state[option] || false,
+              onChange: _this2.handleChange, children: option });
+          })
         )
       );
     }
@@ -89,4 +86,3 @@ var CheckboxExample = function (_PureComponent) {
 }(_react.PureComponent);
 
 exports.default = CheckboxExample;
-;

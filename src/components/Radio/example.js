@@ -2,32 +2,34 @@ import React, {PureComponent} from 'react';
 import Field from '../Field/index';
 import Radio from './index';
 
-export default class CheckboxExample extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {radiovalue: ''};
+const OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon'];
 
+export default class CheckboxExample extends PureComponent {
+  constructor (props) {
+    super(props);
+    this.state = {};
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === 'radio' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      radiovalue: value
-    });
+  handleChange (e, selected) {
+    this.setState({ selected });
   }
 
-  render() {
+  render () {
     return (
-      <Field variant="blocked">
-        <label>Do you have a different billing address?</label>
-        <div className="us-field-toggle">
-          <Radio disabled name="option" onChange={this.handleChange}>Yes</Radio>
-          <Radio name="option" onChange={this.handleChange}>No</Radio>
-          <Radio name="option" onChange={this.handleChange}>Maybe</Radio>
+      <Field variant='blocked'>
+        <label>How would you like to be contacted?</label>
+        <div className='us-field-toggle'>
+          {OPTIONS.map((option, i) => (
+            <Radio
+              key={option}
+              name='radio'
+              disabled={i === 3}
+              value={option}
+              checked={this.state.selected === option}
+              onChange={this.handleChange}
+              children={option} />
+          ))}
         </div>
       </Field>
     );
