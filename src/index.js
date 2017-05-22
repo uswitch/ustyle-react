@@ -1,5 +1,6 @@
 import Breadcrumbs from './components/Breadcrumbs';
 import Button from './components/Button';
+import Checkbox from './components/Checkbox';
 import Field from './components/Field';
 import Icon from './components/Icon';
 import Input from './components/Input';
@@ -8,6 +9,7 @@ import Loader from './components/Loader';
 import LoaderContainer from './components/LoaderContainer';
 import Overlay from './components/Overlay';
 import ProgressNavigation from './components/ProgressNavigation';
+import Radio from './components/Radio';
 import Select from './components/Select';
 import Tabs from './components/Tabs';
 import TextArea from './components/TextArea';
