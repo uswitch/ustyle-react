@@ -22,6 +22,7 @@ import ValidationMessage from './components/ValidationMessage';
 export {
   Breadcrumbs,
   Button,
+  Checkbox,
   Field,
   Icon,
   Input,
@@ -30,6 +31,7 @@ export {
   LoaderContainer,
   Overlay,
   ProgressNavigation,
+  Radio,
   Select,
   Tabs,
   TextArea,
