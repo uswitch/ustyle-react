@@ -1,5 +1,5 @@
-import React, {PureComponent} from 'react';
-import Toggle from './index';
+import React, {PureComponent} from 'react'
+import Toggle from './index'
 
 const items = [{
   disabled: false,
@@ -13,18 +13,18 @@ const items = [{
   disabled: true,
   text: 'Cheese is not real',
   value: 'fake'
-}];
+}]
 
 export default class ToggleExample extends PureComponent {
   constructor (props) {
-    super(props);
-    this.state = { toggleValue: true };
+    super(props)
+    this.state = { toggleValue: true }
   }
   onChangeHandler (e, { value }) {
-    this.setState({ toggleValue: value });
+    this.setState({ toggleValue: value })
   }
   get jsonState () {
-    return JSON.stringify(this.state);
+    return JSON.stringify(this.state)
   }
   render () {
     return (
@@ -37,6 +37,6 @@ export default class ToggleExample extends PureComponent {
           items={items}
           onChange={this.onChangeHandler.bind(this)} />
       </div>
-    );
+    )
   }
 }

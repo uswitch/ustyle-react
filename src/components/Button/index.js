@@ -1,9 +1,9 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed'];
-const SIZES = ['large', 'small']; // NOTE: should we have medium as default?
+const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed']
+const SIZES = ['large', 'small'] // NOTE: should we have medium as default?
 
 export default class Button extends PureComponent {
   getClassName () {
@@ -15,14 +15,14 @@ export default class Button extends PureComponent {
       'us-btn--link': this.props.link,
       'us-btn--stronger': this.props.stronger,
       'us-btn--disabled': this.props.href && this.props.disabled
-    });
+    })
   }
   render () {
-    const { children, href, onClick, disabled } = this.props;
-    const className = this.getClassName();
-    const childProps = { className, onClick, children };
-    if (href) return <a href={href} role='button' {...childProps} />;
-    return <button disabled={disabled} {...childProps} />;
+    const { children, href, onClick, disabled } = this.props
+    const className = this.getClassName()
+    const childProps = { className, onClick, children }
+    if (href) return <a href={href} role='button' {...childProps} />
+    return <button disabled={disabled} {...childProps} />
   }
 }
 
@@ -34,11 +34,11 @@ Button.propTypes = {
   stronger: PropTypes.bool.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func
-};
+}
 
 Button.defaultProps = {
   blocked: false,
   link: false,
   stronger: false,
   onClick: () => {}
-};
+}

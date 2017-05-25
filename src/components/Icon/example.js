@@ -1,5 +1,5 @@
-import React from 'react';
-import Icon from './index';
+import React from 'react'
+import Icon from './index'
 
 export default () => (
   <div>
@@ -7,4 +7,4 @@ export default () => (
     <Icon name='facebook-brand' />
     <Icon name='google' color='typecyan' size='large' />
   </div>
-);
+)

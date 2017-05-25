@@ -1,13 +1,13 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 class Breadcrumb extends PureComponent {
   onClickHandler (e) {
-    const { item, onClick } = this.props;
-    onClick(e, item);
+    const { item, onClick } = this.props
+    onClick(e, item)
   }
   render () {
-    const { item, isLast } = this.props;
+    const { item, isLast } = this.props
     return (
       <li className='us-crumbs__item'>
         { isLast
@@ -18,7 +18,7 @@ class Breadcrumb extends PureComponent {
             children={item.text}
             onClick={this.onClickHandler.bind(this)} /> }
       </li>
-    );
+    )
   }
 }
 
@@ -29,26 +29,26 @@ Breadcrumb.propTypes = {
   }),
   isLast: PropTypes.bool,
   onClick: PropTypes.func
-};
+}
 
 Breadcrumb.defaultProps = {
   isLast: false,
   onClick: () => {}
-};
+}
 
 export default class Breadcrumbs extends PureComponent {
   render () {
-    const { items, onClick } = this.props;
+    const { items, onClick } = this.props
     return (
       <ul className='us-crumbs'>
         {items.map((item, i) => {
-          const isLast = (i === (items.length - 1));
-          const key = i;
-          const props = { key, item, isLast, onClick };
-          return <Breadcrumb {...props} />;
+          const isLast = (i === (items.length - 1))
+          const key = i
+          const props = { key, item, isLast, onClick }
+          return <Breadcrumb {...props} />
         })}
       </ul>
-    );
+    )
   }
 }
 
@@ -58,8 +58,8 @@ Breadcrumbs.propTypes = {
     href: PropTypes.string
   })).isRequired,
   onClick: PropTypes.func
-};
+}
 
 Breadcrumbs.defaultProps = {
   onClick: () => {}
-};
+}

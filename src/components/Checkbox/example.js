@@ -1,22 +1,22 @@
-import React, {PureComponent} from 'react';
-import Field from '../Field/index';
-import Checkbox from './index';
+import React, {PureComponent} from 'react'
+import Field from '../Field/index'
+import Checkbox from './index'
 
-const OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon'];
+const OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon']
 
 export default class CheckboxExample extends PureComponent {
   constructor (props) {
-    super(props);
-    this.state = { email: true };
-    this.handleChange = this.handleChange.bind(this);
+    super(props)
+    this.state = { email: true }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange (e, value) {
     this.setState((state) => {
-      const newState = Object.assign({}, state, { [value]: !state[value] });
-      console.log(newState);
-      return newState;
-    });
+      const newState = Object.assign({}, state, { [value]: !state[value] })
+      console.log(newState)
+      return newState
+    })
   }
 
   render () {
@@ -35,6 +35,6 @@ export default class CheckboxExample extends PureComponent {
           ))}
         </div>
       </Field>
-    );
+    )
   }
 }

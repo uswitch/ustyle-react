@@ -1,5 +1,5 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 export default class Loader extends PureComponent {
   render () {
@@ -11,10 +11,10 @@ export default class Loader extends PureComponent {
         </div>
         <div className='us-loader__overlay' />
       </div>
-    );
+    )
   }
 }
 
 Loader.propTypes = {
   text: PropTypes.string
-};
+}

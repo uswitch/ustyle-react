@@ -1,34 +1,34 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-const SIZES = ['medium', 'large'];
-const VARIANTS = ['success', 'error'];
+const SIZES = ['medium', 'large']
+const VARIANTS = ['success', 'error']
 
 export default class Input extends PureComponent {
   onChangeHandler (e) {
-    const value = e.target.value;
-    this.props.onChange(e, value);
+    const value = e.target.value
+    this.props.onChange(e, value)
   }
   get deferredProps () {
-    return this.props.deferredProps; // TODO: omit values?
+    return this.props.deferredProps // TODO: omit values?
   }
   render () {
-    const {disabled, blocked, size, variant, value, type, placeholder} = this.props;
+    const {disabled, blocked, size, variant, value, type, placeholder} = this.props
     const className = cx(this.props.deferredProps.className, {
       'us-form-input': true,
       'us-form-input--large': size === 'large',
       [`us-form-input--${variant}`]: variant,
       'us-form-input--blocked': blocked,
       'us-form-input--disabled': disabled
-    });
+    })
     return <input {...this.deferredProps}
       disabled={disabled}
       className={className}
       onChange={this.onChangeHandler.bind(this)}
       type={type}
       value={value}
-      placeholder={placeholder} />;
+      placeholder={placeholder} />
   }
 }
 
@@ -43,7 +43,7 @@ Input.propTypes = {
   blocked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   deferredProps: PropTypes.object.isRequired
-};
+}
 
 Input.defaultProps = {
   type: 'text',
@@ -52,4 +52,4 @@ Input.defaultProps = {
   blocked: false,
   onChange: () => {},
   deferredProps: {}
-};
+}

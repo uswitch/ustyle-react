@@ -1,9 +1,9 @@
-import React, {PureComponent} from 'react';
-import Tabs from './index';
+import React, {PureComponent} from 'react'
+import Tabs from './index'
 
 export default class TabsExample extends PureComponent {
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
       items: [{
         id: 'tab1',
@@ -19,16 +19,16 @@ export default class TabsExample extends PureComponent {
         title: 'Tab 3',
         body: <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
       }]
-    };
+    }
   }
   onClickHandler (e, clickedItem) {
     const items = this.state.items.map((item) => Object.assign({}, item, {
       active: clickedItem.active ? false : (clickedItem.id === item.id)
-    }));
-    console.log(clickedItem);
-    this.setState({ items });
+    }))
+    console.log(clickedItem)
+    this.setState({ items })
   }
   render () {
-    return <Tabs items={this.state.items} onClick={this.onClickHandler.bind(this)} />;
+    return <Tabs items={this.state.items} onClick={this.onClickHandler.bind(this)} />
   }
 }

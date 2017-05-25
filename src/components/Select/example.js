@@ -1,5 +1,5 @@
-import React, {PureComponent} from 'react';
-import Select from './index';
+import React, {PureComponent} from 'react'
+import Select from './index'
 
 const items = [{
   text: 'Yes, I like cheese',
@@ -10,19 +10,19 @@ const items = [{
 }, {
   text: 'Cheese is not real',
   value: 'fake'
-}];
+}]
 
 export default class SelectExample extends PureComponent {
   constructor (props) {
-    super(props);
-    this.state = { myValue: 'no' };
+    super(props)
+    this.state = { myValue: 'no' }
   }
   onChangeHandler (e, item) {
-    console.log(item);
-    this.setState({ myValue: item.value });
+    console.log(item)
+    this.setState({ myValue: item.value })
   }
   get jsonState () {
-    return JSON.stringify(this.state);
+    return JSON.stringify(this.state)
   }
   render () {
     return (
@@ -47,6 +47,6 @@ export default class SelectExample extends PureComponent {
           items={items}
           onChange={this.onChangeHandler.bind(this)} />
       </div>
-    );
+    )
   }
 }

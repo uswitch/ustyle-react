@@ -1,32 +1,31 @@
-import React, {PureComponent} from 'react';
-import Input from './index';
+import React, {PureComponent} from 'react'
+import Input from './index'
 
 export default class InputExample extends PureComponent {
   constructor (props) {
-    super(props);
-    this.state = { value: '' };
+    super(props)
+    this.state = { value: '' }
   }
   componentDidMount () {
-    this.setState({ value: 'example' });
+    this.setState({ value: 'example' })
   }
   updateValue (value) {
-    let variant;
-    if (value.length === 0) variant = null;
-    else variant = (value || '').match('@') ? 'success' : 'error';
-    console.log(value, variant);
+    let variant
+    if (value.length === 0) variant = null
+    else variant = (value || '').match('@') ? 'success' : 'error'
+    console.log(value, variant)
     this.setState((state) => Object.assign({}, state, { value, variant }), () => {
-      console.log('state', this.state);
-    });
+      console.log('state', this.state)
+    })
   }
   render () {
     return (
       <Input {...this.state}
-        type="email"
-        size="large"
-        deferredProps={{id:"email"}}
-        placeholder="Email"
+        type='email'
+        size='large'
+        deferredProps={{id: 'email'}}
         onChange={(e, value) => this.updateValue(value)}
-        placeholder="you@example.com" />
-    );
+        placeholder='you@example.com' />
+    )
   }
 }

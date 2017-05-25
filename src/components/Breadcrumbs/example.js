@@ -1,5 +1,5 @@
-import React from 'react';
-import Breadcrumbs from './index';
+import React from 'react'
+import Breadcrumbs from './index'
 
 const items = [{
   href: '/',
@@ -13,11 +13,11 @@ const items = [{
 }, {
   href: null, // NOTE: optional, not used
   text: 'Statutory credit reports'
-}];
+}]
 
 function onClick (e, item) {
-  e.preventDefault();
-  window.alert('You clicked a breadcrumb:\n' + item.href);
+  e.preventDefault()
+  window.alert('You clicked a breadcrumb:\n' + item.href)
 }
 
-export default () => <Breadcrumbs items={items} onClick={onClick} />;
+export default () => <Breadcrumbs items={items} onClick={onClick} />

@@ -1,58 +1,58 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
-import Button from '../Button';
-import {addClass, removeClass, hasClass} from '../../utils/class-helpers';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
+import Button from '../Button'
+import {addClass, removeClass, hasClass} from '../../utils/class-helpers'
 
-const VARIANTS = ['left', 'right', 'modal'];
+const VARIANTS = ['left', 'right', 'modal']
 
 export default class Overlay extends PureComponent {
   constructor (props, context) {
-    super(props, context);
+    super(props, context)
     this.state = {
       visibility: 'closed'
-    };
+    }
   }
   disableScroll () {
-    addClass(document.querySelector('html'), 'noscroll');
-    addClass(document.body, 'noscroll');
+    addClass(document.querySelector('html'), 'noscroll')
+    addClass(document.body, 'noscroll')
   }
   enableScroll () {
-    removeClass(document.querySelector('html'), 'noscroll');
-    removeClass(document.body, 'noscroll');
+    removeClass(document.querySelector('html'), 'noscroll')
+    removeClass(document.body, 'noscroll')
   }
   componentWillReceiveProps (nextProps) {
-    if (nextProps.isOpen === this.props.isOpen) return;
-    return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
+    if (nextProps.isOpen === this.props.isOpen) return
+    return nextProps.isOpen ? this.openOverlay() : this.closeOverlay()
   }
   openOverlay () {
     this.setState({
       visibility: 'visible',
       scrollTop: document.body.scrollTop
-    });
-    this.disableScroll();
+    })
+    this.disableScroll()
   }
   finishClose (e) {
     this.setState((state) => ({
       visibility: 'closed'
-    }));
+    }))
     // using uStyle's overlay, which means we need some class dancing here
     if (hasClass(document.body, 'noscroll')) {
-      this.enableScroll();
+      this.enableScroll()
       setTimeout(() => {
-        document.body.scrollTop = this.state.scrollTop;
-      }, 100);
+        document.body.scrollTop = this.state.scrollTop
+      }, 100)
     }
   }
   closeOverlay (e) {
     this.setState({
       visibility: 'closing'
-    });
-    setTimeout(this.finishClose.bind(this, e), 500);
+    })
+    setTimeout(this.finishClose.bind(this, e), 500)
   }
   get backdropHTML () {
-    const {visibility} = this.state;
-    if (!visibility === 'visible') return null;
+    const {visibility} = this.state
+    if (!visibility === 'visible') return null
     return (
       <div className={cx({
         'us-backdrop': true,
@@ -60,24 +60,24 @@ export default class Overlay extends PureComponent {
         'us-backdrop--active': visibility === 'visible',
         'us-backdrop--visible': ['visible', 'closing'].includes(visibility)
       })} onClick={this.props.onClose.bind(this)} />
-    );
+    )
   }
   get overlayParentClassName () {
-    const {visibility} = this.state;
-    if (!visibility === 'visible') return null;
+    const {visibility} = this.state
+    if (!visibility === 'visible') return null
     return cx({
       'us-overlay-parent': true,
       'us-overlay-parent--active': visibility === 'visible',
       'us-overlay-parent--visible': ['visible', 'closing'].includes(visibility)
-    });
+    })
   }
   get overlayClassName () {
-    const {variant} = this.props;
+    const {variant} = this.props
     return cx({
       'us-overlay': true,
       'us-overlay--right': variant === 'right',
       'us-overlay--modal': variant === 'modal'
-    });
+    })
   }
   render () {
     return (
@@ -104,7 +104,7 @@ export default class Overlay extends PureComponent {
           {this.backdropHTML}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -114,9 +114,9 @@ Overlay.propTypes = {
   onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   variant: PropTypes.oneOf(VARIANTS)
-};
+}
 
 Overlay.defaultProps = {
   isOpen: false,
   variant: 'modal'
-};
+}

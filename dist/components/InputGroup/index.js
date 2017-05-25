@@ -73,14 +73,14 @@ var InputGroup = function (_PureComponent) {
   }, {
     key: 'leftBox',
     get: function get() {
-      if (this.props.position == 'left') {
+      if (this.props.position === 'left') {
         return this.box;
       }
     }
   }, {
     key: 'rightBox',
     get: function get() {
-      if (this.props.position == 'right') {
+      if (this.props.position === 'right') {
         return this.box;
       }
     }
@@ -88,9 +88,9 @@ var InputGroup = function (_PureComponent) {
     key: 'className',
     get: function get() {
       return (0, _classnames2.default)({
-        "us-input-group": true,
-        "us-input-group--disabled": this.props.disabled,
-        "us-input-group--blocked": this.props.blocked
+        'us-input-group': true,
+        'us-input-group--disabled': this.props.disabled,
+        'us-input-group--blocked': this.props.blocked
       });
     }
   }]);

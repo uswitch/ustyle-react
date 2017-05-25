@@ -1,5 +1,5 @@
-import React from 'react';
-import ProgressNavigation from './index';
+import React from 'react'
+import ProgressNavigation from './index'
 
 const items = [{
   href: '/journey/current-supplier',
@@ -17,11 +17,11 @@ const items = [{
 }, {
   href: null, // optional, not used
   text: 'Apply'
-}];
+}]
 
 function onClick (e, item) {
-  e.preventDefault();
-  window.alert('You clicked a navigation link:\n' + item.href);
+  e.preventDefault()
+  window.alert('You clicked a navigation link:\n' + item.href)
 }
 
-export default () => <ProgressNavigation items={items} onClick={onClick} />;
+export default () => <ProgressNavigation items={items} onClick={onClick} />

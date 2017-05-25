@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-const ICON_PATH = process.env.ICON_PATH || (window && window['ICON_PATH']) || '/icons.svg';
-const SIZES = ['small', 'medium', 'large'];
-const COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom'];
+const ICON_PATH = process.env.ICON_PATH || (window && window['ICON_PATH']) || '/icons.svg'
+const SIZES = ['small', 'medium', 'large']
+const COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom']
 const CUSTOM_ICONS = [
   'cross',
   'facebook',
@@ -20,16 +20,16 @@ const CUSTOM_ICONS = [
   'twitter',
   'twitter-brand',
   'uswitch'
-];
+]
 
 export default class Icon extends PureComponent {
   get realColor () {
-    const { name, color } = this.props;
-    if (color !== 'custom') return color;
-    return CUSTOM_ICONS.includes(name) ? name : color;
+    const { name, color } = this.props
+    if (color !== 'custom') return color
+    return CUSTOM_ICONS.includes(name) ? name : color
   }
   get className () {
-    const { size, sizeTablet, sizeMobile, noText } = this.props;
+    const { size, sizeTablet, sizeMobile, noText } = this.props
     return cx({
       'us-icon': true,
       [`us-icon--${size}`]: size,
@@ -37,10 +37,10 @@ export default class Icon extends PureComponent {
       [`us-icon--${sizeMobile}--mobile`]: sizeMobile,
       [`us-icon--${this.realColor}`]: this.realColor,
       'us-icon--notext': noText
-    });
+    })
   }
   get xlinkHref () {
-    return `${this.props.iconPath}#icon-${this.props.name}`;
+    return `${this.props.iconPath}#icon-${this.props.name}`
   }
   render () {
     return (
@@ -49,7 +49,7 @@ export default class Icon extends PureComponent {
         className={this.className}>
         <use xlinkHref={this.xlinkHref} />
       </svg>
-    );
+    )
   }
 }
 
@@ -61,11 +61,11 @@ Icon.propTypes = {
   color: PropTypes.oneOf(COLORS),
   noText: PropTypes.bool.isRequired,
   iconPath: PropTypes.string.isRequired
-};
+}
 
 Icon.defaultProps = {
   size: 'medium',
   color: 'custom',
   noText: false,
   iconPath: ICON_PATH
-};
+}

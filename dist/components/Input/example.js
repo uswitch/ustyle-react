@@ -18,8 +18,6 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -62,15 +60,14 @@ var InputExample = function (_PureComponent) {
     value: function render() {
       var _this3 = this;
 
-      return _react2.default.createElement(_index2.default, _extends({}, this.state, _defineProperty({
+      return _react2.default.createElement(_index2.default, _extends({}, this.state, {
         type: 'email',
         size: 'large',
-        deferredProps: { id: "email" },
-        placeholder: 'Email',
+        deferredProps: { id: 'email' },
         onChange: function onChange(e, value) {
           return _this3.updateValue(value);
-        }
-      }, 'placeholder', 'you@example.com')));
+        },
+        placeholder: 'you@example.com' }));
     }
   }]);
 

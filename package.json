@@ -1,16 +1,16 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist ; babel src --out-dir dist",
+    "build": "rm -rf dist; babel src --out-dir dist",
     "start": "webpack-dev-server",
-    "commit-dist": "npm run build ; git add dist",
+    "commit-dist": "npm run build; npm run lint:fix; git add dist",
     "bump-version": "nver; git add package.json",
     "watch": "nodemon -e js --watch src --exec \"npm run build\"",
     "lint": "standard \"src/**/*.js\" \"*.js\"",
-    "lint:fix": "standard \"src/**/*.js\" \"*.js\" --fix"
+    "lint:fix": "standard --fix \"src/**/*.js\" \"*.js\""
   },
   "repository": {
     "type": "git",

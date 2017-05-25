@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 class ToggleItem extends PureComponent {
   onChangeHandler (e) {
-    this.props.onChange(e, this.props.item);
+    this.props.onChange(e, this.props.item)
   }
   render () {
     return (
@@ -25,13 +25,13 @@ class ToggleItem extends PureComponent {
           })}
           children={this.props.item.text} />
       </label>
-    );
+    )
   }
 }
 
 export default class Toggle extends PureComponent {
   render () {
-    const { items, onChange, name, value } = this.props;
+    const { items, onChange, name, value } = this.props
     return (
       <div className='us-toggle'>
         {items.map((item, i) => (
@@ -43,7 +43,7 @@ export default class Toggle extends PureComponent {
             onChange={onChange} />
         ))}
       </div>
-    );
+    )
   }
 }
 
@@ -56,4 +56,4 @@ Toggle.propTypes = {
   value: PropTypes.any,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired
-};
+}

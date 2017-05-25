@@ -1,5 +1,5 @@
-import React from 'react';
-import Button from './index';
+import React from 'react'
+import Button from './index'
 
 export default () => (
   <div>
@@ -48,4 +48,4 @@ export default () => (
       <Button disabled>Button Element</Button>
     </div>
   </div>
-);
+)

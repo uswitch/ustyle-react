@@ -1,4 +1,4 @@
-const {resolve, join} = require('path');
+const {resolve, join} = require('path')
 
 module.exports = {
   context: __dirname,
@@ -20,4 +20,4 @@ module.exports = {
     contentBase: join(__dirname, 'demo'),
     port: 9000
   }
-};
+}

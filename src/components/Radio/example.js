@@ -1,18 +1,18 @@
-import React, {PureComponent} from 'react';
-import Field from '../Field/index';
-import Radio from './index';
+import React, {PureComponent} from 'react'
+import Field from '../Field/index'
+import Radio from './index'
 
-const OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon'];
+const OPTIONS = ['email', 'telephone', 'pager', 'carrier pigeon']
 
 export default class CheckboxExample extends PureComponent {
   constructor (props) {
-    super(props);
-    this.state = {};
-    this.handleChange = this.handleChange.bind(this);
+    super(props)
+    this.state = {}
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange (e, selected) {
-    this.setState({ selected });
+    this.setState({ selected })
   }
 
   render () {
@@ -32,6 +32,6 @@ export default class CheckboxExample extends PureComponent {
           ))}
         </div>
       </Field>
-    );
+    )
   }
 }
