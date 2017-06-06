@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const ICON_PATH = process.env.ICON_PATH || (window && window['ICON_PATH']) || '/icons.svg'
+const ICON_PATH = process.env.ICON_PATH || (typeof(window) !== 'undefined' && window['ICON_PATH']) || '/icons.svg'
 const SIZES = ['small', 'medium', 'large']
 const COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom']
 const CUSTOM_ICONS = [
