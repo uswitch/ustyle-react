@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import omit from 'lodash.omit'
+import omit from '../../utils/omit'
 
 export default class CheckableInput extends PureComponent {
   constructor (props) {

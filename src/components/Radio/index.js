@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import CheckableInput from '../CheckableInput'
-import omit from 'lodash.omit'
+import omit from '../../utils/omit'
 
 export default class Radio extends PureComponent {
   render () {

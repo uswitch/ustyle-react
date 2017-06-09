@@ -16,9 +16,9 @@ var _CheckableInput = require('../CheckableInput');
 
 var _CheckableInput2 = _interopRequireDefault(_CheckableInput);
 
-var _lodash = require('lodash.omit');
+var _omit = require('../../utils/omit');
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _omit2 = _interopRequireDefault(_omit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40,7 +40,7 @@ var Checkbox = function (_PureComponent) {
   _createClass(Checkbox, [{
     key: 'render',
     value: function render() {
-      var props = (0, _lodash2.default)(this.props, 'type');
+      var props = (0, _omit2.default)(this.props, 'type');
       return _react2.default.createElement(_CheckableInput2.default, _extends({}, props, { type: 'checkbox' }));
     }
   }]);

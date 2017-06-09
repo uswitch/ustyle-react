@@ -20,9 +20,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _lodash = require('lodash.omit');
+var _omit = require('../../utils/omit');
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _omit2 = _interopRequireDefault(_omit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54,7 +54,7 @@ var CheckableInput = function (_PureComponent) {
     value: function render() {
       var children = this.props.children;
 
-      var cleanProps = (0, _lodash2.default)(this.props, 'className', 'children', 'onChange');
+      var cleanProps = (0, _omit2.default)(this.props, 'className', 'children', 'onChange');
       return _react2.default.createElement(
         'label',
         null,

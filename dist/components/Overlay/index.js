@@ -84,9 +84,9 @@ var Overlay = function (_PureComponent) {
         return {
           visibility: 'closed'
         };
-      });
+      }
       // using uStyle's overlay, which means we need some class dancing here
-      if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
+      );if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
         this.enableScroll();
         setTimeout(function () {
           document.body.scrollTop = _this2.state.scrollTop;
