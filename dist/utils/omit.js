@@ -15,6 +15,4 @@ var omit = function omit(obj) {
   return newObj;
 };
 
-window.omit = omit;
-
 exports.default = omit;

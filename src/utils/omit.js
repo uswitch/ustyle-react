@@ -4,6 +4,4 @@ const omit = (obj, ...keys) => {
   return newObj
 }
 
-window.omit = omit
-
 export default omit
