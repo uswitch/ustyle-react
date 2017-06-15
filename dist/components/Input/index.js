@@ -20,6 +20,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _omit = require('../../utils/omit');
+
+var _omit2 = _interopRequireDefault(_omit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -36,10 +40,13 @@ var VARIANTS = ['success', 'error'];
 var Input = function (_PureComponent) {
   _inherits(Input, _PureComponent);
 
-  function Input() {
+  function Input(props) {
     _classCallCheck(this, Input);
 
-    return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+
+    _this.onChangeHandler = _this.onChangeHandler.bind(_this);
+    return _this;
   }
 
   _createClass(Input, [{
@@ -54,30 +61,19 @@ var Input = function (_PureComponent) {
       var _cx;
 
       var _props = this.props,
-          disabled = _props.disabled,
-          blocked = _props.blocked,
           size = _props.size,
           variant = _props.variant,
-          value = _props.value,
-          type = _props.type,
-          placeholder = _props.placeholder;
+          blocked = _props.blocked,
+          disabled = _props.disabled;
 
-      var className = (0, _classnames2.default)(this.props.deferredProps.className, (_cx = {
+      var props = (0, _omit2.default)(this.props, 'className', 'size', 'variant', 'blocked');
+      var className = (0, _classnames2.default)(this.props.className, (_cx = {
         'us-form-input': true,
         'us-form-input--large': size === 'large'
       }, _defineProperty(_cx, 'us-form-input--' + variant, variant), _defineProperty(_cx, 'us-form-input--blocked', blocked), _defineProperty(_cx, 'us-form-input--disabled', disabled), _cx));
-      return _react2.default.createElement('input', _extends({}, this.deferredProps, {
-        disabled: disabled,
+      return _react2.default.createElement('input', _extends({}, props, {
         className: className,
-        onChange: this.onChangeHandler.bind(this),
-        type: type,
-        value: value,
-        placeholder: placeholder }));
-    }
-  }, {
-    key: 'deferredProps',
-    get: function get() {
-      return this.props.deferredProps; // TODO: omit values?
+        onChange: this.onChangeHandler }));
     }
   }]);
 
@@ -96,8 +92,7 @@ Input.propTypes = {
   variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,
   blocked: _propTypes2.default.bool,
-  onChange: _propTypes2.default.func.isRequired,
-  deferredProps: _propTypes2.default.object.isRequired
+  onChange: _propTypes2.default.func.isRequired
 };
 
 Input.defaultProps = {
@@ -105,6 +100,5 @@ Input.defaultProps = {
   size: 'medium',
   disabled: false,
   blocked: false,
-  onChange: function onChange() {},
-  deferredProps: {}
+  onChange: function onChange() {}
 };
