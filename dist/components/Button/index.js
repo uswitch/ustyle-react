@@ -30,7 +30,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed'];
+var VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed', 'custom'];
 var SIZES = ['large', 'small']; // NOTE: should we have medium as default?
 
 var Button = function (_PureComponent) {

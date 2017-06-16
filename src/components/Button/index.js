@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed']
+const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed', 'custom']
 const SIZES = ['large', 'small'] // NOTE: should we have medium as default?
 
 export default class Button extends PureComponent {
