@@ -58,7 +58,7 @@ export default class Overlay extends PureComponent {
         'us-backdrop': true,
         'us-backdrop--animated': true,
         'us-backdrop--active': visibility === 'visible',
-        'us-backdrop--visible': ['visible', 'closing'].includes(visibility)
+        'us-backdrop--visible': ['visible', 'closing'].indexOf(visibility) > -1
       })} onClick={this.props.onClose.bind(this)} />
     )
   }
@@ -68,7 +68,7 @@ export default class Overlay extends PureComponent {
     return cx({
       'us-overlay-parent': true,
       'us-overlay-parent--active': visibility === 'visible',
-      'us-overlay-parent--visible': ['visible', 'closing'].includes(visibility)
+      'us-overlay-parent--visible': ['visible', 'closing'].indexOf(visibility) > -1
     })
   }
   get overlayClassName () {

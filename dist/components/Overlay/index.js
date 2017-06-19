@@ -84,9 +84,9 @@ var Overlay = function (_PureComponent) {
         return {
           visibility: 'closed'
         };
-      }
+      });
       // using uStyle's overlay, which means we need some class dancing here
-      );if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
+      if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
         this.enableScroll();
         setTimeout(function () {
           document.body.scrollTop = _this2.state.scrollTop;
@@ -154,7 +154,7 @@ var Overlay = function (_PureComponent) {
           'us-backdrop': true,
           'us-backdrop--animated': true,
           'us-backdrop--active': visibility === 'visible',
-          'us-backdrop--visible': ['visible', 'closing'].includes(visibility)
+          'us-backdrop--visible': ['visible', 'closing'].indexOf(visibility) > -1
         }), onClick: this.props.onClose.bind(this) });
     }
   }, {
@@ -166,7 +166,7 @@ var Overlay = function (_PureComponent) {
       return (0, _classnames2.default)({
         'us-overlay-parent': true,
         'us-overlay-parent--active': visibility === 'visible',
-        'us-overlay-parent--visible': ['visible', 'closing'].includes(visibility)
+        'us-overlay-parent--visible': ['visible', 'closing'].indexOf(visibility) > -1
       });
     }
   }, {
