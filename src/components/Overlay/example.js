@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import assign from 'object.assign'
 import Overlay from './index'
 import Button from '../Button'
 import Toggle from '../Toggle'
@@ -22,7 +23,7 @@ export default class OverlayExample extends Component {
   }
   setVariant (variant) {
     console.log(variant)
-    this.setState(Object.assign({}, this.state, { variant }))
+    this.setState(assign({}, this.state, { variant }))
   }
   onToggleClick (e, item) {
     this.setVariant(item.value)

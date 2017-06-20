@@ -26,7 +26,7 @@ export default class Icon extends PureComponent {
   get realColor () {
     const { name, color } = this.props
     if (color !== 'custom') return color
-    return CUSTOM_ICONS.includes(name) ? name : color
+    return CUSTOM_ICONS.indexOf(name) ? name : color
   }
   get className () {
     const { size, sizeTablet, sizeMobile, noText } = this.props

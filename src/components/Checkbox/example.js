@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import assign from 'object.assign'
 import Field from '../Field/index'
 import Checkbox from './index'
 
@@ -13,7 +14,7 @@ export default class CheckboxExample extends PureComponent {
 
   handleChange (e, value) {
     this.setState((state) => {
-      const newState = Object.assign({}, state, { [value]: !state[value] })
+      const newState = assign({}, state, { [value]: !state[value] })
       console.log(newState)
       return newState
     })

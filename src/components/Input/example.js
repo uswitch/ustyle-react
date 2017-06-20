@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import assign from 'object.assign'
 import Input from './index'
 
 export default class InputExample extends PureComponent {
@@ -14,7 +15,7 @@ export default class InputExample extends PureComponent {
     if (value.length === 0) variant = null
     else variant = (value || '').match('@') ? 'success' : 'error'
     console.log(value, variant)
-    this.setState((state) => Object.assign({}, state, { value, variant }), () => {
+    this.setState((state) => assign({}, state, { value, variant }), () => {
       console.log('state', this.state)
     })
   }

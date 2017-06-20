@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _object = require('object.assign');
+
+var _object2 = _interopRequireDefault(_object);
+
 var _index = require('../Field/index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -47,7 +51,7 @@ var CheckboxExample = function (_PureComponent) {
     key: 'handleChange',
     value: function handleChange(e, value) {
       this.setState(function (state) {
-        var newState = Object.assign({}, state, _defineProperty({}, value, !state[value]));
+        var newState = (0, _object2.default)({}, state, _defineProperty({}, value, !state[value]));
         console.log(newState);
         return newState;
       });

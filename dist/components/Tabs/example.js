@@ -65,7 +65,7 @@ var TabsExample = function (_PureComponent) {
     key: 'onClickHandler',
     value: function onClickHandler(e, clickedItem) {
       var items = this.state.items.map(function (item) {
-        return Object.assign({}, item, {
+        return assign({}, item, {
           active: clickedItem.active ? false : clickedItem.id === item.id
         });
       });

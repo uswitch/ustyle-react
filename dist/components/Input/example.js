@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _object = require('object.assign');
+
+var _object2 = _interopRequireDefault(_object);
+
 var _index = require('./index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -50,7 +54,7 @@ var InputExample = function (_PureComponent) {
       if (value.length === 0) variant = null;else variant = (value || '').match('@') ? 'success' : 'error';
       console.log(value, variant);
       this.setState(function (state) {
-        return Object.assign({}, state, { value: value, variant: variant });
+        return (0, _object2.default)({}, state, { value: value, variant: variant });
       }, function () {
         console.log('state', _this2.state);
       });

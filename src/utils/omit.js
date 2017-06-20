@@ -1,5 +1,7 @@
+var assign = require('object.assign/polyfill')();
+
 const omit = (obj, ...keys) => {
-  const newObj = Object.assign({}, obj)
+  const newObj = assign({}, obj)
   keys.forEach(k => delete newObj[k])
   return newObj
 }

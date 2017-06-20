@@ -17,7 +17,7 @@ function removeClass(el, className) {
 }
 
 function hasClass(el, className) {
-  return el.className.split(/[\s]+/).includes(className);
+  return el.className.split(/[\s]+/).indexOf(className) > -1;
 }
 
 exports.default = { addClass: addClass, removeClass: removeClass, hasClass: hasClass };

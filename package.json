@@ -1,6 +1,6 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "object.assign": "^4.0.4",
     "prop-types": "^15.3"
   },
   "peerDependencies": {
