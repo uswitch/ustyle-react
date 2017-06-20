@@ -1,4 +1,4 @@
-var assign = require('object.assign/polyfill')();
+import assign from 'object.assign'
 
 const omit = (obj, ...keys) => {
   const newObj = assign({}, obj)
