@@ -16,11 +16,11 @@ export default class Input extends PureComponent {
     this.props.onChange(e, value)
   }
   render () {
-    const {size, variant, blocked, disabled} = this.props
-    const props = omit(this.props, 'className', 'size', 'variant', 'blocked')
+    const {inputSize, variant, blocked, disabled} = this.props
+    const props = omit(this.props, 'className', 'inputSize', 'variant', 'blocked')
     const className = cx(this.props.className, {
       'us-form-input': true,
-      'us-form-input--large': size === 'large',
+      'us-form-input--large': inputSize === 'large',
       [`us-form-input--${variant}`]: variant,
       'us-form-input--blocked': blocked,
       'us-form-input--disabled': disabled
@@ -37,7 +37,7 @@ Input.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  size: PropTypes.oneOf(SIZES),
+  inputSize: PropTypes.oneOf(SIZES),
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,
   blocked: PropTypes.bool,
@@ -46,7 +46,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
-  size: 'medium',
+  inputSize: 'medium',
   disabled: false,
   blocked: false,
   onChange: () => {}
