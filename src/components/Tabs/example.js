@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import assign from 'object.assign'
 import Tabs from './index'
 
 export default class TabsExample extends PureComponent {
