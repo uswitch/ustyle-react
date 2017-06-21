@@ -61,7 +61,7 @@ var Icon = function (_PureComponent) {
           color = _props.color;
 
       if (color !== 'custom') return color;
-      return CUSTOM_ICONS.includes(name) ? name : color;
+      return CUSTOM_ICONS.indexOf(name) !== -1 ? name : color;
     }
   }, {
     key: 'className',

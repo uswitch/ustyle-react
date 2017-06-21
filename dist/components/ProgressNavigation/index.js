@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _object = require('object.assign');
+
+var _object2 = _interopRequireDefault(_object);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -106,7 +110,7 @@ var ProgressNavigation = function (_PureComponent2) {
         var status = 'complete';
         var prevStatus = (itemsWithStatus[i - 1] || {}).status;
         if (prevStatus === 'current' || prevStatus === 'next') status = 'next';else if (items[i].current) status = 'current';
-        itemsWithStatus.push(Object.assign({ status: status }, items[i]));
+        itemsWithStatus.push((0, _object2.default)({ status: status }, items[i]));
       }
       return itemsWithStatus;
     }

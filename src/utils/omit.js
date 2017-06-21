@@ -1,5 +1,7 @@
+import assign from 'object.assign'
+
 const omit = (obj, ...keys) => {
-  const newObj = Object.assign({}, obj)
+  const newObj = assign({}, obj)
   keys.forEach(k => delete newObj[k])
   return newObj
 }

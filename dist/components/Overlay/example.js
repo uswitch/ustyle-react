@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _object = require('object.assign');
+
+var _object2 = _interopRequireDefault(_object);
+
 var _index = require('./index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -75,7 +79,7 @@ var OverlayExample = function (_Component) {
     key: 'setVariant',
     value: function setVariant(variant) {
       console.log(variant);
-      this.setState(Object.assign({}, this.state, { variant: variant }));
+      this.setState((0, _object2.default)({}, this.state, { variant: variant }));
     }
   }, {
     key: 'onToggleClick',

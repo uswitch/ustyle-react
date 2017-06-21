@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _object = require('object.assign');
+
+var _object2 = _interopRequireDefault(_object);
+
 var _index = require('./index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -65,7 +69,7 @@ var TabsExample = function (_PureComponent) {
     key: 'onClickHandler',
     value: function onClickHandler(e, clickedItem) {
       var items = this.state.items.map(function (item) {
-        return Object.assign({}, item, {
+        return (0, _object2.default)({}, item, {
           active: clickedItem.active ? false : clickedItem.id === item.id
         });
       });

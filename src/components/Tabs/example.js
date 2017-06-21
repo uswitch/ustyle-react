@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import assign from 'object.assign'
 import Tabs from './index'
 
 export default class TabsExample extends PureComponent {
@@ -22,7 +23,7 @@ export default class TabsExample extends PureComponent {
     }
   }
   onClickHandler (e, clickedItem) {
-    const items = this.state.items.map((item) => Object.assign({}, item, {
+    const items = this.state.items.map((item) => assign({}, item, {
       active: clickedItem.active ? false : (clickedItem.id === item.id)
     }))
     console.log(clickedItem)

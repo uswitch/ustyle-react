@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
+import assign from 'object.assign'
 
 const STATUSES = ['current', 'next', 'complete']
 
@@ -48,7 +49,7 @@ export default class ProgressNavigation extends PureComponent {
       let prevStatus = (itemsWithStatus[i - 1] || {}).status
       if (prevStatus === 'current' || prevStatus === 'next') status = 'next'
       else if (items[i].current) status = 'current'
-      itemsWithStatus.push(Object.assign({ status }, items[i]))
+      itemsWithStatus.push(assign({ status }, items[i]))
     }
     return itemsWithStatus
   }
