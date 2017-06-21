@@ -66,7 +66,7 @@ var InputExample = function (_PureComponent) {
 
       return _react2.default.createElement(_index2.default, _extends({}, this.state, {
         type: 'email',
-        size: 'large',
+        inputSize: 'large',
         deferredProps: { id: 'email' },
         onChange: function onChange(e, value) {
           return _this3.updateValue(value);

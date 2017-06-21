@@ -23,7 +23,7 @@ export default class InputExample extends PureComponent {
     return (
       <Input {...this.state}
         type='email'
-        size='large'
+        inputSize='large'
         deferredProps={{id: 'email'}}
         onChange={(e, value) => this.updateValue(value)}
         placeholder='you@example.com' />

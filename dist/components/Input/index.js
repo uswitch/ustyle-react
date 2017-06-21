@@ -61,15 +61,15 @@ var Input = function (_PureComponent) {
       var _cx;
 
       var _props = this.props,
-          size = _props.size,
+          inputSize = _props.inputSize,
           variant = _props.variant,
           blocked = _props.blocked,
           disabled = _props.disabled;
 
-      var props = (0, _omit2.default)(this.props, 'className', 'size', 'variant', 'blocked');
+      var props = (0, _omit2.default)(this.props, 'className', 'inputSize', 'variant', 'blocked');
       var className = (0, _classnames2.default)(this.props.className, (_cx = {
         'us-form-input': true,
-        'us-form-input--large': size === 'large'
+        'us-form-input--large': inputSize === 'large'
       }, _defineProperty(_cx, 'us-form-input--' + variant, variant), _defineProperty(_cx, 'us-form-input--blocked', blocked), _defineProperty(_cx, 'us-form-input--disabled', disabled), _cx));
       return _react2.default.createElement('input', _extends({}, props, {
         className: className,
@@ -88,7 +88,7 @@ Input.propTypes = {
   name: _propTypes2.default.string,
   type: _propTypes2.default.string,
   placeholder: _propTypes2.default.string,
-  size: _propTypes2.default.oneOf(SIZES),
+  inputSize: _propTypes2.default.oneOf(SIZES),
   variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,
   blocked: _propTypes2.default.bool,
@@ -97,7 +97,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
-  size: 'medium',
+  inputSize: 'medium',
   disabled: false,
   blocked: false,
   onChange: function onChange() {}
