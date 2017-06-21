@@ -11,7 +11,7 @@ export function removeClass (el, className) {
 }
 
 export function hasClass (el, className) {
-  return el.className.split(/[\s]+/).indexOf(className) > -1
+  return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 }
 
 export default { addClass, removeClass, hasClass }
