@@ -33,6 +33,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var VARIANTS = ['left', 'right', 'modal'];
+var OVERLAY_BODY_CLASS = 'us-overlay--open';
 
 var Overlay = function (_PureComponent) {
   _inherits(Overlay, _PureComponent);
@@ -51,14 +52,14 @@ var Overlay = function (_PureComponent) {
   _createClass(Overlay, [{
     key: 'disableScroll',
     value: function disableScroll() {
-      (0, _classHelpers.addClass)(document.querySelector('html'), 'noscroll');
-      (0, _classHelpers.addClass)(document.body, 'noscroll');
+      (0, _classHelpers.addClass)(document.querySelector('html'), OVERLAY_BODY_CLASS);
+      (0, _classHelpers.addClass)(document.body, OVERLAY_BODY_CLASS);
     }
   }, {
     key: 'enableScroll',
     value: function enableScroll() {
-      (0, _classHelpers.removeClass)(document.querySelector('html'), 'noscroll');
-      (0, _classHelpers.removeClass)(document.body, 'noscroll');
+      (0, _classHelpers.removeClass)(document.querySelector('html'), OVERLAY_BODY_CLASS);
+      (0, _classHelpers.removeClass)(document.body, OVERLAY_BODY_CLASS);
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -86,7 +87,7 @@ var Overlay = function (_PureComponent) {
         };
       });
       // using uStyle's overlay, which means we need some class dancing here
-      if ((0, _classHelpers.hasClass)(document.body, 'noscroll')) {
+      if ((0, _classHelpers.hasClass)(document.body, OVERLAY_BODY_CLASS)) {
         this.enableScroll();
         setTimeout(function () {
           document.body.scrollTop = _this2.state.scrollTop;

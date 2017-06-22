@@ -5,6 +5,7 @@ import Button from '../Button'
 import {addClass, removeClass, hasClass} from '../../utils/class-helpers'
 
 const VARIANTS = ['left', 'right', 'modal']
+const OVERLAY_BODY_CLASS = 'us-overlay--open'
 
 export default class Overlay extends PureComponent {
   constructor (props, context) {
@@ -14,12 +15,12 @@ export default class Overlay extends PureComponent {
     }
   }
   disableScroll () {
-    addClass(document.querySelector('html'), 'noscroll')
-    addClass(document.body, 'noscroll')
+    addClass(document.querySelector('html'), OVERLAY_BODY_CLASS)
+    addClass(document.body, OVERLAY_BODY_CLASS)
   }
   enableScroll () {
-    removeClass(document.querySelector('html'), 'noscroll')
-    removeClass(document.body, 'noscroll')
+    removeClass(document.querySelector('html'), OVERLAY_BODY_CLASS)
+    removeClass(document.body, OVERLAY_BODY_CLASS)
   }
   componentWillReceiveProps (nextProps) {
     if (nextProps.isOpen === this.props.isOpen) return
@@ -37,7 +38,7 @@ export default class Overlay extends PureComponent {
       visibility: 'closed'
     }))
     // using uStyle's overlay, which means we need some class dancing here
-    if (hasClass(document.body, 'noscroll')) {
+    if (hasClass(document.body, OVERLAY_BODY_CLASS)) {
       this.enableScroll()
       setTimeout(() => {
         document.body.scrollTop = this.state.scrollTop
