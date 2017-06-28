@@ -4,7 +4,8 @@
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist; babel src --out-dir dist",
+    "build": "rm -rf dist; babel src --out-dir dist; echo Pre-Minify: `du -sh dist | cut -f1`",
+    "postbuild": "find dist -type f -exec uglifyjs {} --mangle --compress -o {} \\;; echo Post-Minify: `du -sh dist | cut -f1`",
     "start": "webpack-dev-server",
     "commit-dist": "npm run build; npm run lint:fix; git add dist",
     "bump-version": "nver; git add package.json",
@@ -35,8 +36,6 @@
     "react": ">=15.3"
   },
   "devDependencies": {
-    "react": ">=15.3",
-    "react-dom": ">=15.3",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
@@ -45,7 +44,10 @@
     "nodemon": "^1.11.0",
     "nver": "^0.0.15",
     "pre-commit": "^1.2.2",
+    "react": ">=15.3",
+    "react-dom": ">=15.3",
     "standard": "^10.0.2",
+    "uglify-js": "^3.0.15",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   }
