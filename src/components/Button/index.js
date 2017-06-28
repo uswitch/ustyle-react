@@ -37,7 +37,6 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  variant: 'primary',
   blocked: false,
   link: false,
   stronger: false,
