@@ -1,8 +1,13 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 export default class TextArea extends PureComponent {
+  constructor (props) {
+    super(props)
+    this.onChangeHandler = this.onChangeHandler.bind(this)
+  }
   get className () {
     const {blocked, disabled} = this.props
     return cx({
@@ -11,24 +16,29 @@ export default class TextArea extends PureComponent {
       'us-form-textarea--disabled': disabled
     })
   }
-  onChange (e) {
+  onChangeHandler (e) {
     this.props.onChange(e, e.target.value)
+  }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'className',
+      'blocked', // only used for className
+      'onChange' // use onChangeHandler instead
+    )
   }
   render () {
     return (
       <textarea
-        name={this.props.name}
+        {...this.cleanProps}
         className={this.className}
-        disabled={this.props.disabled}
-        value={this.props.value}
-        onChange={this.props.onChange} />
+        onChange={this.onChangeHandler} />
     )
   }
 }
 
 TextArea.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   blocked: PropTypes.bool,
   disabled: PropTypes.bool

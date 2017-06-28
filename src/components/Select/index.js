@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 const VARIANTS = ['error', 'success']
 
@@ -29,14 +30,21 @@ export default class Select extends PureComponent {
       <option key={i} value={item.value}>{item.text}</option>
     ))
   }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'size', // used to change className
+      'variant', // used to change className
+      'blocked', // used to change className
+      'onChange' // we use our custom
+    )
+  }
   render () {
     return (
       <select
-        size={this.props.size}
-        name={this.props.name}
         className={this.className}
-        value={this.props.value}
-        onChange={this.onChangeHandler.bind(this)}>
+        onChange={this.onChangeHandler.bind(this)}
+        {...this.cleanProps}>
         {this.options}
       </select>
     )
@@ -48,8 +56,7 @@ Select.propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.any.isRequired
   })).isRequired,
-  value: PropTypes.any,
-  name: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,
   blocked: PropTypes.bool,

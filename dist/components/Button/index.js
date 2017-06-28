@@ -20,6 +20,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _omit = require('../../utils/omit');
+
+var _omit2 = _interopRequireDefault(_omit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -43,27 +47,31 @@ var Button = function (_PureComponent) {
   }
 
   _createClass(Button, [{
-    key: 'getClassName',
-    value: function getClassName() {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          href = _props.href,
+          disabled = _props.disabled;
+
+      var props = _extends({}, this.cleanProps, { className: this.className });
+      if (href) return _react2.default.createElement('a', _extends({ href: href, role: 'button' }, props));
+      return _react2.default.createElement('button', _extends({ disabled: disabled }, props));
+    }
+  }, {
+    key: 'className',
+    get: function get() {
       var _cx;
 
-      return (0, _classnames2.default)((_cx = {
+      return (0, _classnames2.default)(this.props.className, (_cx = {
         'us-btn': true
       }, _defineProperty(_cx, 'us-btn--' + this.props.variant, this.props.variant), _defineProperty(_cx, 'us-btn--' + this.props.size, this.props.size), _defineProperty(_cx, 'us-btn--blocked', this.props.blocked), _defineProperty(_cx, 'us-btn--link', this.props.link), _defineProperty(_cx, 'us-btn--stronger', this.props.stronger), _defineProperty(_cx, 'us-btn--disabled', this.props.href && this.props.disabled), _cx));
     }
   }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          href = _props.href,
-          onClick = _props.onClick,
-          disabled = _props.disabled;
-
-      var className = this.getClassName();
-      var childProps = { className: className, onClick: onClick, children: children };
-      if (href) return _react2.default.createElement('a', _extends({ href: href, role: 'button' }, childProps));
-      return _react2.default.createElement('button', _extends({ disabled: disabled }, childProps));
+    key: 'cleanProps',
+    get: function get() {
+      return (0, _omit2.default)(this.props, 'className', 'variant', 'size', 'blocked', 'link', 'stronger', 'href', // not needed for <button> tag
+      'disabled' // no need to add "disabled" to <a> tag
+      );
     }
   }]);
 

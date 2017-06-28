@@ -1,13 +1,14 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed', 'custom']
 const SIZES = ['large', 'small'] // NOTE: should we have medium as default?
 
 export default class Button extends PureComponent {
-  getClassName () {
-    return cx({
+  get className () {
+    return cx(this.props.className, {
       'us-btn': true,
       [`us-btn--${this.props.variant}`]: this.props.variant,
       [`us-btn--${this.props.size}`]: this.props.size,
@@ -17,12 +18,24 @@ export default class Button extends PureComponent {
       'us-btn--disabled': this.props.href && this.props.disabled
     })
   }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'className',
+      'variant',
+      'size',
+      'blocked',
+      'link',
+      'stronger',
+      'href', // not needed for <button> tag
+      'disabled' // no need to add "disabled" to <a> tag
+    )
+  }
   render () {
-    const { children, href, onClick, disabled } = this.props
-    const className = this.getClassName()
-    const childProps = { className, onClick, children }
-    if (href) return <a href={href} role='button' {...childProps} />
-    return <button disabled={disabled} {...childProps} />
+    const { href, disabled } = this.props
+    const props = { ...this.cleanProps, className: this.className }
+    if (href) return <a href={href} role='button' {...props} />
+    return <button disabled={disabled} {...props} />
   }
 }
 

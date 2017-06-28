@@ -58,6 +58,13 @@ var Input = function (_PureComponent) {
   }, {
     key: 'render',
     value: function render() {
+      return _react2.default.createElement('input', _extends({}, this.cleanProps, {
+        className: this.className,
+        onChange: this.onChangeHandler }));
+    }
+  }, {
+    key: 'className',
+    get: function get() {
       var _cx;
 
       var _props = this.props,
@@ -66,14 +73,16 @@ var Input = function (_PureComponent) {
           blocked = _props.blocked,
           disabled = _props.disabled;
 
-      var props = (0, _omit2.default)(this.props, 'className', 'inputSize', 'variant', 'blocked');
-      var className = (0, _classnames2.default)(this.props.className, (_cx = {
+      return (0, _classnames2.default)(this.props.className, (_cx = {
         'us-form-input': true,
         'us-form-input--large': inputSize === 'large'
       }, _defineProperty(_cx, 'us-form-input--' + variant, variant), _defineProperty(_cx, 'us-form-input--blocked', blocked), _defineProperty(_cx, 'us-form-input--disabled', disabled), _cx));
-      return _react2.default.createElement('input', _extends({}, props, {
-        className: className,
-        onChange: this.onChangeHandler }));
+    }
+  }, {
+    key: 'cleanProps',
+    get: function get() {
+      return (0, _omit2.default)(this.props, 'className', 'inputSize', // TODO: revert to `size`, and pass `htmlSize` -> `size`
+      'variant', 'disabled', 'blocked', 'onChange');
     }
   }]);
 
@@ -84,10 +93,7 @@ exports.default = Input;
 
 
 Input.propTypes = {
-  value: _propTypes2.default.any,
-  name: _propTypes2.default.string,
   type: _propTypes2.default.string,
-  placeholder: _propTypes2.default.string,
   inputSize: _propTypes2.default.oneOf(SIZES),
   variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,
