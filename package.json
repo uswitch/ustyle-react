@@ -1,6 +1,6 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "bump-version": "nver; git add package.json",
     "watch": "nodemon -e js --watch src --exec \"npm run build\"",
     "lint": "standard \"src/**/*.js\" \"*.js\"",
-    "lint:fix": "standard --fix \"src/**/*.js\" \"*.js\""
+    "lint:fix": "standard --fix \"src/**/*.js\" \"*.js\"",
+    "storybook": "start-storybook -p 6006"
   },
   "repository": {
     "type": "git",
@@ -28,24 +29,26 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "object.assign": "^4.0.4",
     "prop-types": "^15.3"
   },
   "peerDependencies": {
     "react": ">=15.3"
   },
   "devDependencies": {
-    "react": ">=15.3",
-    "react-dom": ">=15.3",
+    "@storybook/react": "^3.1.6",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "baconipsum": "^0.1.2",
     "nodemon": "^1.11.0",
     "nver": "^0.0.15",
     "pre-commit": "^1.2.2",
+    "react": ">=15.3",
+    "react-dom": ">=15.3",
     "standard": "^10.0.2",
+    "ustyle": "github:uswitch/ustyle",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   }
