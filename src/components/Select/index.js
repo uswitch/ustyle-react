@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 const VARIANTS = ['error', 'success']
 
@@ -30,12 +31,12 @@ export default class Select extends PureComponent {
     ))
   }
   render () {
+    const props = omit(this.props, 'className', 'items', 'onChange')
+
     return (
       <select
-        size={this.props.size}
-        name={this.props.name}
+        {...props}
         className={this.className}
-        value={this.props.value}
         onChange={this.onChangeHandler.bind(this)}>
         {this.options}
       </select>
