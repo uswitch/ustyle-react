@@ -31,7 +31,7 @@ export default class Select extends PureComponent {
     ))
   }
   render () {
-    const props = omit(this.props, 'className', 'items', 'onChange')
+    const props = omit(this.props, 'className', 'items', 'onChange', 'blocked', 'variant')
 
     return (
       <select
