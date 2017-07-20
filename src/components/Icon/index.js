@@ -30,7 +30,7 @@ export default class Icon extends PureComponent {
   }
   get className () {
     const { size, sizeTablet, sizeMobile, noText } = this.props
-    return cx({
+    return cx(this.props.className, {
       'us-icon': true,
       [`us-icon--${size}`]: size,
       [`us-icon--${sizeTablet}--sm-tablet`]: sizeTablet,

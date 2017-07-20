@@ -15,28 +15,38 @@ export default class Input extends PureComponent {
     const value = e.target.value
     this.props.onChange(e, value)
   }
-  render () {
+  get className () {
     const {inputSize, variant, blocked, disabled} = this.props
-    const props = omit(this.props, 'className', 'inputSize', 'variant', 'blocked')
-    const className = cx(this.props.className, {
+    return cx(this.props.className, {
       'us-form-input': true,
       'us-form-input--large': inputSize === 'large',
       [`us-form-input--${variant}`]: variant,
       'us-form-input--blocked': blocked,
       'us-form-input--disabled': disabled
     })
-    return <input
-      {...props}
-      className={className}
-      onChange={this.onChangeHandler} />
+  }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'className',
+      'inputSize', // TODO: revert to `size`, and pass `htmlSize` -> `size`
+      'variant',
+      'disabled',
+      'blocked',
+      'onChange'
+    )
+  }
+  render () {
+    return (
+      <input {...this.cleanProps}
+        className={this.className}
+        onChange={this.onChangeHandler} />
+    )
   }
 }
 
 Input.propTypes = {
-  value: PropTypes.any,
-  name: PropTypes.string,
   type: PropTypes.string,
-  placeholder: PropTypes.string,
   inputSize: PropTypes.oneOf(SIZES),
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,

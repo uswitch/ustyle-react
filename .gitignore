@@ -5,3 +5,4 @@
 /demo/bundle.js
 .idea
 *.swp
+npm-debug.log
