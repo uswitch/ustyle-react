@@ -59,7 +59,7 @@ var ProgressNavigationLink = function (_PureComponent) {
           { className: 'us-tablet--inline' },
           text
         ),
-        onClick: this.onClickHandler.bind(this)
+        onClick: status === 'complete' ? this.onClickHandler.bind(this) : undefined
       };
       switch (status) {
         case 'complete':
