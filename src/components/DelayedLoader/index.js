@@ -2,7 +2,7 @@ import React from 'react'
 import LoaderContainer from '../LoaderContainer'
 
 class DelayedLoader extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       isLoading: false,
@@ -11,7 +11,7 @@ class DelayedLoader extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps (nextProps) {
     const { isLoading: willBeLoading } = nextProps
     const { timedOut, timeoutID } = this.state
     const timeoutHandler = () => this.setState({ timedOut: true, isLoading: false, timeoutID: null })
@@ -37,16 +37,15 @@ class DelayedLoader extends React.Component {
     }
   }
 
-  componentWillUnmount = () => {
+  componentWillUnmount () {
     clearTimeout(this.state.timeoutID)
   }
 
-  render = () => {
+  render () {
     const { children, replaceChildren } = this.props
     const { isLoading } = this.state
 
-
-    return <div className={ isLoading ? this.props.className : '' }>
+    return <div className={isLoading ? this.props.className : ''}>
       <LoaderContainer isLoading={isLoading} text={this.props.text}>
         {replaceChildren && isLoading ? null : children}
       </LoaderContainer>

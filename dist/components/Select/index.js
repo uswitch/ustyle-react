@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -17,6 +19,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
+
+var _omit = require('../../utils/omit');
+
+var _omit2 = _interopRequireDefault(_omit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50,14 +56,13 @@ var Select = function (_PureComponent) {
   }, {
     key: 'render',
     value: function render() {
+      var props = (0, _omit2.default)(this.props, 'className', 'items', 'onChange', 'blocked', 'variant');
+
       return _react2.default.createElement(
         'select',
-        {
-          size: this.props.size,
-          name: this.props.name,
+        _extends({}, props, {
           className: this.className,
-          value: this.props.value,
-          onChange: this.onChangeHandler.bind(this) },
+          onChange: this.onChangeHandler.bind(this) }),
         this.options
       );
     }

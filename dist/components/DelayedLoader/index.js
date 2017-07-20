@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -30,18 +32,30 @@ var DelayedLoader = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (DelayedLoader.__proto__ || Object.getPrototypeOf(DelayedLoader)).call(this, props));
 
-    _this.componentWillReceiveProps = function (nextProps) {
+    _this.state = {
+      isLoading: false,
+      timedOut: false,
+      timeoutID: null
+    };
+    return _this;
+  }
+
+  _createClass(DelayedLoader, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this2 = this;
+
       var willBeLoading = nextProps.isLoading;
-      var _this$state = _this.state,
-          timedOut = _this$state.timedOut,
-          timeoutID = _this$state.timeoutID;
+      var _state = this.state,
+          timedOut = _state.timedOut,
+          timeoutID = _state.timeoutID;
 
       var timeoutHandler = function timeoutHandler() {
-        return _this.setState({ timedOut: true, isLoading: false, timeoutID: null });
+        return _this2.setState({ timedOut: true, isLoading: false, timeoutID: null });
       };
 
       if (!willBeLoading && timedOut) {
-        return _this.setState({
+        return this.setState({
           isLoading: false
         });
       }
@@ -53,42 +67,37 @@ var DelayedLoader = function (_React$Component) {
 
       if (!timeoutID) {
         newState = _extends({}, newState, {
-          timeoutID: setTimeout(timeoutHandler, _this.props.timeout)
+          timeoutID: setTimeout(timeoutHandler, this.props.timeout)
         });
 
-        _this.setState(newState);
+        this.setState(newState);
       }
-    };
-
-    _this.componentWillUnmount = function () {
-      clearTimeout(_this.state.timeoutID);
-    };
-
-    _this.render = function () {
-      var _this$props = _this.props,
-          children = _this$props.children,
-          replaceChildren = _this$props.replaceChildren;
-      var isLoading = _this.state.isLoading;
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearTimeout(this.state.timeoutID);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          replaceChildren = _props.replaceChildren;
+      var isLoading = this.state.isLoading;
 
 
       return _react2.default.createElement(
         'div',
-        { className: isLoading ? _this.props.className : '' },
+        { className: isLoading ? this.props.className : '' },
         _react2.default.createElement(
           _LoaderContainer2.default,
-          { isLoading: isLoading, text: _this.props.text },
+          { isLoading: isLoading, text: this.props.text },
           replaceChildren && isLoading ? null : children
         )
       );
-    };
-
-    _this.state = {
-      isLoading: false,
-      timedOut: false,
-      timeoutID: null
-    };
-    return _this;
-  }
+    }
+  }]);
 
   return DelayedLoader;
 }(_react2.default.Component);
