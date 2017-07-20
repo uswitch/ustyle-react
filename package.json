@@ -1,6 +1,6 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.60",
+  "version": "0.0.62",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
