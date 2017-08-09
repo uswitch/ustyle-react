@@ -60,7 +60,7 @@ var ToggleItem = function (_PureComponent) {
             'us-toggle__btn': true,
             'us-toggle__btn--disabled': this.props.item.disabled
           }),
-          children: this.props.item.text })
+          dangerouslySetInnerHTML: { __html: this.props.item.text } })
       );
     }
   }]);
