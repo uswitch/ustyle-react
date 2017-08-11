@@ -6,34 +6,24 @@ class DelayedLoader extends React.Component {
     super(props)
     this.state = {
       isLoading: false,
-      timedOut: false,
       timeoutID: null
     }
   }
 
   componentWillReceiveProps (nextProps) {
     const { isLoading: willBeLoading } = nextProps
-    const { timedOut, timeoutID } = this.state
-    const timeoutHandler = () => this.setState({ timedOut: true, isLoading: false, timeoutID: null })
+    const { timeoutID } = this.state
+    const timeoutHandler = () => this.setState({ isLoading: false, timeoutID: null })
 
-    if (!willBeLoading && timedOut) {
-      return this.setState({
+    if (willBeLoading || timeoutID) {
+      this.setState({
+        isLoading: true,
+        timeoutID: timeoutID || setTimeout(timeoutHandler, this.props.timeout)
+      })
+    } else {
+      this.setState({
         isLoading: false
       })
-    }
-
-    let newState = {
-      isLoading: true,
-      timedOut: false
-    }
-
-    if (!timeoutID) {
-      newState = {
-        ...newState,
-        timeoutID: setTimeout(timeoutHandler, this.props.timeout)
-      }
-
-      this.setState(newState)
     }
   }
 

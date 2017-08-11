@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -34,7 +32,6 @@ var DelayedLoader = function (_React$Component) {
 
     _this.state = {
       isLoading: false,
-      timedOut: false,
       timeoutID: null
     };
     return _this;
@@ -46,31 +43,21 @@ var DelayedLoader = function (_React$Component) {
       var _this2 = this;
 
       var willBeLoading = nextProps.isLoading;
-      var _state = this.state,
-          timedOut = _state.timedOut,
-          timeoutID = _state.timeoutID;
+      var timeoutID = this.state.timeoutID;
 
       var timeoutHandler = function timeoutHandler() {
-        return _this2.setState({ timedOut: true, isLoading: false, timeoutID: null });
+        return _this2.setState({ isLoading: false, timeoutID: null });
       };
 
-      if (!willBeLoading && timedOut) {
-        return this.setState({
+      if (willBeLoading || timeoutID) {
+        this.setState({
+          isLoading: true,
+          timeoutID: timeoutID || setTimeout(timeoutHandler, this.props.timeout)
+        });
+      } else {
+        this.setState({
           isLoading: false
         });
-      }
-
-      var newState = {
-        isLoading: true,
-        timedOut: false
-      };
-
-      if (!timeoutID) {
-        newState = _extends({}, newState, {
-          timeoutID: setTimeout(timeoutHandler, this.props.timeout)
-        });
-
-        this.setState(newState);
       }
     }
   }, {
