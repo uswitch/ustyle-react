@@ -82,7 +82,7 @@ var Input = function (_PureComponent) {
     key: 'cleanProps',
     get: function get() {
       return (0, _omit2.default)(this.props, 'className', 'inputSize', // TODO: revert to `size`, and pass `htmlSize` -> `size`
-      'variant', 'disabled', 'blocked', 'onChange');
+      'variant', 'blocked', 'onChange');
     }
   }]);
 

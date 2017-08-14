@@ -31,7 +31,6 @@ export default class Input extends PureComponent {
       'className',
       'inputSize', // TODO: revert to `size`, and pass `htmlSize` -> `size`
       'variant',
-      'disabled',
       'blocked',
       'onChange'
     )
