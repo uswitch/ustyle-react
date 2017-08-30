@@ -46,7 +46,7 @@ var DelayedLoader = function (_React$Component) {
       var timeoutID = this.state.timeoutID;
 
       var timeoutHandler = function timeoutHandler() {
-        return _this2.setState({ isLoading: false, timeoutID: null });
+        return _this2.setState({ isLoading: _this2.props.isLoading, timeoutID: null });
       };
 
       if (willBeLoading || timeoutID) {

@@ -4,6 +4,7 @@ import LoaderContainer from '../LoaderContainer'
 class DelayedLoader extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = {
       isLoading: false,
       timeoutID: null
@@ -13,7 +14,7 @@ class DelayedLoader extends React.Component {
   componentWillReceiveProps (nextProps) {
     const { isLoading: willBeLoading } = nextProps
     const { timeoutID } = this.state
-    const timeoutHandler = () => this.setState({ isLoading: false, timeoutID: null })
+    const timeoutHandler = () => this.setState({ isLoading: this.props.isLoading, timeoutID: null })
 
     if (willBeLoading || timeoutID) {
       this.setState({
