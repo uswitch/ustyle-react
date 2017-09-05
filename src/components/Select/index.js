@@ -16,8 +16,8 @@ export default class Select extends PureComponent {
     return this.props.size && (parseInt(this.props.size, 10) > 1)
   }
   get className () {
-    const { disabled, variant, blocked } = this.props
-    return cx({
+    const { disabled, variant, blocked, className } = this.props
+    return cx(className, {
       'us-form-select': true,
       [`us-form-select--${variant}`]: variant,
       'us-form-select--blocked': blocked,
@@ -60,6 +60,7 @@ Select.propTypes = {
   value: PropTypes.any.isRequired,
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   blocked: PropTypes.bool,
   onChange: PropTypes.func.isRequired
 }

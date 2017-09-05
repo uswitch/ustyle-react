@@ -78,9 +78,10 @@ var Select = function (_PureComponent) {
       var _props = this.props,
           disabled = _props.disabled,
           variant = _props.variant,
-          blocked = _props.blocked;
+          blocked = _props.blocked,
+          className = _props.className;
 
-      return (0, _classnames2.default)((_cx = {
+      return (0, _classnames2.default)(className, (_cx = {
         'us-form-select': true
       }, _defineProperty(_cx, 'us-form-select--' + variant, variant), _defineProperty(_cx, 'us-form-select--blocked', blocked), _defineProperty(_cx, 'us-form-select--multiple', this.sizeGreaterThanOne), _defineProperty(_cx, 'us-form-select--disabled', disabled), _cx));
     }
@@ -120,6 +121,7 @@ Select.propTypes = {
   value: _propTypes2.default.any.isRequired,
   variant: _propTypes2.default.oneOf(VARIANTS),
   disabled: _propTypes2.default.bool,
+  className: _propTypes2.default.string,
   blocked: _propTypes2.default.bool,
   onChange: _propTypes2.default.func.isRequired
 };
