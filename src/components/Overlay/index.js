@@ -94,7 +94,7 @@ export default class Overlay extends PureComponent {
                   <Button size='small'
                     variant='reversed'
                     onClick={this.props.onClose.bind(this)}
-                    children='Close' />
+                    children={this.props.closeText} />
                 </div>
               </div>
               <div className='us-overlay__body'>
@@ -111,6 +111,7 @@ export default class Overlay extends PureComponent {
 
 Overlay.propTypes = {
   title: PropTypes.string.isRequired,
+  closeText: PropTypes.string,
   children: PropTypes.node,
   onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
@@ -119,5 +120,6 @@ Overlay.propTypes = {
 
 Overlay.defaultProps = {
   isOpen: false,
-  variant: 'modal'
+  variant: 'modal',
+  closeText: 'Close'
 }
