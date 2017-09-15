@@ -129,6 +129,7 @@ var Overlay = function (_PureComponent) {
                   'div',
                   { className: 'us-overlay__close' },
                   _react2.default.createElement(_Button2.default, { size: 'small',
+                    className: this.props.closeClassName,
                     variant: 'reversed',
                     onClick: this.props.onClose.bind(this),
                     children: this.props.closeText })
@@ -192,6 +193,7 @@ exports.default = Overlay;
 Overlay.propTypes = {
   title: _propTypes2.default.string.isRequired,
   closeText: _propTypes2.default.string,
+  closeClassName: _propTypes2.default.string,
   children: _propTypes2.default.node,
   onClose: _propTypes2.default.func.isRequired,
   isOpen: _propTypes2.default.bool.isRequired,
