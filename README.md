@@ -305,7 +305,7 @@ Props:
 - `items` [array:objects]
   - `text` [string/node]
   - `value` [string]
-  - `disabled` [bool]
+  - `disabled` [boolean]
 - `value` [string] - the current value for the toggle component
 - `name` [string]
 - `onChange` [function]
@@ -352,10 +352,11 @@ Props:
 - `items` [array:objects]
   - `text` [string/node]
   - `value` [string]
+  - `disabled` [boolean]
 - `value` [string] the current value of the select component
 - `name` [string]
 - `variant` [string]
-- `disabled` [bool]
+- `disabled` [boolean]
 - `blocked` [boolean]
 - `onChange` [function]
 
@@ -375,7 +376,7 @@ Props:
 - `text` [string/node]
 - `icon` [string] replaces text
 - `position` [string] options: left, right
-- `disabled` [bool]
+- `disabled` [boolean]
 - `blocked` [boolean]
 
 ### Tabs [→](https://ustyle.guide/pattern-library/javascript.html#tabs)
@@ -407,7 +408,7 @@ Props:
   - `href` [string]
   - `title` [string]
   - `body` [string/node]
-  - `active` [bool]
+  - `active` [boolean]
 - `onClick` [function]
 
 ### Overlay [→](https://ustyle.guide/pattern-library/javascript.html#overlay)

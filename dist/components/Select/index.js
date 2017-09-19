@@ -88,11 +88,14 @@ var Select = function (_PureComponent) {
   }, {
     key: 'options',
     get: function get() {
-      return this.props.items.map(function (item, i) {
+      return this.props.items.map(function (_ref, i) {
+        var value = _ref.value,
+            text = _ref.text,
+            disabled = _ref.disabled;
         return _react2.default.createElement(
           'option',
-          { key: i, value: item.value },
-          item.text
+          { key: i, value: value, disabled: disabled },
+          text
         );
       });
     }
@@ -116,7 +119,8 @@ exports.default = Select;
 Select.propTypes = {
   items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     text: _propTypes2.default.string.isRequired,
-    value: _propTypes2.default.any.isRequired
+    value: _propTypes2.default.any.isRequired,
+    disabled: _propTypes2.default.bool
   })).isRequired,
   value: _propTypes2.default.any.isRequired,
   variant: _propTypes2.default.oneOf(VARIANTS),
