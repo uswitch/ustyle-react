@@ -26,8 +26,8 @@ export default class Select extends PureComponent {
     })
   }
   get options () {
-    return this.props.items.map((item, i) => (
-      <option key={i} value={item.value}>{item.text}</option>
+    return this.props.items.map(({ value, text, disabled }, i) => (
+      <option key={i} value={value} disabled={disabled}>{text}</option>
     ))
   }
   get cleanProps () {
@@ -55,7 +55,8 @@ export default class Select extends PureComponent {
 Select.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired
+    value: PropTypes.any.isRequired,
+    disabled: PropTypes.bool
   })).isRequired,
   value: PropTypes.any.isRequired,
   variant: PropTypes.oneOf(VARIANTS),

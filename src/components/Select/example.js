@@ -2,6 +2,10 @@ import React, {PureComponent} from 'react'
 import Select from './index'
 
 const items = [{
+  text: 'Choose your cheese feelings',
+  value: '',
+  disabled: true
+}, {
   text: 'Yes, I like cheese',
   value: 'yes'
 }, {
@@ -15,7 +19,7 @@ const items = [{
 export default class SelectExample extends PureComponent {
   constructor (props) {
     super(props)
-    this.state = { myValue: 'no' }
+    this.state = { myValue: '' }
   }
   onChangeHandler (e, item) {
     console.log(item)

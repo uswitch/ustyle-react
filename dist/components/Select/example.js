@@ -23,6 +23,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var items = [{
+  text: 'Choose your cheese feelings',
+  value: '',
+  disabled: true
+}, {
   text: 'Yes, I like cheese',
   value: 'yes'
 }, {
@@ -41,7 +45,7 @@ var SelectExample = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (SelectExample.__proto__ || Object.getPrototypeOf(SelectExample)).call(this, props));
 
-    _this.state = { myValue: 'no' };
+    _this.state = { myValue: '' };
     return _this;
   }
 
