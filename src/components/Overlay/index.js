@@ -84,7 +84,7 @@ export default class Overlay extends PureComponent {
     return (
       <div>
         <div
-          ref={this.props.ref}
+          ref={this.props.parentRef}
           className={this.overlayParentClassName}
         >
           <div className={this.overlayClassName}>
@@ -114,12 +114,13 @@ export default class Overlay extends PureComponent {
 }
 
 Overlay.propTypes = {
-  title: PropTypes.string.isRequired,
-  closeText: PropTypes.string,
-  closeClassName: PropTypes.string,
   children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
+  closeClassName: PropTypes.string,
+  closeText: PropTypes.string,
   isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  parentRef: PropTypes.func,
+  title: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(VARIANTS)
 }
 

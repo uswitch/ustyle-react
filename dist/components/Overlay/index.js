@@ -111,7 +111,7 @@ var Overlay = function (_PureComponent) {
         _react2.default.createElement(
           'div',
           {
-            ref: this.props.ref,
+            ref: this.props.parentRef,
             className: this.overlayParentClassName
           },
           _react2.default.createElement(
@@ -194,12 +194,13 @@ exports.default = Overlay;
 
 
 Overlay.propTypes = {
-  title: _propTypes2.default.string.isRequired,
-  closeText: _propTypes2.default.string,
-  closeClassName: _propTypes2.default.string,
   children: _propTypes2.default.node,
-  onClose: _propTypes2.default.func.isRequired,
+  closeClassName: _propTypes2.default.string,
+  closeText: _propTypes2.default.string,
   isOpen: _propTypes2.default.bool.isRequired,
+  onClose: _propTypes2.default.func.isRequired,
+  parentRef: _propTypes2.default.func,
+  title: _propTypes2.default.string.isRequired,
   variant: _propTypes2.default.oneOf(VARIANTS)
 };
 
