@@ -105,17 +105,13 @@ var Overlay = function (_PureComponent) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'div',
           {
-            ref: function ref(_ref) {
-              return _this3.refs.parent = _ref;
-            },
+            ref: this.props.ref,
             className: this.overlayParentClassName
           },
           _react2.default.createElement(

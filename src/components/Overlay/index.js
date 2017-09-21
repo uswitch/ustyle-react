@@ -84,7 +84,7 @@ export default class Overlay extends PureComponent {
     return (
       <div>
         <div
-          ref={(ref) => (this.refs.parent = ref)}
+          ref={this.props.ref}
           className={this.overlayParentClassName}
         >
           <div className={this.overlayClassName}>
