@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = require('./index');
+var _LoaderContainer = require('../LoaderContainer');
 
-var _index2 = _interopRequireDefault(_index);
+var _LoaderContainer2 = _interopRequireDefault(_LoaderContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,78 +22,76 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var items = [{
-  text: 'Choose your cheese feelings',
-  value: '',
-  disabled: true
-}, {
-  text: 'Yes, I like cheese',
-  value: 'yes'
-}, {
-  text: 'No, I hate cheese',
-  value: 'no'
-}, {
-  text: 'Cheese is not real',
-  value: 'fake'
-}];
+var DelayedLoader = function (_React$Component) {
+  _inherits(DelayedLoader, _React$Component);
 
-var SelectExample = function (_PureComponent) {
-  _inherits(SelectExample, _PureComponent);
+  function DelayedLoader(props) {
+    _classCallCheck(this, DelayedLoader);
 
-  function SelectExample(props) {
-    _classCallCheck(this, SelectExample);
+    var _this = _possibleConstructorReturn(this, (DelayedLoader.__proto__ || Object.getPrototypeOf(DelayedLoader)).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, (SelectExample.__proto__ || Object.getPrototypeOf(SelectExample)).call(this, props));
-
-    _this.state = { myValue: '' };
+    _this.state = {
+      isLoading: false,
+      timeoutID: null
+    };
     return _this;
   }
 
-  _createClass(SelectExample, [{
-    key: 'onChangeHandler',
-    value: function onChangeHandler(e, item) {
-      console.log(item);
-      this.setState({ myValue: item.value });
+  _createClass(DelayedLoader, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this2 = this;
+
+      var willBeLoading = nextProps.isLoading;
+      var timeoutID = this.state.timeoutID;
+
+      var timeoutHandler = function timeoutHandler() {
+        return _this2.setState({ isLoading: _this2.props.isLoading, timeoutID: null });
+      };
+
+      if (willBeLoading || timeoutID) {
+        this.setState({
+          isLoading: true,
+          timeoutID: timeoutID || setTimeout(timeoutHandler, this.props.timeout)
+        });
+      } else {
+        this.setState({
+          isLoading: false
+        });
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearTimeout(this.state.timeoutID);
     }
   }, {
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          replaceChildren = _props.replaceChildren;
+      var isLoading = this.state.isLoading;
+
+
       return _react2.default.createElement(
         'div',
-        null,
+        { className: isLoading ? this.props.className : '' },
         _react2.default.createElement(
-          'pre',
-          null,
-          this.jsonState
-        ),
-        _react2.default.createElement(_index2.default, {
-          name: 'myValue',
-          value: this.state.myValue,
-          items: items,
-          onChange: this.onChangeHandler.bind(this) }),
-        _react2.default.createElement(_index2.default, {
-          name: 'myValue',
-          value: this.state.myValue,
-          items: items,
-          disabled: true }),
-        _react2.default.createElement(_index2.default, {
-          blocked: true,
-          variant: this.state.myValue === 'yes' ? 'success' : 'error',
-          size: 2,
-          name: 'myValue',
-          value: this.state.myValue,
-          items: items,
-          onChange: this.onChangeHandler.bind(this) })
+          _LoaderContainer2.default,
+          { isLoading: isLoading, text: this.props.text },
+          replaceChildren && isLoading ? null : children
+        )
       );
-    }
-  }, {
-    key: 'jsonState',
-    get: function get() {
-      return JSON.stringify(this.state);
     }
   }]);
 
-  return SelectExample;
-}(_react.PureComponent);
+  return DelayedLoader;
+}(_react2.default.Component);
 
-exports.default = SelectExample;
+DelayedLoader.defaultProps = {
+  timeout: 400,
+  replaceChildren: false
+};
+
+exports.default = DelayedLoader;

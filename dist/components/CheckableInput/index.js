@@ -54,11 +54,10 @@ var CheckableInput = function (_PureComponent) {
     value: function render() {
       var children = this.props.children;
 
-      var cleanProps = (0, _omit2.default)(this.props, 'className', 'children', 'onChange');
       return _react2.default.createElement(
         'label',
         null,
-        _react2.default.createElement('input', _extends({}, cleanProps, {
+        _react2.default.createElement('input', _extends({}, this.cleanProps, {
           onChange: this.onChangeHandler,
           className: this.className })),
         children
@@ -67,10 +66,18 @@ var CheckableInput = function (_PureComponent) {
   }, {
     key: 'className',
     get: function get() {
-      return (0, _classnames2.default)({
+      return (0, _classnames2.default)(this.props.className, {
         'us-form-input': true,
         'us-form-input--disabled': this.props.disabled
       });
+    }
+  }, {
+    key: 'cleanProps',
+    get: function get() {
+      return (0, _omit2.default)(this.props, 'className', // omit className as we over-write it with our own custom classes
+      'children', // omit children, because an input element cannot have a child element
+      'onChange' // omit onChange as we pass a custom onChangeHandler to the element
+      );
     }
   }]);
 

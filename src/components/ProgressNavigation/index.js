@@ -13,7 +13,7 @@ class ProgressNavigationLink extends PureComponent {
     const props = {
       className: `us-progress__link us-progress__link--${status}`,
       children: <span className='us-tablet--inline'>{text}</span>,
-      onClick: this.onClickHandler.bind(this)
+      onClick: status === 'complete' ? this.onClickHandler.bind(this) : undefined
     }
     switch (status) {
       case 'complete':

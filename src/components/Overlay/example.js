@@ -51,6 +51,7 @@ export default class OverlayExample extends Component {
         <Overlay
           {...this.state}
           onClose={this.closeOverlay.bind(this)}
+          closeClassName='custom-class'
           title='Overlay Example' />
       </div>
     )

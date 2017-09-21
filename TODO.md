@@ -1,1 +1,0 @@
-- add React PropType validation (for types, and to replace validateColor, etc.)

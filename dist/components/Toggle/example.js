@@ -24,7 +24,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var items = [{
   disabled: false,
-  text: 'Yes, I like cheese',
+  text: '<strong>Yes</strong>, I like cheese',
   value: 1
 }, {
   disabled: false,

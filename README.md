@@ -7,7 +7,7 @@ A collection of React components implementing the uSwitch style guide, [uStyle](
 First, install the package:
 
 ```bash
-yarn add uswitch/ustyle-react
+npm add uswitch/ustyle-react
 # or `npm install uswitch/ustyle-react`, if you're feeling retro
 ```
 
@@ -21,11 +21,13 @@ import {Button} from 'ustyle-react';
 
 ## Development
 
+**Note: you should use the npm 5 cli to add dependencies in order to keep `package-lock.json` up to date**
+
 First, clone the project and install the dependencies:
 
 ```bash
 git clone git@github.com:uswitch/ustyle-react.git
-cd ustyle-react && yarn install # or `npm install`
+cd ustyle-react && npm install
 ```
 
 To start the development server (on port 9000) run:
@@ -303,7 +305,7 @@ Props:
 - `items` [array:objects]
   - `text` [string/node]
   - `value` [string]
-  - `disabled` [bool]
+  - `disabled` [boolean]
 - `value` [string] - the current value for the toggle component
 - `name` [string]
 - `onChange` [function]
@@ -350,10 +352,11 @@ Props:
 - `items` [array:objects]
   - `text` [string/node]
   - `value` [string]
+  - `disabled` [boolean]
 - `value` [string] the current value of the select component
 - `name` [string]
 - `variant` [string]
-- `disabled` [bool]
+- `disabled` [boolean]
 - `blocked` [boolean]
 - `onChange` [function]
 
@@ -373,7 +376,7 @@ Props:
 - `text` [string/node]
 - `icon` [string] replaces text
 - `position` [string] options: left, right
-- `disabled` [bool]
+- `disabled` [boolean]
 - `blocked` [boolean]
 
 ### Tabs [→](https://ustyle.guide/pattern-library/javascript.html#tabs)
@@ -405,7 +408,7 @@ Props:
   - `href` [string]
   - `title` [string]
   - `body` [string/node]
-  - `active` [bool]
+  - `active` [boolean]
 - `onClick` [function]
 
 ### Overlay [→](https://ustyle.guide/pattern-library/javascript.html#overlay)

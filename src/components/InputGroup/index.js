@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 const POSITIONS = ['left', 'right']
 
@@ -27,15 +28,25 @@ export default class InputGroup extends PureComponent {
     }
   }
   get className () {
-    return cx({
+    return cx(this.props.className, {
       'us-input-group': true,
       'us-input-group--disabled': this.props.disabled,
       'us-input-group--blocked': this.props.blocked
     })
   }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'text',
+      'icon',
+      'position',
+      'children',
+      'className'
+    )
+  }
   render () {
     return (
-      <div className={this.className}>
+      <div {...this.cleanProps} className={this.className}>
         { this.leftBox }
         { this.props.children }
         { this.rightBox }

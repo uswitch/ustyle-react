@@ -115,6 +115,7 @@ var OverlayExample = function (_Component) {
         ),
         _react2.default.createElement(_index2.default, _extends({}, this.state, {
           onClose: this.closeOverlay.bind(this),
+          closeClassName: 'custom-class',
           title: 'Overlay Example' }))
       );
     }

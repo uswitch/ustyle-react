@@ -7,6 +7,7 @@ import Input from './components/Input'
 import InputGroup from './components/InputGroup'
 import Loader from './components/Loader'
 import LoaderContainer from './components/LoaderContainer'
+import DelayedLoader from './components/DelayedLoader'
 import Overlay from './components/Overlay'
 import ProgressNavigation from './components/ProgressNavigation'
 import Radio from './components/Radio'
@@ -29,6 +30,7 @@ export {
   InputGroup,
   Loader,
   LoaderContainer,
+  DelayedLoader,
   Overlay,
   ProgressNavigation,
   Radio,

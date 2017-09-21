@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.TextArea = exports.Tabs = exports.Select = exports.Radio = exports.ProgressNavigation = exports.Overlay = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Input = exports.Icon = exports.Field = exports.Checkbox = exports.Button = exports.Breadcrumbs = undefined;
+exports.ValidationMessage = exports.ValidationError = exports.USP = exports.ToggleYesNo = exports.Toggle = exports.TextArea = exports.Tabs = exports.Select = exports.Radio = exports.ProgressNavigation = exports.Overlay = exports.DelayedLoader = exports.LoaderContainer = exports.Loader = exports.InputGroup = exports.Input = exports.Icon = exports.Field = exports.Checkbox = exports.Button = exports.Breadcrumbs = undefined;
 
 var _Breadcrumbs = require('./components/Breadcrumbs');
 
@@ -40,6 +40,10 @@ var _Loader2 = _interopRequireDefault(_Loader);
 var _LoaderContainer = require('./components/LoaderContainer');
 
 var _LoaderContainer2 = _interopRequireDefault(_LoaderContainer);
+
+var _DelayedLoader = require('./components/DelayedLoader');
+
+var _DelayedLoader2 = _interopRequireDefault(_DelayedLoader);
 
 var _Overlay = require('./components/Overlay');
 
@@ -96,6 +100,7 @@ exports.Input = _Input2.default;
 exports.InputGroup = _InputGroup2.default;
 exports.Loader = _Loader2.default;
 exports.LoaderContainer = _LoaderContainer2.default;
+exports.DelayedLoader = _DelayedLoader2.default;
 exports.Overlay = _Overlay2.default;
 exports.ProgressNavigation = _ProgressNavigation2.default;
 exports.Radio = _Radio2.default;

@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../../utils/omit'
 
 const VARIANTS = ['error', 'success']
 
@@ -15,8 +16,8 @@ export default class Select extends PureComponent {
     return this.props.size && (parseInt(this.props.size, 10) > 1)
   }
   get className () {
-    const { disabled, variant, blocked } = this.props
-    return cx({
+    const { disabled, variant, blocked, className } = this.props
+    return cx(className, {
       'us-form-select': true,
       [`us-form-select--${variant}`]: variant,
       'us-form-select--blocked': blocked,
@@ -25,17 +26,25 @@ export default class Select extends PureComponent {
     })
   }
   get options () {
-    return this.props.items.map((item, i) => (
-      <option key={i} value={item.value}>{item.text}</option>
+    return this.props.items.map(({ value, text, disabled }, i) => (
+      <option key={i} value={value} disabled={disabled}>{text}</option>
     ))
   }
+  get cleanProps () {
+    return omit(
+      this.props,
+      'size', // used to change className
+      'variant', // used to change className
+      'blocked', // used to change className
+      'onChange' // we use our custom
+    )
+  }
   render () {
+    const props = omit(this.props, 'className', 'items', 'onChange', 'blocked', 'variant')
     return (
       <select
-        size={this.props.size}
-        name={this.props.name}
+        {...props}
         className={this.className}
-        value={this.props.value}
         onChange={this.onChangeHandler.bind(this)}>
         {this.options}
       </select>
@@ -46,12 +55,13 @@ export default class Select extends PureComponent {
 Select.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired
+    value: PropTypes.any.isRequired,
+    disabled: PropTypes.bool
   })).isRequired,
-  value: PropTypes.any,
-  name: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
   variant: PropTypes.oneOf(VARIANTS),
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   blocked: PropTypes.bool,
   onChange: PropTypes.func.isRequired
 }

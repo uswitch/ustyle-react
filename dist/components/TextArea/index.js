@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -18,6 +20,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _omit = require('../../utils/omit');
+
+var _omit2 = _interopRequireDefault(_omit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,26 +35,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TextArea = function (_PureComponent) {
   _inherits(TextArea, _PureComponent);
 
-  function TextArea() {
+  function TextArea(props) {
     _classCallCheck(this, TextArea);
 
-    return _possibleConstructorReturn(this, (TextArea.__proto__ || Object.getPrototypeOf(TextArea)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (TextArea.__proto__ || Object.getPrototypeOf(TextArea)).call(this, props));
+
+    _this.onChangeHandler = _this.onChangeHandler.bind(_this);
+    return _this;
   }
 
   _createClass(TextArea, [{
-    key: 'onChange',
-    value: function onChange(e) {
+    key: 'onChangeHandler',
+    value: function onChangeHandler(e) {
       this.props.onChange(e, e.target.value);
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('textarea', {
-        name: this.props.name,
+      return _react2.default.createElement('textarea', _extends({}, this.cleanProps, {
         className: this.className,
-        disabled: this.props.disabled,
-        value: this.props.value,
-        onChange: this.props.onChange });
+        onChange: this.onChangeHandler }));
     }
   }, {
     key: 'className',
@@ -63,6 +69,13 @@ var TextArea = function (_PureComponent) {
         'us-form-textarea--disabled': disabled
       });
     }
+  }, {
+    key: 'cleanProps',
+    get: function get() {
+      return (0, _omit2.default)(this.props, 'className', 'blocked', // only used for className
+      'onChange' // use onChangeHandler instead
+      );
+    }
   }]);
 
   return TextArea;
@@ -72,8 +85,7 @@ exports.default = TextArea;
 
 
 TextArea.propTypes = {
-  name: _propTypes2.default.string,
-  value: _propTypes2.default.string,
+  value: _propTypes2.default.string.isRequired,
   onChange: _propTypes2.default.func,
   blocked: _propTypes2.default.bool,
   disabled: _propTypes2.default.bool
