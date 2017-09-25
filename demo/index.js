@@ -19,6 +19,7 @@ import Radio from '../src/components/Radio/example'
 import Tabs from '../src/components/Tabs/example'
 import Input from '../src/components/Input/example'
 import TextArea from '../src/components/TextArea/example'
+import Tooltip from '../src/components/Tooltip/example'
 
 ReactDOM.render(
   <div className='us-container'>
@@ -42,5 +43,6 @@ ReactDOM.render(
     <h2>Checkbox</h2><Checkbox /><hr />
     <h2>Radio</h2><Radio /><hr />
     <h2>Tabs</h2><Tabs />
+    <h2>Tooltips</h2><Tooltip />
   </div>
-, document.getElementById('main'))
+  , document.getElementById('main'))
