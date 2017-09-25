@@ -442,3 +442,27 @@ Props:
 - `disabled` [boolean]
 - `blocked` [boolean]
 - `onChange` [function]
+
+### Tooltip [→](https://ustyle.guide/pattern-library/javascript.html#tooltip)
+
+Example:
+
+```css
+.tooltip-demo {
+  position: relative;
+}
+```
+
+```js
+import {Tooltip} from 'ustyle-react';
+
+
+<Tooltip
+  className="tooltip-demo"
+  trigger={ <div className="us-tooltip__icon"></div> }
+  tooltipContent={ <div>Content</div> }>
+  <div>
+    Hello
+  </div>
+</Tooltip>
+```
