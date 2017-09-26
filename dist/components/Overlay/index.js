@@ -72,7 +72,7 @@ var Overlay = function (_PureComponent) {
     value: function openOverlay() {
       this.setState({
         visibility: 'visible',
-        scrollTop: document.body.scrollTop
+        scrollTop: this.scrollingElement.scrollTop
       });
       this.disableScroll();
     }
@@ -90,7 +90,7 @@ var Overlay = function (_PureComponent) {
       if ((0, _classHelpers.hasClass)(document.body, OVERLAY_BODY_CLASS)) {
         this.enableScroll();
         setTimeout(function () {
-          document.body.scrollTop = _this2.state.scrollTop;
+          _this2.scrollingElement.scrollTop = _this2.state.scrollTop;
         }, 100);
       }
     }
@@ -148,6 +148,11 @@ var Overlay = function (_PureComponent) {
           this.backdropHTML
         )
       );
+    }
+  }, {
+    key: 'scrollingElement',
+    get: function get() {
+      return document.documentElement || document.body;
     }
   }, {
     key: 'backdropHTML',

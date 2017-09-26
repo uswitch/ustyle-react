@@ -26,10 +26,13 @@ export default class Overlay extends PureComponent {
     if (nextProps.isOpen === this.props.isOpen) return
     return nextProps.isOpen ? this.openOverlay() : this.closeOverlay()
   }
+  get scrollingElement () {
+    return document.documentElement || document.body
+  }
   openOverlay () {
     this.setState({
       visibility: 'visible',
-      scrollTop: document.body.scrollTop
+      scrollTop: this.scrollingElement.scrollTop
     })
     this.disableScroll()
   }
@@ -41,7 +44,7 @@ export default class Overlay extends PureComponent {
     if (hasClass(document.body, OVERLAY_BODY_CLASS)) {
       this.enableScroll()
       setTimeout(() => {
-        document.body.scrollTop = this.state.scrollTop
+        this.scrollingElement.scrollTop = this.state.scrollTop
       }, 100)
     }
   }
