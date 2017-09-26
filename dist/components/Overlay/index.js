@@ -157,7 +157,7 @@ var Overlay = function (_PureComponent) {
   }, {
     key: 'scrollingElement',
     get: function get() {
-      return document.documentElement || document.body;
+      return document.body;
     }
   }, {
     key: 'backdropHTML',

@@ -27,7 +27,7 @@ export default class Overlay extends PureComponent {
     return nextProps.isOpen ? this.openOverlay() : this.closeOverlay()
   }
   get scrollingElement () {
-    return document.documentElement || document.body
+    return document.body
   }
   openOverlay () {
     this.setState({
