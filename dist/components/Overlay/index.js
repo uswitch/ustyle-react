@@ -70,36 +70,41 @@ var Overlay = function (_PureComponent) {
   }, {
     key: 'openOverlay',
     value: function openOverlay() {
+      var _this2 = this;
+
       this.setState({
         visibility: 'visible',
         scrollTop: this.scrollingElement.scrollTop
       });
-      this.disableScroll();
+
+      setTimeout(function () {
+        _this2.disableScroll();
+      }, 300);
     }
   }, {
     key: 'finishClose',
     value: function finishClose(e) {
-      var _this2 = this;
-
       this.setState(function (state) {
         return {
           visibility: 'closed'
         };
       });
-      // using uStyle's overlay, which means we need some class dancing here
-      if ((0, _classHelpers.hasClass)(document.body, OVERLAY_BODY_CLASS)) {
-        this.enableScroll();
-        setTimeout(function () {
-          _this2.scrollingElement.scrollTop = _this2.state.scrollTop;
-        }, 100);
-      }
     }
   }, {
     key: 'closeOverlay',
     value: function closeOverlay(e) {
+      var _this3 = this;
+
       this.setState({
         visibility: 'closing'
       });
+      // using uStyle's overlay, which means we need some class dancing here
+      if ((0, _classHelpers.hasClass)(document.body, OVERLAY_BODY_CLASS)) {
+        this.enableScroll();
+        setTimeout(function () {
+          _this3.scrollingElement.scrollTop = _this3.state.scrollTop;
+        }, 100);
+      }
       setTimeout(this.finishClose.bind(this, e), 500);
     }
   }, {

@@ -34,12 +34,20 @@ export default class Overlay extends PureComponent {
       visibility: 'visible',
       scrollTop: this.scrollingElement.scrollTop
     })
-    this.disableScroll()
+
+    setTimeout(() => {
+      this.disableScroll()
+    }, 300)
   }
   finishClose (e) {
     this.setState((state) => ({
       visibility: 'closed'
     }))
+  }
+  closeOverlay (e) {
+    this.setState({
+      visibility: 'closing'
+    })
     // using uStyle's overlay, which means we need some class dancing here
     if (hasClass(document.body, OVERLAY_BODY_CLASS)) {
       this.enableScroll()
@@ -47,11 +55,6 @@ export default class Overlay extends PureComponent {
         this.scrollingElement.scrollTop = this.state.scrollTop
       }, 100)
     }
-  }
-  closeOverlay (e) {
-    this.setState({
-      visibility: 'closing'
-    })
     setTimeout(this.finishClose.bind(this, e), 500)
   }
   get backdropHTML () {
