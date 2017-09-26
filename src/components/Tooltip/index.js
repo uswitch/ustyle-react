@@ -20,17 +20,10 @@ export default class Tooltip extends Component {
     const { active } = this.state;
     const parentClassName = cx({
       'us-tooltip': true,
+      [`us-tooltip--${position}`]: !!position,
       'us-tooltip--active': active,
-      'us-tooltip--top': position === 'top',
-      'us-tooltip--bottom': position === 'bottom',
-      'us-tooltip--right': position === 'right',
-      'us-tooltip--left': position === 'left',
       'us-tooltip--small': small,
     }, this.props.className);
-
-    const wrapperClassName = cx({
-      'us-tooltip__wrapper': !trigger,
-    });
 
     return (
       <div className={parentClassName}>
@@ -52,11 +45,10 @@ export default class Tooltip extends Component {
 Tooltip.propTypes = {
   trigger: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
-  position: PropTypes.string,
+  position: PropTypes.oneOf([ 'left', 'right', 'bottom', 'top' ]),
   small: PropTypes.bool,
 };
 
 Tooltip.defaultProps = {
-  position: 'bottom',
   small: false,
 };

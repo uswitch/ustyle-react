@@ -11,6 +11,7 @@ export default class TooltipExample extends Component {
   render () {
     return (
       <Tooltip
+        position="bottom"
         className="tooltip-demo"
         trigger={ <div className="us-tooltip__icon"></div> }
         tooltipContent={ <div>Content</div> }>
