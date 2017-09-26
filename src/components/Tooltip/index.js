@@ -11,8 +11,14 @@ export default class Tooltip extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.active && this.state.active && this.props.scrollToTooltip) {
+      this.note.scrollIntoView(false) /* will scroll to the bottom of the page */
+    }
+  }
+
   toggle(e) {
-    this.setState({ active: !this.state.active });
+    this.setState((prevState, props) => ({ active: !prevState.active }))
   }
 
   render() {
@@ -32,7 +38,7 @@ export default class Tooltip extends Component {
           <div onClick={this.toggle}>
             {this.props.trigger}
           </div>
-          <div className="us-tooltip__note">
+          <div ref={(ref) => this.note = ref} className="us-tooltip__note">
             <div className="us-tooltip__arrow" />
             {this.props.tooltipContent}
           </div>
@@ -47,8 +53,10 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   position: PropTypes.oneOf([ 'left', 'right', 'bottom', 'top' ]),
   small: PropTypes.bool,
+  scrollToTooltip: PropTypes.bool,
 };
 
 Tooltip.defaultProps = {
   small: false,
+  scrollToTooltip: false,
 };

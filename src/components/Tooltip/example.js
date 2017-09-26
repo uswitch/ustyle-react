@@ -13,6 +13,7 @@ export default class TooltipExample extends Component {
       <Tooltip
         position="bottom"
         className="tooltip-demo"
+        scrollToTooltip={true}
         trigger={ <div className="us-tooltip__icon"></div> }
         tooltipContent={ <div>Content</div> }>
         <div>
