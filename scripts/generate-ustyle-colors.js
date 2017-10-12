@@ -23,12 +23,8 @@ render({ file })
   .then(({ global }) => {
     const colors = Object
           .entries(global)
-          .map(([key, { value }]) => ([ [sLowerCamelCase(key).slice(1)], value.hex ]))
-          .reduce((acc, [ key, val ]) => acc.concat(`export const ${key} = '${val}'`), [])
-          .join('\n')
+          .map(([key, { value }]) => `export const ${sLowerCamelCase(key).slice(1)} = ${value.hex}`)
+          .reduce((acc, it) => `${acc}\n${it}`, '')
 
-    writeFileSync(
-      resolve(__dirname, '../src/colors.js'),
-      `${generatedComment}${colors}`
-    )
+    writeFileSync(resolve(__dirname, '../src/colors.js'), `${generatedComment}${colors}`)
   })
