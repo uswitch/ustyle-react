@@ -16,10 +16,10 @@ import Tabs from './components/Tabs'
 import TextArea from './components/TextArea'
 import Toggle from './components/Toggle'
 import ToggleYesNo from './components/ToggleYesNo'
+import Tooltip from './components/Tooltip'
 import USP from './components/USP'
 import ValidationError from './components/ValidationError'
 import ValidationMessage from './components/ValidationMessage'
-import Tooltip from './components/Tooltip'
 
 export {
   Breadcrumbs,
@@ -40,8 +40,8 @@ export {
   TextArea,
   Toggle,
   ToggleYesNo,
+  Tooltip,
   USP,
   ValidationError,
-  ValidationMessage,
-  Tooltip
+  ValidationMessage
 }
