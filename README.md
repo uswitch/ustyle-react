@@ -7,8 +7,7 @@ A collection of React components implementing the uSwitch style guide, [uStyle](
 First, install the package:
 
 ```bash
-npm add uswitch/ustyle-react
-# or `npm install uswitch/ustyle-react`, if you're feeling retro
+npm i ustyle-react
 ```
 
 Congratulations! You can now import `ustyle-react` components like so:
