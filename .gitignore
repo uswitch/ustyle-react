@@ -2,6 +2,7 @@
 /node_modules
 .gitkeep
 .tags
+src/colors.js
 /demo/bundle.js
 .idea
 *.swp
