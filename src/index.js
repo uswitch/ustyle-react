@@ -19,6 +19,7 @@ import ToggleYesNo from './components/ToggleYesNo'
 import USP from './components/USP'
 import ValidationError from './components/ValidationError'
 import ValidationMessage from './components/ValidationMessage'
+import Tooltip from './components/Tooltip'
 
 export {
   Breadcrumbs,
@@ -41,5 +42,6 @@ export {
   ToggleYesNo,
   USP,
   ValidationError,
-  ValidationMessage
+  ValidationMessage,
+  Tooltip
 }
