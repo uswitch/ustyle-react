@@ -1,6 +1,6 @@
 {
   "name": "ustyle-react",
-  "version": "0.0.87",
+  "version": "0.0.88",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
@@ -18,11 +18,12 @@
     "type": "git",
     "url": "git+ssh://git@github.com/uswitch/ustyle-react.git"
   },
-  "author": "uSwitch Limited",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/uswitch/ustyle-react/issues"
+  "author": {
+    "name": "uSwitch Limited",
+    "email": "frontend@uswitch.com"
   },
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/uswitch/ustyle-react/issues",
   "homepage": "https://github.com/uswitch/ustyle-react#readme",
   "pre-commit": [
     "bump-version"
