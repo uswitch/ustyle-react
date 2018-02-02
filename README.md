@@ -7,13 +7,13 @@ A collection of React components implementing the uSwitch style guide, [uStyle](
 First, install the package:
 
 ```bash
-npm i ustyle-react
+npm i @uswitch/ustyle-react
 ```
 
 Congratulations! You can now import `ustyle-react` components like so:
 
 ```js
-import {Button} from 'ustyle-react';
+import {Button} from '@uswitch/ustyle-react';
 
 // Do things with your button here...
 ```
@@ -25,7 +25,7 @@ import {Button} from 'ustyle-react';
 First, clone the project and install the dependencies:
 
 ```bash
-git clone git@github.com:uswitch/ustyle-react.git
+git clone https://github.com/uswitch/ustyle-react
 cd ustyle-react && npm install
 ```
 
@@ -53,7 +53,7 @@ Below are a list of components, with some guidance of how to use them.
 Example:
 
 ```js
-import {Button} from 'ustyle-react';
+import {Button} from '@uswitch/ustyle-react';
 
 <Button size='large' variant='primary' blocked />
 ```
@@ -75,7 +75,7 @@ Props:
 Example:
 
 ```js
-import {Breadcrumbs} from 'ustyle-react';
+import {Breadcrumbs} from '@uswitch/ustyle-react';
 
 const items = [{
   href: '/',
@@ -103,7 +103,7 @@ Props:
 Example:
 
 ```js
-import {ProgressNavigation} from 'ustyle-react';
+import {ProgressNavigation} from '@uswitch/ustyle-react';
 
 const items = [{
   href: '/journey/step-1',
@@ -135,7 +135,7 @@ Props:
 Example:
 
 ```js
-import {USP} from 'ustyle-react';
+import {USP} from '@uswitch/ustyle-react';
 
 <USP color='red' text='Example USP' annotation='More info goes here...' />
 ```
@@ -151,7 +151,7 @@ Props:
 Example:
 
 ```js
-import {Loader} from 'ustyle-react';
+import {Loader} from '@uswitch/ustyle-react';
 
 let isLoading = true;
 
@@ -165,7 +165,7 @@ setTimeout(() => isLoading = false, 10000);
 Example:
 
 ```js
-import {LoaderContainer} from 'ustyle-react';
+import {LoaderContainer} from '@uswitch/ustyle-react';
 
 let isLoading = true;
 
@@ -192,7 +192,7 @@ Props:
 Example:
 
 ```js
-import {Icon} from 'ustyle-react';
+import {Icon} from '@uswitch/ustyle-react';
 
 <Icon name='google' color='typecyan' size='large' />
 ```
@@ -216,7 +216,7 @@ Notes:
 Example:
 
 ```js
-import {ValidationError} from 'ustyle-react';
+import {ValidationError} from '@uswitch/ustyle-react';
 
 <ValidationError>Something went wrong!</ValidationError>
 ```
@@ -234,7 +234,7 @@ Notes:
 Example:
 
 ```js
-import {ValidationMessage} from 'ustyle-react';
+import {ValidationMessage} from '@uswitch/ustyle-react';
 
 let valid = true;
 let message = 'You have been subscribe';
@@ -256,7 +256,7 @@ Notes:
 Example:
 
 ```js
-import {ValidationMessage} from 'ustyle-react';
+import {ValidationMessage} from '@uswitch/ustyle-react';
 
 let valid = true;
 let message = 'You have been subscribe';
@@ -277,7 +277,7 @@ Notes:
 
 Example:
 ```js
-import {Toggle} from 'ustyle-react';
+import {Toggle} from '@uswitch/ustyle-react';
 
 const items = [
   {
@@ -313,7 +313,7 @@ Props:
 
 Example:
 ```js
-import {ToggleYesNo} from 'ustyle-react';
+import {ToggleYesNo} from '@uswitch/ustyle-react';
 
 const onChange = (e, item) => console.log(item);
 
@@ -331,7 +331,7 @@ Props:
 
 Example:
 ```js
-import {Select} from 'ustyle-react';
+import {Select} from '@uswitch/ustyle-react';
 
 const items = [{
   text: 'Aye!',
@@ -363,7 +363,7 @@ Props:
 
 Example:
 ```js
-import {InputGroup} from 'ustyle-react';
+import {InputGroup} from '@uswitch/ustyle-react';
 
 <InputGroup text="kwh" position="right">
   <input className="us-form-input" type="number" id="energy" placeholder="0" />
@@ -382,7 +382,7 @@ Props:
 
 Example:
 ```js
-import {Tabs} from 'ustyle-react';
+import {Tabs} from '@uswitch/ustyle-react';
 
 const items = [{
   id: 'tab1', title: 'Tab 1', body: 'test'
@@ -414,7 +414,7 @@ Props:
 
 Example:
 ```js
-import {Overlay} from 'ustyle-react';
+import {Overlay} from '@uswitch/ustyle-react';
 // TODO: Write about overlay...
 ```
 
@@ -430,7 +430,7 @@ Props:
 
 Example:
 ```js
-import {TextArea} from 'ustyle-react';
+import {TextArea} from '@uswitch/ustyle-react';
 // TODO: Write about textarea...
 ```
 
@@ -453,7 +453,7 @@ Example:
 ```
 
 ```js
-import {Tooltip} from 'ustyle-react';
+import {Tooltip} from '@uswitch/ustyle-react';
 
 
 <Tooltip
