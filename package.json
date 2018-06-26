@@ -3,6 +3,8 @@
   "version": "0.0.89",
   "description": "uStyle React Components",
   "main": "dist/index.js",
+  "module": "src/index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "rm -rf dist; babel src --out-dir dist",
     "start": "webpack-dev-server",

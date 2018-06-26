@@ -1,47 +1,22 @@
-import Breadcrumbs from './components/Breadcrumbs'
-import Button from './components/Button'
-import Checkbox from './components/Checkbox'
-import Field from './components/Field'
-import Icon from './components/Icon'
-import Input from './components/Input'
-import InputGroup from './components/InputGroup'
-import Loader from './components/Loader'
-import LoaderContainer from './components/LoaderContainer'
-import DelayedLoader from './components/DelayedLoader'
-import Overlay from './components/Overlay'
-import ProgressNavigation from './components/ProgressNavigation'
-import Radio from './components/Radio'
-import Select from './components/Select'
-import Tabs from './components/Tabs'
-import TextArea from './components/TextArea'
-import Toggle from './components/Toggle'
-import ToggleYesNo from './components/ToggleYesNo'
-import Tooltip from './components/Tooltip'
-import USP from './components/USP'
-import ValidationError from './components/ValidationError'
-import ValidationMessage from './components/ValidationMessage'
-
-export {
-  Breadcrumbs,
-  Button,
-  Checkbox,
-  Field,
-  Icon,
-  Input,
-  InputGroup,
-  Loader,
-  LoaderContainer,
-  DelayedLoader,
-  Overlay,
-  ProgressNavigation,
-  Radio,
-  Select,
-  Tabs,
-  TextArea,
-  Toggle,
-  ToggleYesNo,
-  Tooltip,
-  USP,
-  ValidationError,
-  ValidationMessage
-}
+export { default as Breadcrumbs } from './components/Breadcrumbs'
+export { default as Button } from './components/Button'
+export { default as Checkbox } from './components/Checkbox'
+export { default as Field } from './components/Field'
+export { default as Icon } from './components/Icon'
+export { default as Input } from './components/Input'
+export { default as InputGroup } from './components/InputGroup'
+export { default as Loader } from './components/Loader'
+export { default as LoaderContainer } from './components/LoaderContainer'
+export { default as DelayedLoader } from './components/DelayedLoader'
+export { default as Overlay } from './components/Overlay'
+export { default as ProgressNavigation } from './components/ProgressNavigation'
+export { default as Radio } from './components/Radio'
+export { default as Select } from './components/Select'
+export { default as Tabs } from './components/Tabs'
+export { default as TextArea } from './components/TextArea'
+export { default as Toggle } from './components/Toggle'
+export { default as ToggleYesNo } from './components/ToggleYesNo'
+export { default as Tooltip } from './components/Tooltip'
+export { default as USP } from './components/USP'
+export { default as ValidationError } from './components/ValidationError'
+export { default as ValidationMessage } from './components/ValidationMessage'
