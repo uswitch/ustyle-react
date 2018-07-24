@@ -72,11 +72,13 @@ var Icon = function (_PureComponent) {
           size = _props2.size,
           sizeTablet = _props2.sizeTablet,
           sizeMobile = _props2.sizeMobile,
-          noText = _props2.noText;
+          noText = _props2.noText,
+          before = _props2.before,
+          after = _props2.after;
 
       return (0, _classnames2.default)(this.props.className, (_cx = {
         'us-icon': true
-      }, _defineProperty(_cx, 'us-icon--' + size, size), _defineProperty(_cx, 'us-icon--' + sizeTablet + '--sm-tablet', sizeTablet), _defineProperty(_cx, 'us-icon--' + sizeMobile + '--mobile', sizeMobile), _defineProperty(_cx, 'us-icon--' + this.realColor, this.realColor), _defineProperty(_cx, 'us-icon--notext', noText), _cx));
+      }, _defineProperty(_cx, 'us-icon--' + size, size), _defineProperty(_cx, 'us-icon--' + sizeTablet + '--sm-tablet', sizeTablet), _defineProperty(_cx, 'us-icon--' + sizeMobile + '--mobile', sizeMobile), _defineProperty(_cx, 'us-icon--' + this.realColor, this.realColor), _defineProperty(_cx, 'us-icon--notext', noText), _defineProperty(_cx, 'us-icon--before', before), _defineProperty(_cx, 'us-icon--after', after), _cx));
     }
   }, {
     key: 'xlinkHref',
@@ -98,6 +100,8 @@ Icon.propTypes = {
   sizeMobile: _propTypes2.default.oneOf(SIZES),
   color: _propTypes2.default.oneOf(COLORS),
   noText: _propTypes2.default.bool.isRequired,
+  before: _propTypes2.default.bool.isRequired,
+  after: _propTypes2.default.bool.isRequired,
   iconPath: _propTypes2.default.string.isRequired
 };
 
@@ -105,5 +109,7 @@ Icon.defaultProps = {
   size: 'medium',
   color: 'custom',
   noText: false,
+  before: false,
+  after: false,
   iconPath: ICON_PATH
 };

@@ -29,14 +29,16 @@ export default class Icon extends PureComponent {
     return CUSTOM_ICONS.indexOf(name) !== -1 ? name : color
   }
   get className () {
-    const { size, sizeTablet, sizeMobile, noText } = this.props
+    const { size, sizeTablet, sizeMobile, noText, before, after } = this.props
     return cx(this.props.className, {
       'us-icon': true,
       [`us-icon--${size}`]: size,
       [`us-icon--${sizeTablet}--sm-tablet`]: sizeTablet,
       [`us-icon--${sizeMobile}--mobile`]: sizeMobile,
       [`us-icon--${this.realColor}`]: this.realColor,
-      'us-icon--notext': noText
+      'us-icon--notext': noText,
+      'us-icon--before': before,
+      'us-icon--after': after
     })
   }
   get xlinkHref () {
@@ -60,6 +62,8 @@ Icon.propTypes = {
   sizeMobile: PropTypes.oneOf(SIZES),
   color: PropTypes.oneOf(COLORS),
   noText: PropTypes.bool.isRequired,
+  before: PropTypes.bool.isRequired,
+  after: PropTypes.bool.isRequired,
   iconPath: PropTypes.string.isRequired
 }
 
@@ -67,5 +71,7 @@ Icon.defaultProps = {
   size: 'medium',
   color: 'custom',
   noText: false,
+  before: false,
+  after: false,
   iconPath: ICON_PATH
 }
