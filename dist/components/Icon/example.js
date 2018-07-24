@@ -20,6 +20,7 @@ exports.default = function () {
     null,
     _react2.default.createElement(_index2.default, { name: 'cross', size: 'small' }),
     _react2.default.createElement(_index2.default, { name: 'facebook-brand' }),
-    _react2.default.createElement(_index2.default, { name: 'google', color: 'typecyan', size: 'large' })
+    _react2.default.createElement(_index2.default, { name: 'google', color: 'typecyan', size: 'large' }),
+    _react2.default.createElement(_index2.default, { name: 'tick', color: 'typegrey', size: 'small', before: true })
   );
 };
