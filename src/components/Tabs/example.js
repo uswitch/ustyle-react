@@ -1,5 +1,4 @@
-import React, {PureComponent} from 'react'
-import assign from 'object.assign'
+import React from 'react'
 import Tabs from './index'
 
 const items = [

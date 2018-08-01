@@ -43,7 +43,7 @@ const Tab = ({item, onClick}) => {
           onClick={onClick}
           href={tabHref(item)}>
           {item.title}
-          <Chevron/>
+          <Chevron />
         </a>
       </h2>
       <div className='us-tab-content'>{item.body}</div>
@@ -52,17 +52,17 @@ const Tab = ({item, onClick}) => {
 }
 
 export default class Tabs extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {items: this.props.items};
+  constructor (props) {
+    super(props)
+    this.state = {items: this.props.items}
   }
 
-  onClickHandler(item) {
+  onClickHandler (item) {
     return e => {
       this.setState(
-        {items: this.state.items.map(x =>  ({...x, active: x.id === item.id}))},
+        {items: this.state.items.map(x => ({...x, active: x.id === item.id}))},
         () => this.props.onClick(e, item)
-      )  
+      )
     }
   }
 
@@ -71,7 +71,7 @@ export default class Tabs extends PureComponent {
     const onClick = this.onClickHandler.bind(this)
     return (
       <div className='us-tabs js'>
-        
+
         <nav className='us-tabs-nav'>
           <div className='us-tabs-nav-wrapper'>
             <div className='us-tabs-nav-menu'>
@@ -79,7 +79,7 @@ export default class Tabs extends PureComponent {
                 <TabsNavLink
                   key={item.id}
                   item={item}
-                  onClick={onClick(item)}/>
+                  onClick={onClick(item)} />
               )}
             </div>
           </div>
@@ -90,7 +90,7 @@ export default class Tabs extends PureComponent {
             <Tab
               key={item.id}
               item={item}
-              onClick={onClick(item)}/>
+              onClick={onClick(item)} />
           )}
         </div>
       </div>
