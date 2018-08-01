@@ -42,7 +42,6 @@ ReactDOM.render(
     <h2>TextArea</h2><TextArea /><hr />
     <h2>Checkbox</h2><Checkbox /><hr />
     <h2>Radio</h2><Radio /><hr />
-    <h2>Tabs</h2><Tabs />
     <h2>Tooltips</h2><Tooltip />
   </div>
   , document.getElementById('main'))
