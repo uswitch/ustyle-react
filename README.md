@@ -392,12 +392,9 @@ const items = [{
   id: 'tab3', title: 'Tab 3', body: 'test'
 }];
 
-const onClick = (e, item) => {
-  // set `active: false` for all tabs
-  // set `active: true` for clicked tab
-};
+const onClick = (e, item) => console.log({activeTab: item})
 
-<Tabs onClick={onClick} items={items} />
+<Tabs items={items} onClick={onClick} />
 ```
 
 Props:
@@ -408,7 +405,7 @@ Props:
   - `title` [string]
   - `body` [string/node]
   - `active` [boolean]
-- `onClick` [function]
+- `onClick` [function] (optional)
 
 ### Overlay [→](https://ustyle.guide/pattern-library/javascript.html#overlay)
 
