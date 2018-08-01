@@ -1,3 +1,4 @@
+/* global history */
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -57,12 +58,15 @@ export default class Tabs extends PureComponent {
     this.state = {items: this.props.items}
   }
 
-  onClickHandler (item) {
+  onClickHandler (item, toggle = false) {
     return e => {
-      this.setState(
-        {items: this.state.items.map(x => ({...x, active: x.id === item.id}))},
-        () => this.props.onClick(e, item)
-      )
+      e.preventDefault()
+      history.pushState(null, null, e.target.href)
+      const items = this.state.items.map(x => {
+        if (x.id !== item.id) return {...x, active: false}
+        return {...x, active: !toggle || !x.active}
+      })
+      this.setState({items}, () => this.props.onClick(e, item))
     }
   }
 
@@ -90,7 +94,7 @@ export default class Tabs extends PureComponent {
             <Tab
               key={item.id}
               item={item}
-              onClick={onClick(item)} />
+              onClick={onClick(item, true)} />
           )}
         </div>
       </div>

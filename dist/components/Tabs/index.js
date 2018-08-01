@@ -30,7 +30,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global history */
+
 
 var tabHref = function tabHref(_ref) {
   var href = _ref.href,
@@ -117,10 +118,16 @@ var Tabs = function (_PureComponent) {
     value: function onClickHandler(item) {
       var _this2 = this;
 
+      var toggle = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       return function (e) {
-        _this2.setState({ items: _this2.state.items.map(function (x) {
-            return _extends({}, x, { active: x.id === item.id });
-          }) }, function () {
+        e.preventDefault();
+        history.pushState(null, null, e.target.href);
+        var items = _this2.state.items.map(function (x) {
+          if (x.id !== item.id) return _extends({}, x, { active: false });
+          return _extends({}, x, { active: !toggle || !x.active });
+        });
+        _this2.setState({ items: items }, function () {
           return _this2.props.onClick(e, item);
         });
       };
@@ -159,7 +166,7 @@ var Tabs = function (_PureComponent) {
             return _react2.default.createElement(Tab, {
               key: item.id,
               item: item,
-              onClick: onClick(item) });
+              onClick: onClick(item, true) });
           })
         )
       );
