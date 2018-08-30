@@ -59,7 +59,7 @@ export default class Tooltip extends Component {
 
 Tooltip.propTypes = {
   trigger: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   position: PropTypes.oneOf([ 'left', 'right', 'bottom', 'top' ]),
   small: PropTypes.bool,
   scrollToTooltip: PropTypes.bool

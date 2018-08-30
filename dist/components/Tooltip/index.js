@@ -113,7 +113,7 @@ exports.default = Tooltip;
 
 Tooltip.propTypes = {
   trigger: _propTypes2.default.node.isRequired,
-  children: _propTypes2.default.node.isRequired,
+  children: _propTypes2.default.node,
   position: _propTypes2.default.oneOf(['left', 'right', 'bottom', 'top']),
   small: _propTypes2.default.bool,
   scrollToTooltip: _propTypes2.default.bool
