@@ -20,6 +20,6 @@ LoaderContainer.propTypes = {
   children: PropTypes.node
 }
 
-LoaderContainer.defaultValues = {
+LoaderContainer.defaultProps = {
   isLoading: true
 }
