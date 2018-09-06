@@ -8,6 +8,7 @@ export default class Loader extends PureComponent {
         <div className='us-loader__inner'>
           <div className='us-loader__spinner' />
           <div className='us-loader__text'>{this.props.text}</div>
+          {this.props.children}
         </div>
         <div className='us-loader__overlay' />
       </div>
@@ -16,5 +17,6 @@ export default class Loader extends PureComponent {
 }
 
 Loader.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  children: PropTypes.node
 }
