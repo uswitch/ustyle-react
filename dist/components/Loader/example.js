@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
+var _index = require('./index');
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,44 +22,31 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Loader = function (_PureComponent) {
-  _inherits(Loader, _PureComponent);
+var ExampleLoader = function (_Component) {
+  _inherits(ExampleLoader, _Component);
 
-  function Loader() {
-    _classCallCheck(this, Loader);
+  function ExampleLoader() {
+    _classCallCheck(this, ExampleLoader);
 
-    return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ExampleLoader.__proto__ || Object.getPrototypeOf(ExampleLoader)).apply(this, arguments));
   }
 
-  _createClass(Loader, [{
+  _createClass(ExampleLoader, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'us-loader us-loader--loading us-loader--centered' },
+        _index2.default,
+        { text: 'Loading...' },
         _react2.default.createElement(
-          'div',
-          { className: 'us-loader__inner' },
-          _react2.default.createElement('div', { className: 'us-loader__spinner' }),
-          _react2.default.createElement(
-            'div',
-            { className: 'us-loader__text' },
-            this.props.text
-          ),
-          this.props.children
-        ),
-        _react2.default.createElement('div', { className: 'us-loader__overlay' })
+          'span',
+          null,
+          ' Sample child text '
+        )
       );
     }
   }]);
 
-  return Loader;
-}(_react.PureComponent);
+  return ExampleLoader;
+}(_react.Component);
 
-exports.default = Loader;
-
-
-Loader.propTypes = {
-  text: _propTypes2.default.string,
-  children: _propTypes2.default.node
-};
+exports.default = ExampleLoader;
