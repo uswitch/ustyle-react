@@ -45,7 +45,8 @@ var Loader = function (_PureComponent) {
             'div',
             { className: 'us-loader__text' },
             this.props.text
-          )
+          ),
+          this.props.children
         ),
         _react2.default.createElement('div', { className: 'us-loader__overlay' })
       );
@@ -59,5 +60,6 @@ exports.default = Loader;
 
 
 Loader.propTypes = {
-  text: _propTypes2.default.string
+  text: _propTypes2.default.string,
+  children: _propTypes2.default.node
 };
