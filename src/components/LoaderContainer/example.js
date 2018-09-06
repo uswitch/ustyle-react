@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Loader from './index'
+import LoaderContainer from './index'
 
 export default class ExampleLoader extends Component {
   constructor (props) {
@@ -13,14 +13,14 @@ export default class ExampleLoader extends Component {
   }
   render () {
     return (
-      <Loader text='Loading...' isLoading={this.state.isLoading}>
+      <LoaderContainer text='Loading...' isLoading={this.state.isLoading}>
         <ul className='us-list'>
           <li><a href='#'>List item 1</a></li>
           <li><a href='#'>List item 2</a></li>
           <li><a href='#'>List item 3</a></li>
           <li><a href='#'>List item 4</a></li>
         </ul>
-      </Loader>
+      </LoaderContainer>
     )
   }
 }
