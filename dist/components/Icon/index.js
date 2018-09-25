@@ -31,7 +31,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ICON_PATH = process.env.ICON_PATH || typeof window !== 'undefined' && window['ICON_PATH'] || '/icons.svg';
 var SIZES = ['small', 'medium', 'large'];
 var COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom'];
-var CUSTOM_ICONS = ['cross', 'facebook', 'facebook-brand', 'google', 'google-brand', 'renewable', 'star-half', 'star', 'starline-half', 'starline', 'tick', 'twitter', 'twitter-brand', 'uswitch'];
+var CUSTOM_ICONS = ['cross', 'facebook', 'facebook-brand', 'google', 'google-brand', 'renewable', 'star-half', 'star', 'starline-half', 'starline', 'tick', 'tick-circle', 'twitter', 'twitter-brand', 'uswitch'];
 
 var Icon = function (_PureComponent) {
   _inherits(Icon, _PureComponent);
