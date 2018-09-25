@@ -17,6 +17,7 @@ const CUSTOM_ICONS = [
   'starline-half',
   'starline',
   'tick',
+  'tick-circle',
   'twitter',
   'twitter-brand',
   'uswitch'
