@@ -18,10 +18,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _customIcons = require('./custom-icons');
-
-var _customIcons2 = _interopRequireDefault(_customIcons);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -35,6 +31,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ICON_PATH = process.env.ICON_PATH || typeof window !== 'undefined' && window['ICON_PATH'] || '/icons.svg';
 var SIZES = ['small', 'medium', 'large'];
 var COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom'];
+
+var CUSTOM_ICONS = ['cross', 'facebook', 'facebook-brand', 'google', 'google-brand', 'renewable', 'star-half', 'star', 'starline-half', 'starline', 'tick', 'twitter', 'twitter-brand', 'uswitch'];
 
 var Icon = function (_PureComponent) {
   _inherits(Icon, _PureComponent);
@@ -64,7 +62,7 @@ var Icon = function (_PureComponent) {
           color = _props.color;
 
       if (color !== 'custom') return color;
-      return _customIcons2.default.indexOf(name) !== -1 ? name : color;
+      return CUSTOM_ICONS.indexOf(name) !== -1 ? name : color;
     }
   }, {
     key: 'className',
