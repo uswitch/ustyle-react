@@ -1,17 +1,33 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import CUSTOM_ICONS from './custom-icons'
 
 const ICON_PATH = process.env.ICON_PATH || (typeof (window) !== 'undefined' && window['ICON_PATH']) || '/icons.svg'
 const SIZES = ['small', 'medium', 'large']
 const COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom']
 
+const CUSTOMISABLE_COLOR_ICONS = [
+  'cross',
+  'facebook',
+  'facebook-brand',
+  'google',
+  'google-brand',
+  'renewable',
+  'star-half',
+  'star',
+  'starline-half',
+  'starline',
+  'tick',
+  'twitter',
+  'twitter-brand',
+  'uswitch'
+]
+
 export default class Icon extends PureComponent {
   get realColor () {
     const { name, color } = this.props
     if (color !== 'custom') return color
-    return CUSTOM_ICONS.indexOf(name) !== -1 ? name : color
+    return CUSTOMISABLE_COLOR_ICONS.indexOf(name) !== -1 ? name : color
   }
   get className () {
     const { size, sizeTablet, sizeMobile, noText, before, after } = this.props

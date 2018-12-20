@@ -1,7 +1,0 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var CUSTOM_ICONS = ['alarm', 'android', 'arrow-circle', 'arrow-down', 'arrow-up', 'book', 'bookmark', 'breadcrumb', 'calculator', 'calendar', 'car', 'checkbox-tick', 'chevron-left', 'chevron-right', 'clock', 'close', 'cog', 'controller', 'credit-card', 'cross', 'dashcam', 'dual-fuel', 'electric-light', 'envelope', 'exit-noexit', 'facebook', 'facebook-brand', 'filter', 'fixed-variable', 'gas', 'gauge', 'github', 'google', 'google-brand', 'graph-up', 'home', 'hot', 'info', 'kettle', 'key', 'lock', 'magnify', 'magnify-in', 'menu', 'message', 'mobile', 'monthly-dd', 'network', 'no-exit', 'pdf', 'pencil', 'person', 'person-add', 'phone', 'piggy-bank', 'pin', 'play', 'pound-circle', 'pound-note', 'present', 'print', 'quarterly-dd', 'question-circle', 'quote', 'recycle', 'remove', 'renewable', 'results', 'save', 'share', 'shield', 'sim', 'smiley', 'sort', 'speech', 'speech-circle', 'spinner', 'star', 'star-half', 'starline', 'starline-half', 'talk', 'tick', 'tick-circle', 'tv', 'twitter', 'twitter-brand', 'uswitch', 'variable', 'warning', 'warning-circle', 'wifi', 'wiki', 'xml'];
-exports.default = CUSTOM_ICONS;
