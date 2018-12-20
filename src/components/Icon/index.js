@@ -7,6 +7,7 @@ const SIZES = ['small', 'medium', 'large']
 const COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom']
 const CUSTOM_ICONS = [
   'cross',
+  'chevron-right',
   'facebook',
   'facebook-brand',
   'google',
