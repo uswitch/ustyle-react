@@ -32,7 +32,7 @@ var ICON_PATH = process.env.ICON_PATH || typeof window !== 'undefined' && window
 var SIZES = ['small', 'medium', 'large'];
 var COLORS = ['white', 'typegrey', 'inputgrey', 'typecyan', 'custom'];
 
-var CUSTOM_ICONS = ['cross', 'facebook', 'facebook-brand', 'google', 'google-brand', 'renewable', 'star-half', 'star', 'starline-half', 'starline', 'tick', 'twitter', 'twitter-brand', 'uswitch'];
+var CUSTOMISABLE_COLOR_ICONS = ['cross', 'facebook', 'facebook-brand', 'google', 'google-brand', 'renewable', 'star-half', 'star', 'starline-half', 'starline', 'tick', 'twitter', 'twitter-brand', 'uswitch'];
 
 var Icon = function (_PureComponent) {
   _inherits(Icon, _PureComponent);
@@ -62,7 +62,7 @@ var Icon = function (_PureComponent) {
           color = _props.color;
 
       if (color !== 'custom') return color;
-      return CUSTOM_ICONS.indexOf(name) !== -1 ? name : color;
+      return CUSTOMISABLE_COLOR_ICONS.indexOf(name) !== -1 ? name : color;
     }
   }, {
     key: 'className',
