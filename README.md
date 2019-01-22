@@ -247,32 +247,6 @@ Props:
 - `variant` [string] - options: error, success
 - `children` [node] - error message to display
 
-Notes:
-
-- Alias for `<ValidationMessage variant='error' children={children}/>`
-
-### ValidationMessage [→](https://ustyle.guide/pattern-library/forms.html#validation_messages)
-
-Example:
-
-```js
-import {ValidationMessage} from '@uswitch/ustyle-react';
-
-let valid = true;
-let message = 'You have been subscribe';
-
-<ValidationMessage variant={ valid ? 'success' : 'error'} children={message} />
-```
-
-Props:
-
-- `variant` [string] - options: error, success
-- `children` [node] - error message to display
-
-Notes:
-
-- Alias for `<ValidationMessage variant='error' children={children}/>`
-
 ### Toggle [→](https://ustyle.guide/pattern-library/forms.html#toggle)
 
 Example:
