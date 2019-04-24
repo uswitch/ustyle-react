@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
 
-const tabHref = ({href, id}) =>
-  href || (id ? `#${id}` : null)
+const tabHref = ({href, id}) => href || (id ? `#${id}` : null)
 
 const Chevron = () =>
   <span className='us-tabs-nav-chevron'>
@@ -18,6 +17,7 @@ const TabsNavLink = ({item, onClick}) => {
     'us-tabs-nav-link': true,
     'active': item.active
   })
+
   return (
     <a
       onClick={onClick}
@@ -33,10 +33,12 @@ const Tab = ({item, onClick}) => {
     'us-tab': true,
     'active': item.active
   })
+
   const navLinkClassName = cx({
     'us-tabs-nav-mainlink': true,
     'active': item.active
   })
+
   return (
     <div className={tabClassName} id={item.id}>
       <h2 className='us-tab-title'>
@@ -61,21 +63,26 @@ export default class Tabs extends PureComponent {
   onClickHandler (item, toggle = false) {
     return e => {
       e.preventDefault()
-      history.pushState(null, null, e.target.href)
+
       const items = this.state.items.map(x => {
         if (x.id !== item.id) return {...x, active: false}
         return {...x, active: !toggle || !x.active}
       })
+
       this.setState({items}, () => this.props.onClick(e, item))
+
+      if (!this.props.disableHistory) {
+        history.pushState(null, null, e.target.href)
+      }
     }
   }
 
   render () {
     const {items} = this.state
     const onClick = this.onClickHandler.bind(this)
+
     return (
       <div className='us-tabs js'>
-
         <nav className='us-tabs-nav'>
           <div className='us-tabs-nav-wrapper'>
             <div className='us-tabs-nav-menu'>

@@ -56,6 +56,7 @@ var TabsNavLink = function TabsNavLink(_ref2) {
     'us-tabs-nav-link': true,
     'active': item.active
   });
+
   return _react2.default.createElement(
     'a',
     {
@@ -74,10 +75,12 @@ var Tab = function Tab(_ref3) {
     'us-tab': true,
     'active': item.active
   });
+
   var navLinkClassName = (0, _classnames2.default)({
     'us-tabs-nav-mainlink': true,
     'active': item.active
   });
+
   return _react2.default.createElement(
     'div',
     { className: tabClassName, id: item.id },
@@ -122,14 +125,19 @@ var Tabs = function (_PureComponent) {
 
       return function (e) {
         e.preventDefault();
-        history.pushState(null, null, e.target.href);
+
         var items = _this2.state.items.map(function (x) {
           if (x.id !== item.id) return _extends({}, x, { active: false });
           return _extends({}, x, { active: !toggle || !x.active });
         });
+
         _this2.setState({ items: items }, function () {
           return _this2.props.onClick(e, item);
         });
+
+        if (!_this2.props.disableHistory) {
+          history.pushState(null, null, e.target.href);
+        }
       };
     }
   }, {
@@ -138,6 +146,7 @@ var Tabs = function (_PureComponent) {
       var items = this.state.items;
 
       var onClick = this.onClickHandler.bind(this);
+
       return _react2.default.createElement(
         'div',
         { className: 'us-tabs js' },
