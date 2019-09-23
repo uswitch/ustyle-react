@@ -43,8 +43,9 @@ var Overlay = function (_PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (Overlay.__proto__ || Object.getPrototypeOf(Overlay)).call(this, props, context));
 
+    console.log(props);
     _this.state = {
-      visibility: 'closed'
+      visibility: props.isOpen ? 'visible' : 'closed'
     };
     return _this;
   }

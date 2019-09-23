@@ -3,7 +3,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import { Button, ProgressNavigation, Breadcrumbs, USP, Tabs, Icon } from '../src/index.js'
+import { Button, ProgressNavigation, Breadcrumbs, USP, Tabs, Icon, Overlay } from '../src/index.js'
 
 import baconipsum from 'baconipsum'
 import 'ustyle'
@@ -51,16 +51,51 @@ storiesOf('Button', module)
   ))
 
 const tabItems = [
-  { id: 'tab1', title: 'Tab 1', body: <p>{baconipsum(100)}</p> },
-  { id: 'tab2', title: 'Tab 2', body: <p>{baconipsum(50)}</p>, active: true },
-  { id: 'tab3', title: 'Tab 3', body: <p>{baconipsum(75)}</p>
-  }
+  { id: "tab1", title: "Tab 1", body: <p>{baconipsum(100)}</p> },
+  { id: "tab2", title: "Tab 2", body: <p>{baconipsum(50)}</p>, active: true },
+  { id: "tab3", title: "Tab 3", body: <p>{baconipsum(75)}</p> }
 ]
 
-storiesOf('Tabs', module)
-  .add('default view', () => <Tabs items={tabItems} onClick={action('tab-change')} />)
+storiesOf("Tabs", module).add("default view", () => (
+  <Tabs items={tabItems} onClick={action("tab-change")} />
+))
 
-storiesOf('Icon', module)
-  .add('with 11branding', () => <Icon name='facebook-brand' />)
-  .add('with 12size small', () => <Icon name='cross' size='small' />)
-  .add('with 13size large coloured', () => <Icon name='google' color='typecyan' size='large' />)
+storiesOf("Icon", module)
+  .add("with 11branding", () => <Icon name="facebook-brand" />)
+  .add("with 12size small", () => <Icon name="cross" size="small" />)
+  .add("with 13size large coloured", () => (
+    <Icon name="google" color="typecyan" size="large" />
+  ))
+
+class OverlayWrapper extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      show: false
+    }
+    this.setShow = this.setShow.bind(this)
+  }
+
+  setShow(show) {
+    this.setState({ show })
+  }
+
+  render() {
+    const { show } = this.state
+    return (
+      <div>
+        <Button onClick={() => this.setShow(!show)}>Toggle Overlay</Button>
+        <Overlay
+          isOpen={show}
+          onClose={() => this.setShow(false)}
+          title="uSwitch Overlay"
+          variant="left"
+        >
+          <p>Overlay content goes here.</p>
+        </Overlay>
+      </div>
+    )
+  }
+}
+
+storiesOf("Overlay", module).add("default view", () => <OverlayWrapper />)
