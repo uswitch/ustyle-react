@@ -11,7 +11,7 @@ export default class Overlay extends PureComponent {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      visibility: 'closed'
+      visibility: props.isOpen ? 'visible' : 'closed'
     }
   }
   disableScroll () {
