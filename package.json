@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/ustyle-react",
-  "version": "0.0.105",
+  "version": "0.0.106",
   "description": "uStyle React Components",
   "main": "dist/index.js",
   "scripts": {
@@ -48,8 +48,8 @@
     "baconipsum": "^0.1.2",
     "nodemon": "^1.18.3",
     "pre-commit": "^1.2.2",
-    "react": ">=15.3",
-    "react-dom": ">=15.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "standard": "^10.0.2",
     "ustyle": "^1.15.3",
     "webpack": "^2.3.3",
