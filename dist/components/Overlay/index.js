@@ -46,6 +46,9 @@ var Overlay = function (_PureComponent) {
     _this.state = {
       visibility: 'closed'
     };
+    _this.closeButton = _react2.default.createRef();
+    _this.backdrop = _react2.default.createRef();
+    _this.onCloseHandler = _this.props.onClose.bind(_this);
     return _this;
   }
 
@@ -62,10 +65,34 @@ var Overlay = function (_PureComponent) {
       (0, _classHelpers.removeClass)(document.body, OVERLAY_BODY_CLASS);
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // Purposely not using onClick here as React allows event propagation in nested components despite calling stopPropagation() in onClick
+      // https://github.com/facebook/react/issues/1691
+      if (this.closeButton.current) {
+        this.closeButton.current.addEventListener('click', this.onCloseHandler);
+      }
+      if (this.backdrop.current) {
+        this.backdrop.current.addEventListener('click', this.onCloseHandler);
+      }
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.isOpen === this.props.isOpen) return;
       return nextProps.isOpen ? this.openOverlay() : this.closeOverlay();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      // Purposely not using onClick here as React allows event propagation in nested components despite calling stopPropagation() in onClick
+      // https://github.com/facebook/react/issues/1691
+      if (this.closeButton.current) {
+        this.closeButton.current.removeEventListener('click', this.onCloseHandler);
+      }
+      if (this.backdrop.current) {
+        this.backdrop.current.removeEventListener('click', this.onCloseHandler);
+      }
     }
   }, {
     key: 'openOverlay',
@@ -137,9 +164,9 @@ var Overlay = function (_PureComponent) {
                   'div',
                   { className: 'us-overlay__close' },
                   _react2.default.createElement(_Button2.default, { size: 'small',
+                    innerRef: this.closeButton,
                     className: this.props.closeClassName,
                     variant: 'reversed',
-                    onClick: this.props.onClose.bind(this),
                     children: this.props.closeText })
                 )
               ),
@@ -170,7 +197,7 @@ var Overlay = function (_PureComponent) {
           'us-backdrop--animated': true,
           'us-backdrop--active': visibility === 'visible',
           'us-backdrop--visible': ['visible', 'closing'].indexOf(visibility) > -1
-        }), onClick: this.props.onClose.bind(this) });
+        }), ref: this.backdrop });
     }
   }, {
     key: 'overlayParentClassName',

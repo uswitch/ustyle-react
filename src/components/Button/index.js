@@ -6,7 +6,7 @@ import omit from '../../utils/omit'
 const VARIANTS = ['primary', 'action', 'secondary', 'hero', 'reversed', 'custom']
 const SIZES = ['large', 'small'] // NOTE: should we have medium as default?
 
-export default class Button extends PureComponent {
+class Button extends PureComponent {
   get className () {
     return cx(this.props.className, {
       'us-btn': true,
@@ -27,17 +27,22 @@ export default class Button extends PureComponent {
       'blocked',
       'link',
       'stronger',
+      'innerRef',
       'href', // not needed for <button> tag
       'disabled' // no need to add "disabled" to <a> tag
     )
   }
   render () {
-    const { href, disabled } = this.props
+    const { href, disabled, innerRef } = this.props
     const props = { ...this.cleanProps, className: this.className }
-    if (href) return <a href={href} role='button' {...props} />
-    return <button disabled={disabled} {...props} />
+    if (href) return <a href={href} role='button' {...props} ref={innerRef} />
+    return <button disabled={disabled} {...props} ref={innerRef} />
   }
 }
+
+export default React.forwardRef((props, ref) =>
+  <Button innerRef={ref} {...props} />
+)
 
 Button.propTypes = {
   variant: PropTypes.oneOf(VARIANTS),

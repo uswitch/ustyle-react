@@ -51,11 +51,12 @@ var Button = function (_PureComponent) {
     value: function render() {
       var _props = this.props,
           href = _props.href,
-          disabled = _props.disabled;
+          disabled = _props.disabled,
+          innerRef = _props.innerRef;
 
       var props = _extends({}, this.cleanProps, { className: this.className });
-      if (href) return _react2.default.createElement('a', _extends({ href: href, role: 'button' }, props));
-      return _react2.default.createElement('button', _extends({ disabled: disabled }, props));
+      if (href) return _react2.default.createElement('a', _extends({ href: href, role: 'button' }, props, { ref: innerRef }));
+      return _react2.default.createElement('button', _extends({ disabled: disabled }, props, { ref: innerRef }));
     }
   }, {
     key: 'className',
@@ -69,7 +70,7 @@ var Button = function (_PureComponent) {
   }, {
     key: 'cleanProps',
     get: function get() {
-      return (0, _omit2.default)(this.props, 'className', 'variant', 'size', 'blocked', 'link', 'stronger', 'href', // not needed for <button> tag
+      return (0, _omit2.default)(this.props, 'className', 'variant', 'size', 'blocked', 'link', 'stronger', 'innerRef', 'href', // not needed for <button> tag
       'disabled' // no need to add "disabled" to <a> tag
       );
     }
@@ -78,7 +79,9 @@ var Button = function (_PureComponent) {
   return Button;
 }(_react.PureComponent);
 
-exports.default = Button;
+exports.default = _react2.default.forwardRef(function (props, ref) {
+  return _react2.default.createElement(Button, _extends({ innerRef: ref }, props));
+});
 
 
 Button.propTypes = {
