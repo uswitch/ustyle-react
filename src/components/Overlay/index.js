@@ -13,6 +13,9 @@ export default class Overlay extends PureComponent {
     this.state = {
       visibility: 'closed'
     }
+    this.closeButton = React.createRef()
+    this.backdrop = React.createRef()
+    this.onCloseHandler = this.props.onClose.bind(this)
   }
   disableScroll () {
     addClass(document.querySelector('html'), OVERLAY_BODY_CLASS)
@@ -22,9 +25,33 @@ export default class Overlay extends PureComponent {
     removeClass(document.querySelector('html'), OVERLAY_BODY_CLASS)
     removeClass(document.body, OVERLAY_BODY_CLASS)
   }
+  componentDidMount () {
+    // Purposely not using onClick here as React allows event propagation in nested components despite calling stopPropagation() in onClick
+    // https://github.com/facebook/react/issues/1691
+    if (this.closeButton.current) {
+      this.closeButton.current
+        .addEventListener('click', this.onCloseHandler)
+    }
+    if (this.backdrop.current) {
+      this.backdrop.current
+        .addEventListener('click', this.onCloseHandler)
+    }
+  }
   componentWillReceiveProps (nextProps) {
     if (nextProps.isOpen === this.props.isOpen) return
     return nextProps.isOpen ? this.openOverlay() : this.closeOverlay()
+  }
+  componentWillUnmount () {
+    // Purposely not using onClick here as React allows event propagation in nested components despite calling stopPropagation() in onClick
+    // https://github.com/facebook/react/issues/1691
+    if (this.closeButton.current) {
+      this.closeButton.current
+        .removeEventListener('click', this.onCloseHandler)
+    }
+    if (this.backdrop.current) {
+      this.backdrop.current
+        .removeEventListener('click', this.onCloseHandler)
+    }
   }
   get scrollingElement () {
     return document.body
@@ -66,7 +93,7 @@ export default class Overlay extends PureComponent {
         'us-backdrop--animated': true,
         'us-backdrop--active': visibility === 'visible',
         'us-backdrop--visible': ['visible', 'closing'].indexOf(visibility) > -1
-      })} onClick={this.props.onClose.bind(this)} />
+      })} ref={this.backdrop} />
     )
   }
   get overlayParentClassName () {
@@ -101,9 +128,9 @@ export default class Overlay extends PureComponent {
                 </div>
                 <div className='us-overlay__close'>
                   <Button size='small'
+                    innerRef={this.closeButton}
                     className={this.props.closeClassName}
                     variant='reversed'
-                    onClick={this.props.onClose.bind(this)}
                     children={this.props.closeText} />
                 </div>
               </div>
